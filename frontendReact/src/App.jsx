@@ -4,11 +4,12 @@
 // import ProductList from "./product/list"
 // import List from "./product/list"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
 
 
 import Header from './layout/header';
 import ProductList from './product/list';
+import Home from './pages/Home';
+import Footer from './layout/footer';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       
      
     </Routes>
+    <Footer />
   </Router>
   )
 }
