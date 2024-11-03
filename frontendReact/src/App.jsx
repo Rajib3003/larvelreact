@@ -7,9 +7,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 import Header from './layout/header';
-import ProductList from './product/list';
 import Home from './pages/Home';
 import Footer from './layout/footer';
+import Aboutus from './pages/aboutus/Aboutus';
+import Classes from './pages/classes/Classes';
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
      <Header />
     <Routes>
     <Route path="/" element={<Home />} />
-      <Route path="/list" element={<ProductList />} />
+      <Route path="/aboutus" element={<Aboutus />} />
+      <Route path="/classes" element={<Classes />} />
       
      
     </Routes>

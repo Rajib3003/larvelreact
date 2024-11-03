@@ -15,7 +15,7 @@ export default function Header() {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav mx-auto">
           <Link to="/" className="nav-item nav-link active">Home</Link>
-          <Link to="/about" className="nav-item nav-link">About Us</Link>
+          <Link to="/aboutus" className="nav-item nav-link">About Us</Link>
           <Link to="/classes" className="nav-item nav-link">Classes</Link>
           <div className="nav-item dropdown">
             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
