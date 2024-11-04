@@ -1,13 +1,15 @@
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import carosuelImageOne from '/assets/frontend_assets/img/carousel-3.png';
+import carosuelImageTwo from '/assets/frontend_assets/img/carousel-1.jpg';
 
 export default function Carousel() {
   return (
     <div className="container-fluid p-0 mb-5">
       <OwlCarousel className="owl-carousel header-carousel" items={1} loop autoplay>
         <div className="owl-carousel-item position-relative">
-          <img className="img-fluid" src="assets/frontend_assets/img/carousel-3.png" alt="" />
+          <img className="img-fluid" src={carosuelImageOne} alt="" />
           <div
             className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style={{ background: 'rgba(0, 0, 0, 0.2)' }}
@@ -34,7 +36,7 @@ export default function Carousel() {
           </div>
         </div>
         <div className="owl-carousel-item position-relative">
-          <img className="img-fluid" src="assets/frontend_assets/img/carousel-1.jpg" alt="" />
+          <img className="img-fluid" src={carosuelImageTwo} alt="" />
           <div
             className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
             style={{ background: 'rgba(0, 0, 0, 0.2)' }}

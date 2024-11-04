@@ -1,3 +1,5 @@
+import appointmentImage from "/assets/frontend_assets/img/appointment.jpg";
+
 export default function Appointment() {
     return (
       <div className="container-xxl py-5">
@@ -48,7 +50,7 @@ export default function Appointment() {
               </div>
               <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style={{ minHeight: '400px' }}>
                 <div className="position-relative h-100">
-                  <img className="position-absolute w-100 h-100 rounded" src="assets/frontend_assets/img/appointment.jpg" style={{ objectFit: 'cover' }} alt="Appointment" />
+                  <img className="position-absolute w-100 h-100 rounded" src={appointmentImage} style={{ objectFit: 'cover' }} alt="Appointment" />
                 </div>
               </div>
             </div>

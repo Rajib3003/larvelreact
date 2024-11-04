@@ -1,3 +1,7 @@
+import teamImageOne from "/assets/frontend_assets/img/team-4.jpg";
+import teamImageTwo from "/assets/frontend_assets/img/team-3.jpg";
+import teamImageThree from "/assets/frontend_assets/img/team-3.jpg";
+
 export default function Teacher() {
     return (
       <div className="container-xxl py-5">
@@ -12,7 +16,7 @@ export default function Teacher() {
           <div className="row g-4">
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <div className="team-item position-relative">
-                <img className="img-fluid rounded-circle w-75" src="assets/frontend_assets/img/team-1.jpg" alt="Mithun Mojundar" />
+                <img className="img-fluid rounded-circle w-75" src={teamImageOne} alt="Mithun Mojundar" />
                 <div className="team-text">
                   <h3>Mithun Mojundar</h3>
                   <p>Head Teacher</p>
@@ -26,7 +30,7 @@ export default function Teacher() {
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
               <div className="team-item position-relative">
-                <img className="img-fluid rounded-circle w-75" src="assets/frontend_assets/img/team-2.jpg" alt="Jannatul Ferdous" />
+                <img className="img-fluid rounded-circle w-75" src={teamImageTwo} alt="Jannatul Ferdous" />
                 <div className="team-text">
                   <h3>Jannatul Ferdous</h3>
                   <p>In-Charge</p>
@@ -40,7 +44,7 @@ export default function Teacher() {
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
               <div className="team-item position-relative">
-                <img className="img-fluid rounded-circle w-75" src="assets/frontend_assets/img/team-3.jpg" alt="Tajbin Bhuiyan" />
+                <img className="img-fluid rounded-circle w-75" src={teamImageThree} alt="Tajbin Bhuiyan" />
                 <div className="team-text">
                   <h3>Tajbin Bhuiyan</h3>
                   <p>In-Charge</p>

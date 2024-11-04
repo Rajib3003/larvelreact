@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-
+import logo from '/assets/frontend_assets/img/will-logo.png';
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
       <Link to="/" className="navbar-brand">
         <h1 className="m-0 text-primary">
-          <img src="assets/frontend_assets/img/will-logo.png" alt="Will Power School" width="45" height="45" />
+          {/* <img src="assets/frontend_assets/img/will-logo.png" alt="Will Power School" width="45" height="45" /> */}
+          <img src={logo} alt="Will Power School" width="45" height="45" />
           &nbsp;WPS
         </h1>
       </Link>

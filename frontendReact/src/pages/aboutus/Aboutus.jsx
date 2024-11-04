@@ -1,3 +1,9 @@
+import userImage from '/assets/frontend_assets/img/user.jpg';
+import aboutusImageOne from '/assets/frontend_assets/img/about-1.jpg';
+import aboutusImageTwo from '/assets/frontend_assets/img/about-2.jpg';
+import aboutusImageThree from '/assets/frontend_assets/img/about-3.jpg';
+// import aboutusImageFour from '/assets/frontend_assets/img/about-4.jpg';
+
 export default function Aboutus() {
     return (
       <div className="container-xxl py-5">
@@ -13,7 +19,7 @@ export default function Aboutus() {
                 </div>
                 <div className="col-sm-6">
                   <div className="d-flex align-items-center">
-                    <img className="rounded-circle flex-shrink-0" src="assets/frontend_assets/img/user.jpg" alt="" style={{ width: '45px', height: '45px' }} />
+                    <img className="rounded-circle flex-shrink-0" src={userImage} alt="" style={{ width: '45px', height: '45px' }} />
                     <div className="ms-3">
                       <h6 className="text-primary mb-1">John Doe</h6>
                       <small>CEO & Founder</small>
@@ -25,13 +31,13 @@ export default function Aboutus() {
             <div className="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
               <div className="row">
                 <div className="col-12 text-center">
-                  <img className="img-fluid w-75 rounded-circle bg-light p-3" src="assets/frontend_assets/img/about-1.jpg" alt="" />
+                  <img className="img-fluid w-75 rounded-circle bg-light p-3" src={aboutusImageOne} alt="" />
                 </div>
                 <div className="col-6 text-start" style={{ marginTop: '-150px' }}>
-                  <img className="img-fluid w-100 rounded-circle bg-light p-3" src="assets/frontend_assets/img/about-2.jpg" alt="" />
+                  <img className="img-fluid w-100 rounded-circle bg-light p-3" src={aboutusImageTwo} alt="" />
                 </div>
                 <div className="col-6 text-end" style={{ marginTop: '-150px' }}>
-                  <img className="img-fluid w-100 rounded-circle bg-light p-3" src="assets/frontend_assets/img/about-3.jpg" alt="" />
+                  <img className="img-fluid w-100 rounded-circle bg-light p-3" src={aboutusImageThree} alt="" />
                 </div>
               </div>
             </div>

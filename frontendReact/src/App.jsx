@@ -17,13 +17,14 @@ import Teacher from './pages/teachers/Teacher';
 import Facilities from './pages/facilities/Facilities';
 import Homework from './pages/homework/Homework';
 
-
+const baseURL = import.meta.env.VITE_BASE_URL;
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <Router>
+    <Router basename={baseURL}>
      <Header />
+     
     <Routes>
     <Route path="/" element={<Home />} />
       <Route path="/aboutus" element={<Aboutus />} />

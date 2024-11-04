@@ -1,7 +1,9 @@
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-
+import testimonialImageOne from '/assets/frontend_assets/img/testimonial-1.jpg';
+import testimonialImageTwo from '/assets/frontend_assets/img/testimonial-2.jpg';
+import testimonialImageThree from '/assets/frontend_assets/img/testimonial-3.jpg';
 export default function Testimonial() {
   const options = {
     items: 1,
@@ -28,7 +30,7 @@ export default function Testimonial() {
               Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos.
             </p>
             <div className="d-flex align-items-center bg-white me-n5" style={{ borderRadius: '50px 0 0 50px' }}>
-              <img className="img-fluid flex-shrink-0 rounded-circle" src="assets/frontend_assets/img/testimonial-1.jpg" alt="Client 1" style={{ width: '90px', height: '90px' }} />
+              <img className="img-fluid flex-shrink-0 rounded-circle" src={testimonialImageOne} alt="Client 1" style={{ width: '90px', height: '90px' }} />
               <div className="ps-3">
                 <h3 className="mb-1">Client Name 1</h3>
                 <span>Profession 1</span>
@@ -41,7 +43,7 @@ export default function Testimonial() {
               Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos.
             </p>
             <div className="d-flex align-items-center bg-white me-n5" style={{ borderRadius: '50px 0 0 50px' }}>
-              <img className="img-fluid flex-shrink-0 rounded-circle" src="assets/frontend_assets/img/testimonial-2.jpg" alt="Client 2" style={{ width: '90px', height: '90px' }} />
+              <img className="img-fluid flex-shrink-0 rounded-circle" src={testimonialImageTwo} alt="Client 2" style={{ width: '90px', height: '90px' }} />
               <div className="ps-3">
                 <h3 className="mb-1">Client Name 2</h3>
                 <span>Profession 2</span>
@@ -54,7 +56,7 @@ export default function Testimonial() {
               Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos.
             </p>
             <div className="d-flex align-items-center bg-white me-n5" style={{ borderRadius: '50px 0 0 50px' }}>
-              <img className="img-fluid flex-shrink-0 rounded-circle" src="assets/frontend_assets/img/testimonial-3.jpg" alt="Client 3" style={{ width: '90px', height: '90px' }} />
+              <img className="img-fluid flex-shrink-0 rounded-circle" src={testimonialImageThree} alt="Client 3" style={{ width: '90px', height: '90px' }} />
               <div className="ps-3">
                 <h3 className="mb-1">Client Name 3</h3>
                 <span>Profession 3</span>

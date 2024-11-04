@@ -1,4 +1,10 @@
 import Uparrow from "./Uparrow";
+import classesOneImage from "/assets/frontend_assets/img/classes-1.jpg";
+import classesTwoImage from "/assets/frontend_assets/img/classes-2.jpg";
+import classesThreeImage from "/assets/frontend_assets/img/classes-3.jpg";
+import classesFourImage from "/assets/frontend_assets/img/classes-4.jpg";
+import classesFiveImage from "/assets/frontend_assets/img/classes-5.jpg";
+import classesSixImage from "/assets/frontend_assets/img/classes-6.jpg";
 
 export default function Footer() {
     return (
@@ -31,22 +37,22 @@ export default function Footer() {
               <h3 className="text-white mb-4">Photo Gallery</h3>
               <div className="row g-2 pt-2">
                 <div className="col-4">
-                  <img className="img-fluid rounded bg-light p-1" src="assets/frontend_assets/img/classes-1.jpg" alt="" />
+                  <img className="img-fluid rounded bg-light p-1" src={classesOneImage} alt="" />
                 </div>
                 <div className="col-4">
-                  <img className="img-fluid rounded bg-light p-1" src="assets/frontend_assets/img/classes-2.jpg" alt="" />
+                  <img className="img-fluid rounded bg-light p-1" src={classesTwoImage} alt="" />
                 </div>
                 <div className="col-4">
-                  <img className="img-fluid rounded bg-light p-1" src="assets/frontend_assets/img/classes-3.jpg" alt="" />
+                  <img className="img-fluid rounded bg-light p-1" src={classesThreeImage} alt="" />
                 </div>
                 <div className="col-4">
-                  <img className="img-fluid rounded bg-light p-1" src="assets/frontend_assets/img/classes-4.jpg" alt="" />
+                  <img className="img-fluid rounded bg-light p-1" src={classesFourImage} alt="" />
                 </div>
                 <div className="col-4">
-                  <img className="img-fluid rounded bg-light p-1" src="assets/frontend_assets/img/classes-5.jpg" alt="" />
+                  <img className="img-fluid rounded bg-light p-1" src={classesFiveImage} alt="" />
                 </div>
                 <div className="col-4">
-                  <img className="img-fluid rounded bg-light p-1" src="assets/frontend_assets/img/classes-6.jpg" alt="" />
+                  <img className="img-fluid rounded bg-light p-1" src={classesSixImage} alt="" />
                 </div>
               </div>
             </div>

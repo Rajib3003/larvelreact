@@ -1,3 +1,10 @@
+import classesImage1 from '/assets/frontend_assets/img/classes-1.jpg';
+import classesImage2 from '/assets/frontend_assets/img/classes-2.jpg';
+import classesImage3 from '/assets/frontend_assets/img/classes-3.jpg';
+import classesImage4 from '/assets/frontend_assets/img/classes-4.jpg';
+import classesImage5 from '/assets/frontend_assets/img/classes-5.jpg';
+import classesImage6 from '/assets/frontend_assets/img/classes-6.jpg';
+import userImage from '/assets/frontend_assets/img/user.jpg';
 export default function Classes() {
     return (
       <div className="container-xxl py-5">
@@ -11,13 +18,13 @@ export default function Classes() {
               <div key={num} className={`col-lg-4 col-md-6 wow fadeInUp`} data-wow-delay={`${0.1 * index}s`}>
                 <div className="classes-item">
                   <div className="bg-light rounded-circle w-75 mx-auto p-3">
-                    <img className="img-fluid rounded-circle" src={`assets/frontend_assets/img/classes-${num}.jpg`} alt="" />
+                    <img className="img-fluid rounded-circle" src={num === 1 ? classesImage1 : num === 2 ? classesImage2 : num === 3 ? classesImage3 : num === 4 ? classesImage4 : num === 5 ? classesImage5 : classesImage6} alt="" />
                   </div>
                   <div className="bg-light rounded p-4 pt-5 mt-n5">
                     <a className="d-block text-center h3 mt-3 mb-4" href="">Class Title {num}</a>
                     <div className="d-flex align-items-center justify-content-between mb-4">
                       <div className="d-flex align-items-center">
-                        <img className="rounded-circle flex-shrink-0" src="assets/frontend_assets/img/user.jpg" alt="" style={{ width: '45px', height: '45px' }} />
+                        <img className="rounded-circle flex-shrink-0" src={userImage} alt="" style={{ width: '45px', height: '45px' }} />
                         <div className="ms-3">
                           <h6 className="text-primary mb-1">John Doe</h6>
                           <small>Teacher</small>
