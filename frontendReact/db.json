@@ -1,0 +1,7 @@
+{
+    "homework": [
+      { "id": 1, "version": "Bangla", "class": "One", "batch": "A", "date": "2024-11-01", "title": "Math Homework", "description": "Complete exercise 1.1", "dueDate": "2024-11-03" },
+      { "id": 2, "version": "English", "class": "Two", "batch": "B", "date": "2024-11-02", "title": "English Essay", "description": "Write an essay on your favorite book", "dueDate": "2024-11-02" }
+    ]
+  }
+  

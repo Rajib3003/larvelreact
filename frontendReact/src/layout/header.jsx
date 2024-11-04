@@ -16,12 +16,13 @@ export default function Header() {
         <div className="navbar-nav mx-auto">
           <Link to="/" className="nav-item nav-link active">Home</Link>
           <Link to="/aboutus" className="nav-item nav-link">About Us</Link>
-          <Link to="/classes" className="nav-item nav-link">Classes</Link>
+          <Link to="/homework" className="nav-item nav-link">Homework</Link>
           <div className="nav-item dropdown">
             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
             <div className="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
               <Link to="/facilities" className="dropdown-item">School Facilities</Link>
               <Link to="/team" className="dropdown-item">Popular Teachers</Link>
+              <Link to="/classes" className="dropdown-item">Classes</Link>              
               <Link to="/call-to-action" className="dropdown-item">Become A Teacher</Link>
               <Link to="/appointment" className="dropdown-item">Make Appointment</Link>
               <Link to="/testimonial" className="dropdown-item">Testimonial</Link>
