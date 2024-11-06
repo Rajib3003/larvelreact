@@ -1,60 +1,52 @@
 const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const ExcelJS = require('exceljs');
-const fs = require('fs');
-
 const app = express();
-const PORT = 5000;
+const cors = require('cors');
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-// Endpoint to fetch homework data
+// Sample Data (Ideally, this should come from a database)
+let homeworkData = [
+    { id: 1, version: 'Bangla', className: 'One', batch: 'A', date: '2024-11-01', subject: 'Math', homework: 'Complete Chapter 1' },
+    { id: 2, version: 'English', className: 'Two', batch: 'B', date: '2024-11-02', subject: 'Science', homework: 'Write Essay' },
+    { id: 3, version: 'Bangla', className: 'One', batch: 'A', date: '2024-11-01', subject: 'Science', homework: 'Prepare Science notes' },
+    { id: 4, version: 'English', className: 'Two', batch: 'B', date: '2024-11-03', subject: 'Math', homework: 'Complete exercise 5' },
+    // Add more entries as required...
+];
+
+// API to fetch homework based on filters
 app.get('/homework', (req, res) => {
-    fs.readFile('db.json', 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Error reading file');
+    const { version, className, batch, date } = req.query;
+
+    // Filter homework based on query params
+    let filteredHomework = homeworkData.filter(item => {
+        let isValid = true;
+        
+        // Check each filter if present
+        if (version) {
+            isValid = isValid && item.version === version;
         }
-        const homeworkData = JSON.parse(data);
-        res.json(homeworkData);
+        if (className) {
+            isValid = isValid && item.className === className;
+        }
+        if (batch) {
+            isValid = isValid && item.batch === batch;
+        }
+        if (date) {
+            isValid = isValid && item.date === date;
+        }
+
+        return isValid;
     });
+
+    res.json(filteredHomework);
 });
 
-// Endpoint to download homework data as Excel
-app.get('/homework/download', async (req, res) => {
-    fs.readFile('db.json', 'utf8', async (err, data) => {
-        if (err) {
-            return res.status(500).send('Error reading file');
-        }
-        const homeworkData = JSON.parse(data);
-
-        const workbook = new ExcelJS.Workbook();
-        const worksheet = workbook.addWorksheet('Homework');
-
-        // Add headers
-        worksheet.columns = [
-            { header: 'ID', key: 'id', width: 10 },
-            { header: 'Title', key: 'title', width: 30 },
-            { header: 'Description', key: 'description', width: 50 },
-            { header: 'Due Date', key: 'dueDate', width: 15 }
-        ];
-
-        // Add rows
-        homeworkData.forEach(item => {
-            worksheet.addRow(item);
-        });
-
-        // Set response headers for file download
-        res.setHeader('Content-Disposition', 'attachment; filename=homework.xlsx');
-        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-
-        // Write to response
-        await workbook.xlsx.write(res);
-        res.end();
-    });
+// API to download homework (Example)
+app.get('/homework/download', (req, res) => {
+    res.send('Download Homework');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(5000, () => {
+    console.log('Server is running on http://localhost:5000');
 });

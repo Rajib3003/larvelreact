@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import homeworkImage from '/assets/frontend_assets/img/appointment.jpg';
-
 
 export default function Homework() {
     const [version, setVersion] = useState('');
@@ -8,21 +7,40 @@ export default function Homework() {
     const [batch, setBatch] = useState('');
     const [date, setDate] = useState('');
     const [homework, setHomework] = useState([]);
+    const [filteredHomework, setFilteredHomework] = useState([]); // Filtered Homework state
     const [message, setMessage] = useState('');
 
+    // Fetch Homework from the API
     const handleFetchHomework = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/homework?version=${version}&class=${className}&batch=${batch}&date=${date}`);
+            const response = await fetch(`http://localhost:5000/homework?version=${version}&className=${className}&batch=${batch}&date=${date}`);
             if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.json();
-            setHomework(data);
+            console.log('Fetched Data:', data);  // Log to see the response
+            setHomework(data);  // Store fetched data in state
             setMessage(data.length > 0 ? '' : 'No homework found.');
         } catch (error) {
             console.error('Error fetching homework:', error);
             setMessage('Failed to fetch homework.');
         }
     };
+    
+    // Filter the fetched homework based on selected criteria
+    useEffect(() => {
+        console.log('testing homework',homework);
+        const filtered = homework.filter(item => 
+            (version ? item.version === version : true) &&
+            (className ? item.className === className : true) &&
+            (batch ? item.batch === batch : true) &&
+            (date ? item.date.startsWith(date) : true) 
+        );
+        console.log('Filtered Homework:', filtered); 
+        setFilteredHomework(filtered); // Set filtered data
+        
+    }, [homework, version, className, batch, date]);
+    
 
+    // Submit handler for the form
     const handleSubmit = (e) => {
         e.preventDefault();
         handleFetchHomework();
@@ -103,31 +121,24 @@ export default function Homework() {
                                 {message && <p className="mt-3">{message}</p>}
 
                                 {/* Homework table */}
-                                {homework.length > 0 && (
-                                    <table className="table mt-4">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Title</th>
-                                                <th>Description</th>
-                                                <th>Due Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {homework.map(item => (
-                                                <tr key={item.id}>
-                                                    <td>{item.id}</td>
-                                                    <td>{item.title}</td>
-                                                    <td>{item.description}</td>
-                                                    <td>{item.dueDate}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                )}
+                                
+{filteredHomework.length === 0 ? (
+    <p>No homework available based on the selected filters.</p>
+) : (
+    filteredHomework.map(item => (
+        <div key={item.id}>
+            <h3>{item.subject}</h3>
+            <p>{item.homework}</p>
+            <p>Class: {item.className}, Batch: {item.batch}</p>
+            <p>Date: {item.date || 'No Date Available'}</p> {/* Fallback if no date */}
+        </div>
+    ))
+)}
+
+
 
                                 {/* Download button */}
-                                {homework.length > 0 && (
+                                {filteredHomework.length > 0 && (
                                     <button className="btn btn-success mt-3" onClick={handleDownload}>
                                         Download Homework
                                     </button>
