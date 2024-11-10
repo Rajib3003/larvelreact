@@ -1,4 +1,4 @@
-import classesImage1 from '/assets/frontend_assets/img/classes-1.jpg';
+import classesImage1 from '/assets/frontend_assets/img/play-1.png';
 import classesImage2 from '/assets/frontend_assets/img/classes-2.jpg';
 import classesImage3 from '/assets/frontend_assets/img/classes-3.jpg';
 import classesImage4 from '/assets/frontend_assets/img/classes-4.jpg';
