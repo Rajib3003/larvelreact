@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '/assets/frontend_assets/img/will-logo.png';
+import LanguageSwitcher from '../pages/LanguageSwitcher';
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
@@ -31,6 +32,7 @@ export default function Header() {
             </div>
           </div>
           <Link to="/contact" className="nav-item nav-link">Contact Us</Link>
+          <Link  className="nav-item nav-link"><LanguageSwitcher /></Link>
         </div>
         <a href="admin/login.php" className="btn btn-primary rounded-pill px-3 d-none d-lg-block">
           Admin login<i className="fa fa-arrow-right ms-3"></i>

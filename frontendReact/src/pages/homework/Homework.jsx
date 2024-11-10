@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import homeworkImage from '/assets/frontend_assets/img/appointment.jpg';
 
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LanguageSwitcher';
 import '../../i18n';
 
 export default function Homework() {
@@ -139,7 +138,7 @@ export default function Homework() {
                                     </div>
                                     </div>
                                     )}
-                                    <LanguageSwitcher />
+                                    
       <h1>{t('welcome')}</h1>
       <p>{t('hello')}</p>
                                 <form onSubmit={handleSubmit}>
