@@ -16,14 +16,14 @@ i18n
     resources: {
       en: {
         translation: {
-          "hello": "Hello, how are you?",
-          "welcome": "Welcome to our website",
+          "homework": "Homework",
+          "language": "বাংলা",
         },
       },
       bn: {
         translation: {
-          "hello": "হ্যালো, কেমন আছো?",
-          "welcome": "আমাদের সাইটে স্বাগতম",
+          "homework": "বাড়ির কাজ",
+          "language": "English",
         },
       },
     },

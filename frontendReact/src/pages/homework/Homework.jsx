@@ -117,7 +117,7 @@ export default function Homework() {
                     <div className="row g-0">
                         <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div className="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 className="mb-4">Homework</h1>
+                                <h1 className="mb-4">{t('homework')}</h1>
                                 {errorMessage && (
                                 <div  class="alert alert-danger alert-dismissible fade show mb-2" role="alert">                                    
                                     <div class="d-flex align-items-start">
@@ -137,10 +137,7 @@ export default function Homework() {
                                         <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                     </div>
-                                    )}
-                                    
-      <h1>{t('welcome')}</h1>
-      <p>{t('hello')}</p>
+                                    )}  
                                 <form onSubmit={handleSubmit}>
                                     <div className="row g-3">                                        
                                         <div className="col-sm-6">

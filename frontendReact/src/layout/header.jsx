@@ -32,11 +32,12 @@ export default function Header() {
             </div>
           </div>
           <Link to="/contact" className="nav-item nav-link">Contact Us</Link>
-          <Link  className="nav-item nav-link"><LanguageSwitcher /></Link>
+          {/* <Link  className="nav-item nav-link"><LanguageSwitcher /></Link> */}
         </div>
-        <a href="admin/login.php" className="btn btn-primary rounded-pill px-3 d-none d-lg-block">
+        {/* <a href="admin/login.php" className="btn btn-primary rounded-pill px-3 d-none d-lg-block">
           Admin login<i className="fa fa-arrow-right ms-3"></i>
-        </a>
+        </a> */}        
+        <LanguageSwitcher />
       </div>
     </nav>
   )
