@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import homeworkImage from '/assets/frontend_assets/img/appointment.jpg';
+import { useState } from 'react';
+// import homeworkImage from '/assets/frontend_assets/img/appointment.jpg';
+import api from '/src/api/api';
 
 export default function Homework() {
     const [version, setVersion] = useState('');
@@ -11,26 +12,49 @@ export default function Homework() {
     const [message, setMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     // Fetch Homework from the API
+    // const handleFetchHomework = async () => {
+    //     if (!version || !className || !batch || !date) {
+    //         setErrorMessage('Please select all filters (Version, Class, Batch, and Date)');
+    //         return;
+    //     }
+
+        
+    //     setErrorMessage('');
+    //     try {
+    //         const response = await fetch(`/homework?version=${version}&className=${className}&batch=${batch}&date=${date}`);
+    //         const response = await api.get(`/homework?version=${version}&className=${className}&batch=${batch}&date=${date}`);
+
+    //         if (!response.ok) throw new Error('Network response was not ok');
+    //         const data = await response.json();
+    //         setHomework(data); 
+    //         filterHomework(data); 
+    //     } catch (error) {
+    //         console.error('Error fetching homework:', error);
+    //         setMessage('Failed to fetch homework.');
+    //     }
+    // };
     const handleFetchHomework = async () => {
         if (!version || !className || !batch || !date) {
             setErrorMessage('Please select all filters (Version, Class, Batch, and Date)');
             return;
         }
-
-        // Reset error message if validation passes
+    
         setErrorMessage('');
         try {
-            const response = await fetch(`http://localhost:5000/homework?version=${version}&className=${className}&batch=${batch}&date=${date}`);
-            if (!response.ok) throw new Error('Network response was not ok');
-            const data = await response.json();
-            setHomework(data);  // Store fetched data in state
-            filterHomework(data); // Call filtering function after fetching data
+            const response = await api.get(`/homework`, {
+                params: { version, className, batch, date },
+            });
+    
+            const data = response.data; // Access the data directly
+            setHomework(data);
+            filterHomework(data); 
+            setMessage(data.length > 0 ? '' : 'No homework available based on the selected filters.');
         } catch (error) {
             console.error('Error fetching homework:', error);
             setMessage('Failed to fetch homework.');
         }
     };
-
+    
     // Filter the fetched homework based on selected criteria
     const filterHomework = (homeworkData) => {
         const filtered = homeworkData.filter(item => 
@@ -115,22 +139,22 @@ export default function Homework() {
                             <div className="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 className="mb-4">Homework</h1>
                                 {errorMessage && (
-                                <div  class="alert alert-danger alert-dismissible fade show mb-2" role="alert">                                    
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-grow-1">
-                                        <p class="mb-0">{errorMessage}</p>
+                                <div  className="alert alert-danger alert-dismissible fade show mb-2" role="alert">                                    
+                                    <div className="d-flex align-items-start">
+                                        <div className="flex-grow-1">
+                                        <p className="mb-0">{errorMessage}</p>
                                         </div>
-                                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <button type="button" className="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                     </div>
                                     )}
                                 {message && (
-                                <div  class="alert alert-danger alert-dismissible fade show mb-2" role="alert" >                                    
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-grow-1">
-                                        <p class="mb-0">{message}</p>
+                                <div  className="alert alert-danger alert-dismissible fade show mb-2" role="alert" >                                    
+                                    <div className="d-flex align-items-start">
+                                        <div className="flex-grow-1">
+                                        <p className="mb-0">{message}</p>
                                         </div>
-                                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <button type="button" className="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                     </div>
                                     )}

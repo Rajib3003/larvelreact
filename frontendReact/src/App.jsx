@@ -4,8 +4,7 @@
 // import ProductList from "./product/list"
 // import List from "./product/list"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
+// import api from './api/api';
 import Header from './layout/header';
 import Home from './pages/Home';
 import Footer from './layout/footer';
@@ -17,12 +16,12 @@ import Teacher from './pages/teachers/Teacher';
 import Facilities from './pages/facilities/Facilities';
 import Homework from './pages/homework/Homework';
 
-const baseURL = import.meta.env.VITE_BASE_URL;
+const baseURLFrontend = import.meta.env.VITE_FRONTEND_BASE_PATH;
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <Router basename={baseURL}>
+    <Router basename={baseURLFrontend}>
      <Header />
      
     <Routes>
