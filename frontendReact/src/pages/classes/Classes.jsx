@@ -1,5 +1,5 @@
 import classesImage1 from '/assets/frontend_assets/img/play-1.png';
-import classesImage2 from '/assets/frontend_assets/img/classes-2.jpg';
+import classesImage2 from '/assets/frontend_assets/img/one-1.png';
 import classesImage3 from '/assets/frontend_assets/img/classes-3.jpg';
 import classesImage4 from '/assets/frontend_assets/img/classes-4.jpg';
 import classesImage5 from '/assets/frontend_assets/img/classes-5.jpg';

@@ -18,12 +18,17 @@ i18n
         translation: {
           "homework": "Homework",
           "language": "বাংলা",
+          "help":"Help",
+          "home":"Home",
         },
       },
       bn: {
         translation: {
           "homework": "বাড়ির কাজ",
           "language": "English",
+          "help":"সাহায্য",
+          "home":"হোম",
+
         },
       },
     },

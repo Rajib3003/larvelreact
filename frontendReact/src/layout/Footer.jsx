@@ -1,21 +1,27 @@
+import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import '../i18n';
+
 import Uparrow from "./Uparrow";
-import classesOneImage from "/assets/frontend_assets/img/classes-1.jpg";
-import classesTwoImage from "/assets/frontend_assets/img/classes-2.jpg";
+import classesOneImage from "/assets/frontend_assets/img/play-1.png";
+import classesTwoImage from "/assets/frontend_assets/img/one-1.png";
 import classesThreeImage from "/assets/frontend_assets/img/classes-3.jpg";
 import classesFourImage from "/assets/frontend_assets/img/classes-4.jpg";
 import classesFiveImage from "/assets/frontend_assets/img/classes-5.jpg";
 import classesSixImage from "/assets/frontend_assets/img/classes-6.jpg";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
     return (
       <div className="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div className="container py-5">
           <div className="row g-5">
             <div className="col-lg-3 col-md-6">
               <h3 className="text-white mb-4">Get In Touch</h3>
-              <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-              <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-              <p className="mb-2"><i className="fa fa-envelope me-3"></i>info@example.com</p>
+              <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>157/2, Distilary Road, Gandaria</p>
+              <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+88 01625 229266</p>
+              <p className="mb-2"><i className="fa fa-envelope me-3"></i>willpowerschool.bd@gmail.com</p>
               <div className="d-flex pt-2">
                 <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-twitter"></i></a>
                 <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-facebook-f"></i></a>
@@ -26,11 +32,11 @@ export default function Footer() {
   
             <div className="col-lg-3 col-md-6">
               <h3 className="text-white mb-4">Quick Links</h3>
-              <a className="btn btn-link text-white-50" href="#">About Us</a>
-              <a className="btn btn-link text-white-50" href="#">Contact Us</a>
-              <a className="btn btn-link text-white-50" href="#">Our Services</a>
-              <a className="btn btn-link text-white-50" href="#">Privacy Policy</a>
-              <a className="btn btn-link text-white-50" href="#">Terms & Condition</a>
+              <NavLink to="/aboutus" className="btn btn-link text-white-50" activeClassName="active">About Us</NavLink>
+              <NavLink to="/contact" className="btn btn-link text-white-50" activeClassName="active">Contact Us</NavLink>
+              <NavLink to="/services" className="btn btn-link text-white-50" activeClassName="active">Our Services</NavLink>
+              <NavLink to="/privacy-policy" className="btn btn-link text-white-50" activeClassName="active">Privacy Policy</NavLink>
+              <NavLink to="/team" className="btn btn-link text-white-50" activeClassName="active">Terms & Condition</NavLink>             
             </div>
   
             <div className="col-lg-3 col-md-6">
@@ -72,16 +78,15 @@ export default function Footer() {
           <div className="copyright">
             <div className="row">
               <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a className="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-                Designed By <a className="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                <br />Distributed By: <a className="border-bottom" href="https://themewagon.com" target="_blank" rel="noreferrer">ThemeWagon</a>
+                &copy;  All Right Reserved.
+                Designed By <a className="border-bottom" href="http://rajib.intels.co/">MRB</a>                
               </div>
               <div className="col-md-6 text-center text-md-end">
                 <div className="footer-menu">
-                  <a href="#">Home</a>
-                  <a href="#">Cookies</a>
-                  <a href="#">Help</a>
-                  <a href="#">FAQs</a>
+                <NavLink to="/" activeClassName="active">{t('home')}</NavLink>
+                <NavLink to="/cookies" activeClassName="active">Cookies</NavLink>
+                <NavLink to="/help" activeClassName="active">{t('help')}</NavLink>
+                <NavLink to="/faqs" activeClassName="active">FAQs</NavLink>                  
                 </div>
               </div>
             </div>
