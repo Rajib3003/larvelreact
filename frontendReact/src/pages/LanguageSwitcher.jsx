@@ -1,41 +1,25 @@
-import React, { useState } from 'react';
-import { useTranslation  } from 'react-i18next';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-// const LanguageSwitcher = () => {
-  // const { i18n } = useTranslation();
+const LanguageSwitcher = () => {
+  const { i18n, t } = useTranslation();
 
-  // const changeLanguage = (lng) => {
-  //   i18n.changeLanguage(lng); 
-  // };
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang); // Change language dynamically
+  };
 
-  const LanguageButton = () => {
-    const { t, i18n } = useTranslation();
-  
-    // Language state
-    const [isBangla, setIsBangla] = useState(false);
-  
-    // Toggle language function
-    const toggleLanguage = () => {
-      const newLang = isBangla ? 'en' : 'bn';  // Toggle between English and Bengali
-      i18n.changeLanguage(newLang);  // Change language in i18n
-      setIsBangla(!isBangla);  // Toggle the state
-    };
-  
+  // Determine if the current language is Bengali
+  const isBangla = i18n.language === 'bn';
 
   return (
-    // <div>
-    //   <button onClick={() => changeLanguage('en')}>English</button>
-    //   <button onClick={() => changeLanguage('bn')}>বাংলা</button>
-      
-    // </div>
     <a
-   
-    className="btn btn-primary rounded-pill px-3 d-none d-lg-block"
-    onClick={toggleLanguage}
-  >
-    {t('language')} 
-  </a>
+      className="btn btn-primary rounded-pill px-3 d-none d-lg-block"
+      onClick={() => changeLanguage(isBangla ? 'en' : 'bn')} // Toggle language on click
+      style={{ cursor: 'pointer' }}
+    >
+      {isBangla ? t('language') : t('language')} {/* Dynamically set button text */}
+    </a>
   );
 };
 
-export default LanguageButton;
+export default LanguageSwitcher;

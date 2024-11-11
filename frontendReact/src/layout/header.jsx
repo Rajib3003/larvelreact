@@ -1,8 +1,16 @@
-import logo from '/assets/frontend_assets/img/will-logo.png';
+import '../i18n';
+import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../pages/LanguageSwitcher';
+import logo from '/assets/frontend_assets/img/will-logo.png';
 import { NavLink } from 'react-router-dom';
 
+
+
+
+
+
 export default function Header() {
+  const { t } = useTranslation();
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
       <NavLink to="/" className="navbar-brand">
@@ -17,22 +25,22 @@ export default function Header() {
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav mx-auto">
-          <NavLink to="/" className="nav-item nav-link" activeClassName="active">Home</NavLink>
-          <NavLink to="/aboutus" className="nav-item nav-link" activeClassName="active">About Us</NavLink>
-          <NavLink to="/homework" className="nav-item nav-link" activeClassName="active">Homework</NavLink>
+          <NavLink to="/" className="nav-item nav-link" activeclassname="active">{t('home')}</NavLink>
+          <NavLink to="/aboutus" className="nav-item nav-link" activeclassname="active">About Us</NavLink>
+          <NavLink to="/homework" className="nav-item nav-link" activeclassname="active">Homework</NavLink>
           <div className="nav-item dropdown">
             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
             <div className="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-              <NavLink to="/facilities" className="dropdown-item" activeClassName="active">School Facilities</NavLink>
-              <NavLink to="/team" className="dropdown-item" activeClassName="active">Popular Teachers</NavLink>
-              <NavLink to="/classes" className="dropdown-item" activeClassName="active">Classes</NavLink>              
-              <NavLink to="/call-to-action" className="dropdown-item" activeClassName="active">Become A Teacher</NavLink>
-              <NavLink to="/appointment" className="dropdown-item" activeClassName="active">Make Appointment</NavLink>
-              <NavLink to="/testimonial" className="dropdown-item" activeClassName="active">Testimonial</NavLink>
-              <NavLink to="/error" className="dropdown-item" activeClassName="active">404 Error</NavLink>
+              <NavLink to="/facilities" className="dropdown-item" activeclassname="active">School Facilities</NavLink>
+              <NavLink to="/team" className="dropdown-item" activeclassname="active">Popular Teachers</NavLink>
+              <NavLink to="/classes" className="dropdown-item" activeclassname="active">Classes</NavLink>              
+              <NavLink to="/call-to-action" className="dropdown-item" activeclassname="active">Become A Teacher</NavLink>
+              <NavLink to="/appointment" className="dropdown-item" activeclassname="active">Make Appointment</NavLink>
+              <NavLink to="/testimonial" className="dropdown-item" activeclassname="active">Testimonial</NavLink>
+              <NavLink to="/error" className="dropdown-item" activeclassname="active">404 Error</NavLink>
             </div>
           </div>
-          <NavLink to="/contact" className="nav-item nav-link" activeClassName="active">Contact Us</NavLink>          
+          <NavLink to="/contact" className="nav-item nav-link" activeclassname="active">Contact Us</NavLink>          
         </div>             
         <LanguageSwitcher />
       </div>

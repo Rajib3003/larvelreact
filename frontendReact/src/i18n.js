@@ -1,36 +1,23 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector'; // language auto-detection
-import Backend from 'i18next-http-backend'; // For loading translations from external files
+import enTranslations from './locales/en/common.json';
+import bnTranslations from './locales/bn/common.json';
 
 i18n
-  .use(Backend) // Load translations from backend
-  .use(LanguageDetector) // Detect user's language
-  .use(initReactI18next) // Initialize i18next for React
+  .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    fallbackLng: 'en', // Default language is English
-    debug: true,
-    interpolation: {
-      escapeValue: false, // React already escapes values
-    },
     resources: {
       en: {
-        translation: {
-          "homework": "Homework",
-          "language": "বাংলা",
-          "help":"Help",
-          "home":"Home",
-        },
+        translation: enTranslations,
       },
       bn: {
-        translation: {
-          "homework": "বাড়ির কাজ",
-          "language": "English",
-          "help":"সাহায্য",
-          "home":"হোম",
-
-        },
+        translation: bnTranslations,
       },
+    },
+    lng: 'en', // default language
+    fallbackLng: 'en', // fallback language if the translation is missing in the selected language
+    interpolation: {
+      escapeValue: false, // not needed for react as it escapes by default
     },
   });
 

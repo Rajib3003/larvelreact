@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../i18n';
@@ -10,8 +11,10 @@ import classesFourImage from "/assets/frontend_assets/img/classes-4.jpg";
 import classesFiveImage from "/assets/frontend_assets/img/classes-5.jpg";
 import classesSixImage from "/assets/frontend_assets/img/classes-6.jpg";
 
-export default function Footer() {
-  const { t } = useTranslation();
+export default function Footer() { 
+  const { t } = useTranslation(); 
+
+
 
     return (
       <div className="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -32,11 +35,11 @@ export default function Footer() {
   
             <div className="col-lg-3 col-md-6">
               <h3 className="text-white mb-4">Quick Links</h3>
-              <NavLink to="/aboutus" className="btn btn-link text-white-50" activeClassName="active">About Us</NavLink>
-              <NavLink to="/contact" className="btn btn-link text-white-50" activeClassName="active">Contact Us</NavLink>
-              <NavLink to="/services" className="btn btn-link text-white-50" activeClassName="active">Our Services</NavLink>
-              <NavLink to="/privacy-policy" className="btn btn-link text-white-50" activeClassName="active">Privacy Policy</NavLink>
-              <NavLink to="/team" className="btn btn-link text-white-50" activeClassName="active">Terms & Condition</NavLink>             
+              <NavLink to="/aboutus" className="btn btn-link text-white-50" activeclassname="active">About Us</NavLink>
+              <NavLink to="/contact" className="btn btn-link text-white-50" activeclassname="active">Contact Us</NavLink>
+              <NavLink to="/services" className="btn btn-link text-white-50" activeclassname="active">Our Services</NavLink>
+              <NavLink to="/privacy-policy" className="btn btn-link text-white-50" activeclassname="active">Privacy Policy</NavLink>
+              <NavLink to="/team" className="btn btn-link text-white-50" activeclassname="active">Terms & Condition</NavLink>             
             </div>
   
             <div className="col-lg-3 col-md-6">
@@ -83,10 +86,10 @@ export default function Footer() {
               </div>
               <div className="col-md-6 text-center text-md-end">
                 <div className="footer-menu">
-                <NavLink to="/" activeClassName="active">{t('home')}</NavLink>
-                <NavLink to="/cookies" activeClassName="active">Cookies</NavLink>
-                <NavLink to="/help" activeClassName="active">{t('help')}</NavLink>
-                <NavLink to="/faqs" activeClassName="active">FAQs</NavLink>                  
+                <NavLink to="/" activeclassname="active">{t('home')}</NavLink>
+                <NavLink to="/cookies" activeclassname="active">cookies</NavLink>
+                <NavLink to="/help" activeclassname="active">help</NavLink>
+                <NavLink to="/faqs" activeclassname="active">FAQs</NavLink>                  
                 </div>
               </div>
             </div>
