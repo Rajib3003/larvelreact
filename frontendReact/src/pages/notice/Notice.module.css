@@ -1,0 +1,86 @@
+.noticeMarquee {
+    width: 100%;
+    overflow: hidden;
+    background: #fff5f3;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-size: 18px;
+    border: 1px solid #d8dbdf;
+    border-radius: 10px;
+  }
+  
+  .noticeMarquee p {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0;
+    animation: marquee 20s linear infinite;
+  }
+  
+  .noticeMarquee:hover p {
+    animation-play-state: paused;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .searchContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .searchContainer input,
+  .searchContainer button {
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .refreshButton {
+    background-color: #f7a62b;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    cursor: pointer;
+  }
+  
+  .noticeBoardContainer {
+    margin-top: 20px;
+  }
+  
+  .noticeList {
+    width: 100%;
+    padding-right: 20px;
+  }
+  
+  .noticeItem {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .noticeItem h5 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .noticeItem p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .noticeItem button {
+    background-color: #f7a62b;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+  }
+  

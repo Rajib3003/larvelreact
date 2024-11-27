@@ -26,7 +26,7 @@ export default function Header() {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav mx-auto">
           <NavLink to="/" className="nav-item nav-link" activeclassname="active">{t('home')}</NavLink>
-          <NavLink to="/aboutus" className="nav-item nav-link" activeclassname="active">About Us</NavLink>
+          <NavLink to="/notice" className="nav-item nav-link" activeclassname="active">Notice</NavLink>
           <NavLink to="/homework" className="nav-item nav-link" activeclassname="active">Homework</NavLink>
           <div className="nav-item dropdown">
             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -36,6 +36,7 @@ export default function Header() {
               <NavLink to="/classes" className="dropdown-item" activeclassname="active">Classes</NavLink>              
               <NavLink to="/call-to-action" className="dropdown-item" activeclassname="active">Become A Teacher</NavLink>
               <NavLink to="/appointment" className="dropdown-item" activeclassname="active">Make Appointment</NavLink>
+              <NavLink to="/aboutus" className="dropdown-item" activeclassname="active">About Us</NavLink>
               <NavLink to="/testimonial" className="dropdown-item" activeclassname="active">Testimonial</NavLink>
               <NavLink to="/error" className="dropdown-item" activeclassname="active">404 Error</NavLink>
             </div>
