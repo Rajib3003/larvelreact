@@ -25,8 +25,10 @@ export default function Footer() {
               <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+88 01625 229266</p>
               <p className="mb-2"><i className="fa fa-envelope me-3"></i>willpowerschool.bd@gmail.com</p>
               <div className="d-flex pt-2">
-                <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-twitter"></i></a>
-                <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-facebook-f"></i></a>
+                <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-twitter"></i></a>                
+                <a className="btn btn-outline-light btn-social" href="https://www.facebook.com/wps3955" target="_blank" rel="noopener noreferrer">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
                 <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-youtube"></i></a>
                 <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-linkedin-in"></i></a>
               </div>

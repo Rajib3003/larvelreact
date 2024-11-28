@@ -1,26 +1,112 @@
+import { useEffect, useState } from 'react';
 import styles from './Notice.module.css';
 
 export default function Notice() {
-    const options = {
-        items: 1,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        nav: true,
-        dots: true,
-      };
-    
-      return (
-        <div className="container-xxl py-5">
+  const [notices, setNotices] = useState([]);
+  const [filteredNotices, setFilteredNotices] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [noticesPerPage, setNoticesPerPage] = useState(5); // Default 5 items per page
+
+  // Fetch data from API
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos'); // Replace with your API endpoint
+        const data = await response.json();
+
+        const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setNotices(sortedData);
+        setFilteredNotices(sortedData);
+      } catch (error) {
+        console.error('Error fetching notices:', error);
+      }
+    };
+
+    fetchNotices();
+  }, []);
+
+  // Handle Search
+  const handleSearch = () => {
+    const filtered = notices.filter((notice) => {
+      const noticeDate = new Date(notice.date);
+      const startDateNormalized = startDate ? new Date(startDate + 'T00:00:00') : null;
+      const endDateNormalized = endDate ? new Date(endDate + 'T23:59:59') : null;
+
+      if (searchText && !startDate && !endDate) {
+        return notice.title.toLowerCase().includes(searchText.toLowerCase());
+      }
+
+      if (!searchText && startDate && !endDate) {
+        return noticeDate >= startDateNormalized;
+      }
+
+      if (!searchText && startDate && endDate) {
+        return noticeDate >= startDateNormalized && noticeDate <= endDateNormalized;
+      }
+
+      if (searchText && startDate && endDate) {
+        return (
+          notice.title.toLowerCase().includes(searchText.toLowerCase()) &&
+          noticeDate >= startDateNormalized &&
+          noticeDate <= endDateNormalized
+        );
+      }
+
+      return true;
+    });
+
+    const sortedFiltered = filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+    setFilteredNotices(sortedFiltered);
+    setCurrentPage(1); // Reset to the first page after search
+  };
+
+  const handleReset = () => {
+    setSearchText('');
+    setStartDate('');
+    setEndDate('');
+    setFilteredNotices(notices);
+    setCurrentPage(1); // Reset to the first page after reset
+  };
+
+  // Pagination Logic
+  const indexOfLastNotice = currentPage * noticesPerPage;
+  const indexOfFirstNotice = indexOfLastNotice - noticesPerPage;
+  const currentNotices = filteredNotices.slice(indexOfFirstNotice, indexOfLastNotice);
+
+  const totalPages = Math.ceil(filteredNotices.length / noticesPerPage);
+
+  const paginate = (pageNumber) => {
+    if (pageNumber > 0 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
+  // Generate Pagination Buttons
+  const paginationButtons = [];
+  for (let i = Math.max(1, currentPage - 1); i <= Math.min(totalPages, currentPage + 1); i++) {
+    paginationButtons.push(
+      <button
+        key={i}
+        className={`btn ${currentPage === i ? 'btn-primary' : 'btn-outline-primary'} mx-1`}
+        onClick={() => paginate(i)}
+      >
+        {i}
+      </button>
+    );
+  }
+
+  return (
+    <div className="container-xxl py-5">
       <div className="container">
-        <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
+        <div className="text-center mx-auto mb-5" style={{ maxWidth: '600px' }}>
           <h1 className="mb-3">Notice Board</h1>
           <p>
             Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
           </p>
         </div>
-
         <div className={styles.noticeMarquee}>
           <p>
             Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
@@ -28,50 +114,97 @@ export default function Notice() {
         </div>
 
         <div className={styles.searchContainer}>
-          <input type="text" className="form-control" placeholder="Search By Notice Title" />
-          <input type="date" className="form-control" />
-          <input type="date" className="form-control" />
-          <button className="btn btn-primary">Search</button>
-          {/* <button className={styles.refreshButton}>Refresh</button> */}
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search By Notice Title"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <input
+            type="date"
+            className="form-control"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+          <input
+            type="date"
+            className="form-control"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
+          <button className="btn btn-primary" onClick={handleSearch}>
+            Search
+          </button>
+          <button className="btn btn-secondary" onClick={handleReset}>
+            Reset
+          </button>
         </div>
+
+        
 
         <div className={styles.noticeBoardContainer}>
           <div className={styles.noticeList}>
-            <div className={styles.noticeItem}>
-              <div>
-                <h5>2024-2025 শিক্ষা বর্ষ আভ্যন্তরীণ ভর্তি বিজ্ঞপ্তি</h5>
-                <p>Published Date: 26 Nov, 2024</p>
-              </div>
-              
-                <button 
-                className="btn btn-info" 
-                onClick={() => window.open(`${import.meta.env.BASE_URL}/homework`, '_blank')}
+            {currentNotices.map((notice) => (
+              <div key={notice.id} className={styles.noticeItem}>
+                <div>
+                  <h5>{notice.title}</h5>
+                  <p>Published Date: {new Date(notice.date).toLocaleDateString()}</p>
+                </div>
+                <button
+                  className="btn btn-info"
+                  onClick={() => window.open(`/notices/${notice.id}`, '_blank')}
                 >
-                + Read More
+                  + Read More
                 </button>
-
-
-
-
-
-            </div>
-
-            <div className={styles.noticeItem}>
-              <div>
-                <h5>Masters in Sociology and Social Policy (MSSP) 3rd Batch 2024–2025</h5>
-                <p>Published Date: 26 Nov, 2024</p>
               </div>
-              <button className="btn btn-info">+ Read More</button>
-            </div>
-
-            <div className={styles.noticeItem}>
-              <div>
-                <h5>Call for Applications for the 2025-26 Fulbright Visiting Scholar Program</h5>
-                <p>Published Date: 25 Nov, 2024</p>
-              </div>
-              <button className="btn btn-info">+ Read More</button>
-            </div>
+            ))}
           </div>
+        </div>
+
+        {/* Pagination */}      
+        <div className="d-flex justify-content-center mt-4">
+        <select
+            className="form-select w-auto"
+            value={noticesPerPage}
+            onChange={(e) => {
+              setNoticesPerPage(Number(e.target.value));
+              setCurrentPage(1); // Reset to the first page when changing items per page
+            }}
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+          </select>
+          <button
+            className="btn btn-outline-secondary mx-1"
+            onClick={() => paginate(1)}
+            disabled={currentPage === 1}
+          >
+            First
+          </button>
+          <button
+            className="btn btn-outline-secondary mx-1"
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          {paginationButtons}
+          <button
+            className="btn btn-outline-secondary mx-1"
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+          <button
+            className="btn btn-outline-secondary mx-1"
+            onClick={() => paginate(totalPages)}
+            disabled={currentPage === totalPages}
+          >
+            Last
+          </button>
         </div>
       </div>
     </div>
