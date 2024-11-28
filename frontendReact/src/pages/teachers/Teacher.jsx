@@ -17,6 +17,7 @@ export default function Teacher() {
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <div className="team-item position-relative">
                 <img className="img-fluid rounded-circle w-75" src={teamImageOne} alt="Mithun Mojundar" />
+                <a href="#" className="text-decoration-none">
                 <div className="team-text">
                   <h3>Mithun Mojundar</h3>
                   <p>Head Teacher</p>
@@ -26,11 +27,13 @@ export default function Teacher() {
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
                   </div>
                 </div>
+                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
               <div className="team-item position-relative">
                 <img className="img-fluid rounded-circle w-75" src={teamImageTwo} alt="Jannatul Ferdous" />
+                <a href="#" className="text-decoration-none">
                 <div className="team-text">
                   <h3>Jannatul Ferdous</h3>
                   <p>In-Charge</p>
@@ -40,11 +43,13 @@ export default function Teacher() {
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
                   </div>
                 </div>
+                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
               <div className="team-item position-relative">
                 <img className="img-fluid rounded-circle w-75" src={teamImageThree} alt="Tajbin Bhuiyan" />
+                <a href="#" className="text-decoration-none">
                 <div className="team-text">
                   <h3>Tajbin Bhuiyan</h3>
                   <p>In-Charge</p>
@@ -54,6 +59,7 @@ export default function Teacher() {
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
                   </div>
                 </div>
+                </a>
               </div>
             </div>                    
           </div>

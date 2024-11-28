@@ -17,6 +17,9 @@ import Facilities from './pages/facilities/Facilities';
 import Homework from './pages/homework/Homework';
 import Contactus from './pages/contactus/Contactus';
 import Notice from './pages/notice/Notice';
+import TeacherList from './pages/teachers/TeacherList';
+import TeacherDetails from './pages/teachers/TeacherDetails';
+
 
 const baseURLFrontend = import.meta.env.VITE_FRONTEND_BASE_PATH;
 function App() {
@@ -37,6 +40,8 @@ function App() {
       <Route path="/homework" element={<Homework />} />
       <Route path="/contact" element={<Contactus />} />
       <Route path="/notice" element={<Notice />} />
+      <Route path="/teachers" element={<TeacherList />} />
+      <Route path="/teacherdetails" element={<TeacherDetails />} />
       
      
     </Routes>

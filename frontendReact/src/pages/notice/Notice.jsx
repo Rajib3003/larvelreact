@@ -153,7 +153,7 @@ export default function Notice() {
                 </div>
                 <button
                   className="btn btn-info"
-                  onClick={() => window.open(`/notices/${notice.id}`, '_blank')}
+                  onClick={() => window.open(`${import.meta.env.BASE_URL}/notices/${notice.id}`, '_blank')}
                 >
                   + Read More
                 </button>

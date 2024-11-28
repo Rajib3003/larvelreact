@@ -2,7 +2,7 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import carosuelImageOne from '/assets/frontend_assets/img/carousel-3.png';
-import carosuelImageTwo from '/assets/frontend_assets/img/carousel-1.jpg';
+import carosuelImageTwo from '/assets/frontend_assets/img/carousel-1.png';
 
 export default function Carousel() {
   return (
@@ -44,13 +44,13 @@ export default function Carousel() {
             <div className="container">
               <div className="row justify-content-start">
                 <div className="col-10 col-lg-8">
-                  <h1 className="display-2 text-white animated slideInDown mb-4">
+                  {/* <h1 className="display-2 text-white animated slideInDown mb-4">
                     Make A Brighter Future For Your Child
-                  </h1>
-                  <p className="fs-5 fw-medium text-white mb-4 pb-2">
+                  </h1> */}
+                  {/* <p className="fs-5 fw-medium text-white mb-4 pb-2">
                     Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo
                     clita et kasd rebum sea elitr.
-                  </p>
+                  </p> */}
                   <a href="" className="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">
                     Learn More
                   </a>

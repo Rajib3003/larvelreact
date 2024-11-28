@@ -34,7 +34,7 @@ export default function Header() {
               <NavLink to="/facilities" className="dropdown-item" activeclassname="active">School Facilities</NavLink>
               <NavLink to="/team" className="dropdown-item" activeclassname="active">Popular Teachers</NavLink>
               <NavLink to="/classes" className="dropdown-item" activeclassname="active">Classes</NavLink>              
-              <NavLink to="/call-to-action" className="dropdown-item" activeclassname="active">Become A Teacher</NavLink>
+              <NavLink to="/teachers" className="dropdown-item" activeclassname="active">Teachers</NavLink>
               <NavLink to="/appointment" className="dropdown-item" activeclassname="active">Make Appointment</NavLink>
               <NavLink to="/aboutus" className="dropdown-item" activeclassname="active">About Us</NavLink>
               <NavLink to="/testimonial" className="dropdown-item" activeclassname="active">Testimonial</NavLink>
