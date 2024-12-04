@@ -58,8 +58,9 @@ export default function Contactus() {
       <div className="container">
         <div className="bg-light rounded">
           <div className="row g-0">
-            <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+            <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">            
               <div className="h-100 d-flex flex-column justify-content-center p-5">
+              {responseMessage}
                 <h1 className="mb-4">Application</h1>
                 <form onSubmit={handleSubmit}>
                   <div className="row g-3">
@@ -139,13 +140,14 @@ export default function Contactus() {
             </div>
             <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style={{ minHeight: "400px" }}>
               <div className="position-relative h-100">
-                {responseMessage}
-                {/* <img
-                  className="position-absolute w-100 h-100 rounded"
-                  src={appointmentImage}
-                  style={{ objectFit: "cover" }}
-                  alt="Appointment"
-                /> */}
+              <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1325.9746040039406!2d90.41922558995306!3d23.705359623192194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b900036b0733%3A0x917df5d6dc2ac1e9!2sWill%20Power%20School%20Campus-2!5e1!3m2!1sen!2sbd!4v1733308639437!5m2!1sen!2sbd" 
+      width="100%" 
+      height="100%" 
+      style={{ border: 0 }} 
+      allowFullScreen 
+      loading="lazy"
+    ></iframe>
               </div>
             </div>
           </div>

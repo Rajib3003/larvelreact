@@ -260,6 +260,7 @@ h6,
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .facility-item .facility-icon::before {
@@ -269,7 +270,8 @@ h6,
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(255, 255, 255, .9);
+    /* background: rgba(255, 255, 255, .9); */
+    background: #FFF5F3;
     transition: .5s;
     z-index: 1;
 }
@@ -312,8 +314,12 @@ h6,
     height: 100%;
     top: 0;
     left: 0;
+    /* background-image: url('/assets/frontend_assets/img/about-1.jpg');
+    background-size: cover; 
+    background-position: center; */
     background: rgba(255, 255, 255, .9);
-    transition: .5s;
+    border-radius: 100%;
+    transition: 1.5s;
     z-index: 1;
 }
 

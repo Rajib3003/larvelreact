@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import aboutusImageOne from "/assets/frontend_assets/img/about-1.jpg";
 
-export default function TeacherDetails() {
+export default function NoticeDetails() {
   const { id } = useParams(); // Get the ID from the URL
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch data for the specific ID
-    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setPost(data); // Set the post data
@@ -46,10 +46,11 @@ export default function TeacherDetails() {
           </div>
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
             <h1 className="mb-4">{post.title}</h1>
-            <p>{post.body}</p>
+            <p>{post.title}</p>
           </div>
         </div>
       </div>
     </div>
   );
 }
+

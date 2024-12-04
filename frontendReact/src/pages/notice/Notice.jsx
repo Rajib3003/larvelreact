@@ -29,40 +29,72 @@ export default function Notice() {
   }, []);
 
   // Handle Search
-  const handleSearch = () => {
+  // const handleSearch = () => {
+  //   const filtered = notices.filter((notice) => {
+  //     const noticeDate = new Date(notice.date);
+  //     const startDateNormalized = startDate ? new Date(startDate + 'T00:00:00') : null;
+  //     const endDateNormalized = endDate ? new Date(endDate + 'T23:59:59') : null;
+
+  //     if (searchText && !startDate && !endDate) {
+  //       return notice.title.toLowerCase().includes(searchText.toLowerCase());
+  //     }
+
+  //     if (!searchText && startDate && !endDate) {
+  //       return noticeDate >= startDateNormalized;
+  //     }
+
+  //     if (!searchText && startDate && endDate) {
+  //       return noticeDate >= startDateNormalized && noticeDate <= endDateNormalized;
+  //     }
+
+  //     if (searchText && startDate && endDate) {
+  //       return (
+  //         notice.title.toLowerCase().includes(searchText.toLowerCase()) &&
+  //         noticeDate >= startDateNormalized &&
+  //         noticeDate <= endDateNormalized
+  //       );
+  //     }
+
+  //     return true;
+  //   });
+
+  //   const sortedFiltered = filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+  //   setFilteredNotices(sortedFiltered);
+  //   setCurrentPage(1); 
+  // };
+  const handleSearch = (searchValue) => {
     const filtered = notices.filter((notice) => {
       const noticeDate = new Date(notice.date);
       const startDateNormalized = startDate ? new Date(startDate + 'T00:00:00') : null;
       const endDateNormalized = endDate ? new Date(endDate + 'T23:59:59') : null;
-
-      if (searchText && !startDate && !endDate) {
-        return notice.title.toLowerCase().includes(searchText.toLowerCase());
+  
+      if (searchValue && !startDate && !endDate) {
+        return notice.title.toLowerCase().includes(searchValue.toLowerCase());
       }
-
-      if (!searchText && startDate && !endDate) {
+  
+      if (!searchValue && startDate && !endDate) {
         return noticeDate >= startDateNormalized;
       }
-
-      if (!searchText && startDate && endDate) {
+  
+      if (!searchValue && startDate && endDate) {
         return noticeDate >= startDateNormalized && noticeDate <= endDateNormalized;
       }
-
-      if (searchText && startDate && endDate) {
+  
+      if (searchValue && startDate && endDate) {
         return (
-          notice.title.toLowerCase().includes(searchText.toLowerCase()) &&
+          notice.title.toLowerCase().includes(searchValue.toLowerCase()) &&
           noticeDate >= startDateNormalized &&
           noticeDate <= endDateNormalized
         );
       }
-
+  
       return true;
     });
-
+  
     const sortedFiltered = filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
     setFilteredNotices(sortedFiltered);
     setCurrentPage(1); // Reset to the first page after search
   };
-
   const handleReset = () => {
     setSearchText('');
     setStartDate('');
@@ -114,12 +146,16 @@ export default function Notice() {
         </div>
 
         <div className={styles.searchContainer}>
+          
           <input
             type="text"
             className="form-control"
             placeholder="Search By Notice Title"
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+              handleSearch(e.target.value);
+            }}
           />
           <input
             type="date"
@@ -153,7 +189,7 @@ export default function Notice() {
                 </div>
                 <button
                   className="btn btn-info"
-                  onClick={() => window.open(`${import.meta.env.BASE_URL}/notices/${notice.id}`, '_blank')}
+                  onClick={() => window.open(`${import.meta.env.BASE_URL}/noticedetails/${notice.id}`, '_self')}                  
                 >
                   + Read More
                 </button>
