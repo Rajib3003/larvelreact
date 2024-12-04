@@ -68,11 +68,18 @@ export default function Footer() {
             </div>
   
             <div className="col-lg-3 col-md-6">
-              <h3 className="text-white mb-4">Newsletter</h3>
-              <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-              <div className="position-relative mx-auto" style={{ maxWidth: '400px' }}>
-                <input className="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email" />
-                <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+              <h3 className="text-white mb-4 d-flex justify-content-center">{t('login')}</h3>
+              <p >{t('login-to-view-your-account')}</p>
+              <div className=" mx-auto" style={{ maxWidth: '400px' }}>
+                <input className="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="User Name" />
+                <input className="form-control bg-transparent w-100 py-3 ps-4 mt-2 pe-5" type="password" placeholder="Password" />               
+                <div className="d-flex justify-content-end">
+                  <button 
+                    type="button" 
+                    className="btn btn-primary mt-2">
+                    SignUp
+                  </button>
+                </div>
               </div>
             </div>
           </div>
