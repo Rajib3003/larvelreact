@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../pages/LanguageSwitcher';
 import logo from '/assets/frontend_assets/img/will-logo.png';
 import { NavLink , useNavigate } from 'react-router-dom';
-import { useState } from 'react'
+import { useEffect } from 'react'
 
 
 
@@ -12,13 +12,18 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   const { t } = useTranslation();
 
  
-
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Log the user out
-    navigate("/"); // Redirect to the home page
+    setIsLoggedIn(false); 
   };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/'); 
+    }
+  }, [isLoggedIn, navigate]);
+  
 
 
   return (
@@ -57,12 +62,12 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
         
         
         {isLoggedIn ? (
-        <button className="btn btn-danger" onClick={handleLogout}>
+        <button className="btn btn-danger ms-2" onClick={handleLogout}>
           Logout
         </button>
       ) : (
         <button
-          className="btn btn-success"
+          className="btn btn-success ms-2"
           onClick={() => navigate("/login")}
         >
           Login

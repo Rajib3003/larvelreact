@@ -24,7 +24,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     const savedLoginState = localStorage.getItem("isLoggedIn");
     const lastActiveTime = localStorage.getItem("lastActiveTime");
-    const oneHour = 60 * 1000;
+    const oneHour = 5 * 60 * 1000;
 
     if (savedLoginState === "true" && Date.now() - lastActiveTime < oneHour) {
       return true;
@@ -45,11 +45,10 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       const lastActiveTime = localStorage.getItem("lastActiveTime");
-      const oneHour = 60 * 1000;
+      const oneHour = 5 * 60 * 1000;
 
       if (isLoggedIn && Date.now() - lastActiveTime >= oneHour) {
-        setIsLoggedIn(false);
-        // alert("You have been logged out due to inactivity.");
+        setIsLoggedIn(false);        
       }
     }, 1000);
 
