@@ -2,15 +2,25 @@ import '../i18n';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../pages/LanguageSwitcher';
 import logo from '/assets/frontend_assets/img/will-logo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink , useNavigate } from 'react-router-dom';
+import { useState } from 'react'
 
 
 
 
-
-
-export default function Header() {
+export default function Header({ isLoggedIn, setIsLoggedIn }) {
   const { t } = useTranslation();
+
+ 
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setIsLoggedIn(false); // Log the user out
+    navigate("/"); // Redirect to the home page
+  };
+
+
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
       <NavLink to="/" className="navbar-brand">
@@ -44,6 +54,25 @@ export default function Header() {
           <NavLink to="/contact" className="nav-item nav-link" activeclassname="active">Contact Us</NavLink>          
         </div>             
         <LanguageSwitcher />
+        
+        
+        {isLoggedIn ? (
+        <button className="btn btn-danger" onClick={handleLogout}>
+          Logout
+        </button>
+      ) : (
+        <button
+          className="btn btn-success"
+          onClick={() => navigate("/login")}
+        >
+          Login
+        </button>
+      )}
+
+
+
+
+
       </div>
     </nav>
   )

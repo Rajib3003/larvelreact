@@ -13,7 +13,7 @@ import classesSixImage from "/assets/frontend_assets/img/classes-6.jpg";
 export default function Footer() { 
   const { t } = useTranslation(); 
 
-
+  
 
     return (
       <div className="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -42,6 +42,23 @@ export default function Footer() {
               <NavLink to="/privacy-policy" className="btn btn-link text-white-50" activeclassname="active">Privacy Policy</NavLink>
               <NavLink to="/team" className="btn btn-link text-white-50" activeclassname="active">Terms & Condition</NavLink>             
             </div>
+
+            <div className="col-lg-3 col-md-6">
+              <h3 className="text-white mb-4 d-flex justify-content-center">{t('login')}</h3>
+              <p >{t('login-to-view-your-account')}</p>
+              <div className=" mx-auto" style={{ maxWidth: '400px' }}>
+                <input className="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="User Name" />
+                <input className="form-control bg-transparent w-100 py-3 ps-4 mt-2 pe-5" type="password" placeholder="Password" />               
+                <div className="d-flex justify-content-end">
+                  {/* <button 
+                    type="button" 
+                    className="btn btn-primary mt-2">
+                    Login
+                  </button> */}
+                
+                </div>
+              </div>
+            </div>
   
             <div className="col-lg-3 col-md-6">
               <h3 className="text-white mb-4">Photo Gallery</h3>
@@ -67,21 +84,7 @@ export default function Footer() {
               </div>
             </div>
   
-            <div className="col-lg-3 col-md-6">
-              <h3 className="text-white mb-4 d-flex justify-content-center">{t('login')}</h3>
-              <p >{t('login-to-view-your-account')}</p>
-              <div className=" mx-auto" style={{ maxWidth: '400px' }}>
-                <input className="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="User Name" />
-                <input className="form-control bg-transparent w-100 py-3 ps-4 mt-2 pe-5" type="password" placeholder="Password" />               
-                <div className="d-flex justify-content-end">
-                  <button 
-                    type="button" 
-                    className="btn btn-primary mt-2">
-                    SignUp
-                  </button>
-                </div>
-              </div>
-            </div>
+           
           </div>
         </div>
   
