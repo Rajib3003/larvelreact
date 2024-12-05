@@ -145,7 +145,7 @@ export default function Notice() {
           </p>
         </div>
 
-        <div className={styles.searchContainer}>
+        {/* <div className={styles.searchContainer}>
           
           <input
             type="text"
@@ -175,7 +175,54 @@ export default function Notice() {
           <button className="btn btn-secondary" onClick={handleReset}>
             Reset
           </button>
-        </div>
+        </div> */}
+<div className={`${styles.searchContainer} container`}>
+  <div className="row g-3 align-items-center">
+    {/* Search by Notice Title */}
+    <div className="col-md-6 col-lg-4">
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Search By Notice Title"
+        value={searchText}
+        onChange={(e) => {
+          setSearchText(e.target.value);
+          handleSearch(e.target.value);
+        }}
+      />
+    </div>
+
+    {/* Start Date */}
+    <div className="col-md-3 col-lg-2">
+      <input
+        type="date"
+        className="form-control"
+        value={startDate}
+        onChange={(e) => setStartDate(e.target.value)}
+      />
+    </div>
+
+    {/* End Date */}
+    <div className="col-md-3 col-lg-2">
+      <input
+        type="date"
+        className="form-control"
+        value={endDate}
+        onChange={(e) => setEndDate(e.target.value)}
+      />
+    </div>
+
+    {/* Buttons */}
+    <div className="col-md-6 col-lg-4 d-flex justify-content-end gap-2">
+      <button className="btn btn-primary" onClick={handleSearch}>
+        Search
+      </button>
+      <button className="btn btn-secondary" onClick={handleReset}>
+        Reset
+      </button>
+    </div>
+  </div>
+</div>
 
         
 
@@ -199,7 +246,7 @@ export default function Notice() {
         </div>
 
         {/* Pagination */}      
-        <div className="d-flex justify-content-center mt-4">
+        {/* <div className="d-flex justify-content-center mt-4">
         <select
             className="form-select w-auto"
             value={noticesPerPage}
@@ -241,7 +288,61 @@ export default function Notice() {
           >
             Last
           </button>
-        </div>
+        </div> */}
+
+<div className="container mt-4">
+  <div className="row align-items-center justify-content-center g-2">
+    {/* Items per page selector */}
+    <div className="col-auto">
+      <select
+        className="form-select w-auto"
+        value={noticesPerPage}
+        onChange={(e) => {
+          setNoticesPerPage(Number(e.target.value));
+          setCurrentPage(1); // Reset to the first page when changing items per page
+        }}
+      >
+        <option value={5}>5</option>
+        <option value={10}>10</option>
+        <option value={20}>20</option>
+      </select>
+    </div>
+
+    {/* Pagination buttons */}
+    <div className="col-auto d-flex flex-wrap justify-content-center gap-2">
+      <button
+        className="btn btn-outline-secondary"
+        onClick={() => paginate(1)}
+        disabled={currentPage === 1}
+      >
+        First
+      </button>
+      <button
+        className="btn btn-outline-secondary"
+        onClick={() => paginate(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        Previous
+      </button>
+      {paginationButtons}
+      <button
+        className="btn btn-outline-secondary"
+        onClick={() => paginate(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        Next
+      </button>
+      <button
+        className="btn btn-outline-secondary"
+        onClick={() => paginate(totalPages)}
+        disabled={currentPage === totalPages}
+      >
+        Last
+      </button>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );

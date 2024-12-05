@@ -18,6 +18,8 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
     setIsLoggedIn(false); 
   };
 
+  //useEffect ar jonno header kaj kortache na 
+
   useEffect(() => {
     if (!isLoggedIn) {
       navigate('/'); 
