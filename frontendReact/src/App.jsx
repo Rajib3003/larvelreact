@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation,Navigate } from "react-router-dom";
 import Header from "./layout/header";
 import Footer from "./layout/Footer";
 import Home from "./pages/Home";
@@ -20,11 +20,18 @@ import Login from "./layout/Login";
 
 const baseURLFrontend = import.meta.env.VITE_FRONTEND_BASE_PATH;
 
+function ProtectedRoute({ isLoggedIn, children }) {
+  if (!isLoggedIn) {
+    return <Navigate to="/" replace />;
+  }
+  return children;
+}
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     const savedLoginState = localStorage.getItem("isLoggedIn");
     const lastActiveTime = localStorage.getItem("lastActiveTime");
-    const oneHour = 5 * 60 * 1000;
+    const oneHour = 1 * 60 * 1000;
 
     if (savedLoginState === "true" && Date.now() - lastActiveTime < oneHour) {
       return true;
@@ -45,7 +52,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       const lastActiveTime = localStorage.getItem("lastActiveTime");
-      const oneHour = 5 * 60 * 1000;
+      const oneHour = 1 * 60 * 1000;
 
       if (isLoggedIn && Date.now() - lastActiveTime >= oneHour) {
         setIsLoggedIn(false);        
@@ -54,6 +61,30 @@ function App() {
 
     return () => clearInterval(interval);
   }, [isLoggedIn]);
+
+  // return (
+  //   <Router basename={baseURLFrontend}>
+  //     <ConditionalLayout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
+  //       <Routes>
+  //         <Route path="/" element={<Home />} />
+  //         <Route path="/aboutus" element={<Aboutus />} />
+  //         <Route path="/classes" element={<Classes />} />
+  //         <Route path="/facilities" element={<Facilities />} />
+  //         <Route path="/team" element={<Teacher />} />
+  //         <Route path="/appointment" element={<Appointment />} />
+  //         <Route path="/testimonial" element={<Testimonial />} />
+  //         <Route path="/homework" element={<Homework />} />
+  //         <Route path="/contact" element={<Contactus />} />
+  //         <Route path="/notice" element={<Notice />} />
+  //         <Route path="/noticedetails/:id" element={<NoticeDetails />} />
+  //         <Route path="/teachers" element={<TeacherList />} />
+  //         <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
+  //         <Route path="/student-profile" element={<StudentProfile />} />
+  //         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+  //       </Routes>
+  //     </ConditionalLayout>
+  //   </Router>
+  // );
 
   return (
     <Router basename={baseURLFrontend}>
@@ -72,7 +103,14 @@ function App() {
           <Route path="/noticedetails/:id" element={<NoticeDetails />} />
           <Route path="/teachers" element={<TeacherList />} />
           <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
-          <Route path="/student-profile" element={<StudentProfile />} />
+          <Route
+            path="/student-profile"
+            element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <StudentProfile />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         </Routes>
       </ConditionalLayout>
