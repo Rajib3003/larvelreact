@@ -30,8 +30,8 @@
   }
   
   .searchContainer {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
     margin-bottom: 20px;
   }
   
@@ -83,4 +83,12 @@
     padding: 5px 15px;
     cursor: pointer;
   }
+
+
+  @media (min-width: 992px) {
+    .searchContainer {
+      padding: 10px;
+    }
+  }
+  
   

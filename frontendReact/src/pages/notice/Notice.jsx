@@ -179,7 +179,7 @@ export default function Notice() {
 <div className={`${styles.searchContainer} container`}>
   <div className="row g-3 align-items-center">
     {/* Search by Notice Title */}
-    <div className="col-md-6 col-lg-4">
+    <div className="col-12 col-md-6 col-lg-4">
       <input
         type="text"
         className="form-control"
@@ -193,7 +193,7 @@ export default function Notice() {
     </div>
 
     {/* Start Date */}
-    <div className="col-md-3 col-lg-2">
+    <div className="col-6 col-md-3 col-lg-2">
       <input
         type="date"
         className="form-control"
@@ -203,7 +203,7 @@ export default function Notice() {
     </div>
 
     {/* End Date */}
-    <div className="col-md-3 col-lg-2">
+    <div className="col-6 col-md-3 col-lg-2">
       <input
         type="date"
         className="form-control"
@@ -213,7 +213,7 @@ export default function Notice() {
     </div>
 
     {/* Buttons */}
-    <div className="col-md-6 col-lg-4 d-flex justify-content-end gap-2">
+    <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-md-end justify-content-center gap-2">
       <button className="btn btn-primary" onClick={handleSearch}>
         Search
       </button>
@@ -223,6 +223,7 @@ export default function Notice() {
     </div>
   </div>
 </div>
+
 
         
 
