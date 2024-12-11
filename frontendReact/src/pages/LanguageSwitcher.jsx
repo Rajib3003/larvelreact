@@ -12,7 +12,7 @@ const LanguageSwitcher = () => {
 
   return (
     <a
-      className="btn btn-primary rounded-pill px-3 d-none d-lg-block"
+      className="btn btn-primary rounded-pill px-3 "
       onClick={() => changeLanguage(isBangla ? 'en' : 'bn')} // Toggle language on click
       style={{ cursor: 'pointer' }}
     >

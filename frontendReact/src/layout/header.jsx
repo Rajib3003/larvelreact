@@ -73,17 +73,19 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
           <NavLink to="/contact" className="nav-item nav-link">
             Contact Us
           </NavLink>
+        </div>       
+        <div className="d-flex flex-column flex-md-row align-items-start justify-content-start">
+          <LanguageSwitcher />
+          {isLoggedIn ? (
+            <button className="btn btn-danger mt-2 mt-md-0 ms-0 ms-md-2" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <button className="btn btn-success mt-2 mt-md-0 ms-0 ms-md-2" onClick={() => navigate('/login')}>
+              Login
+            </button>
+          )}
         </div>
-        <LanguageSwitcher />
-        {isLoggedIn ? (
-          <button className="btn btn-danger ms-2" onClick={handleLogout}>
-            Logout
-          </button>
-        ) : (
-          <button className="btn btn-success ms-2" onClick={() => navigate('/login')}>
-            Login
-          </button>
-        )}
       </div>
     </nav>
   );
