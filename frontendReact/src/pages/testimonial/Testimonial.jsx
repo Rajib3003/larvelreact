@@ -1,30 +1,29 @@
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+
 import testimonialImageOne from '/assets/frontend_assets/img/testimonial-1.jpg';
 import testimonialImageTwo from '/assets/frontend_assets/img/testimonial-2.jpg';
 import testimonialImageThree from '/assets/frontend_assets/img/testimonial-3.jpg';
-export default function Testimonial() {
-  const options = {
-    items: 1,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    nav: true,
-    dots: true,
-  };
 
+export default function TestimonialCarousel() {
   return (
-    <div className="container-xxl py-5">
-      <div className="container">
-        <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
-          <h1 className="mb-3">Our Clients Say!</h1>
-          <p>
-            Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
-          </p>
-        </div>
-        <OwlCarousel className="testimonial-carousel" {...options}>
+    <div className="container-fluid py-5">
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination]}
+        spaceBetween={30}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        navigation
+        pagination={{ clickable: true }}
+        className="testimonial-carousel"
+      >
+        {/* Slide 1 */}
+        <SwiperSlide>
           <div className="testimonial-item bg-light rounded p-5">
             <p className="fs-5">
               Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos.
@@ -38,6 +37,10 @@ export default function Testimonial() {
               <i className="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
             </div>
           </div>
+        </SwiperSlide>
+
+        {/* Slide 2 */}
+        <SwiperSlide>
           <div className="testimonial-item bg-light rounded p-5">
             <p className="fs-5">
               Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos.
@@ -51,6 +54,10 @@ export default function Testimonial() {
               <i className="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
             </div>
           </div>
+        </SwiperSlide>
+
+        {/* Slide 3 */}
+        <SwiperSlide>
           <div className="testimonial-item bg-light rounded p-5">
             <p className="fs-5">
               Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos.
@@ -64,8 +71,8 @@ export default function Testimonial() {
               <i className="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
             </div>
           </div>
-        </OwlCarousel>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 }

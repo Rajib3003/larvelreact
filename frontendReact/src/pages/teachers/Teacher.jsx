@@ -1,8 +1,11 @@
 import teamImageOne from "/assets/frontend_assets/img/team-4.jpg";
-import teamImageTwo from "/assets/frontend_assets/img/team-3.jpg";
+import teamImageTwo from "/assets/frontend_assets/img/team-5.jpeg";
 import teamImageThree from "/assets/frontend_assets/img/team-3.jpg";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Teacher() {
+  const navigate = useNavigate();
     return (
       <div className="container-xxl py-5">
         <div className="container">
@@ -16,25 +19,36 @@ export default function Teacher() {
           <div className="row g-4">
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <div className="team-item position-relative">
-                <img className="img-fluid rounded-circle w-75" src={teamImageOne} alt="Mithun Mojundar" />
-                <a href="#" className="text-decoration-none">
-                <div className="team-text">
+                <img className="img-fluid rounded-circle w-75" src={teamImageOne} alt="Mithun Mojundar" />            
+                <div
+                    style={{ cursor: 'pointer' }}
+                    className="team-text text-center"
+                    onClick={() => navigate('/teacher-profile')}
+                  >
                   <h3>Mithun Mojundar</h3>
                   <p>Head Teacher</p>
-                  <div className="d-flex align-items-center">
-                    <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-facebook-f"></i></a>
-                    <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-twitter"></i></a>
-                    <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
+                  <div className="d-flex align-items-center justify-content-center">
+                    <a className="btn btn-square btn-primary mx-1" href="#">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a className="btn btn-square btn-primary mx-1" href="#">
+                      <i className="fab fa-twitter"></i>
+                    </a>
+                    <a className="btn btn-square btn-primary mx-1" href="#">
+                      <i className="fab fa-instagram"></i>
+                    </a>
                   </div>
                 </div>
-                </a>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
               <div className="team-item position-relative">
-                <img className="img-fluid rounded-circle w-75" src={teamImageTwo} alt="Jannatul Ferdous" />
-                <a href="#" className="text-decoration-none">
-                <div className="team-text">
+                <img className="img-fluid rounded-circle w-75" src={teamImageTwo} alt="Jannatul Ferdous" />               
+                 <div
+                    style={{ cursor: 'pointer' }}
+                    className="team-text text-center"
+                    onClick={() => navigate('/teacher-profile')}
+                  >
                   <h3>Jannatul Ferdous</h3>
                   <p>In-Charge</p>
                   <div className="d-flex align-items-center">
@@ -42,15 +56,17 @@ export default function Teacher() {
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-twitter"></i></a>
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
                   </div>
-                </div>
-                </a>
+                </div>                
               </div>
             </div>
             <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
               <div className="team-item position-relative">
-                <img className="img-fluid rounded-circle w-75" src={teamImageThree} alt="Tajbin Bhuiyan" />
-                <a href="#" className="text-decoration-none">
-                <div className="team-text">
+                <img className="img-fluid rounded-circle w-75" src={teamImageThree} alt="Tajbin Bhuiyan" />                
+                 <div
+                    style={{ cursor: 'pointer' }}
+                    className="team-text text-center"
+                    onClick={() => navigate('/teacher-profile')}
+                  >
                   <h3>Tajbin Bhuiyan</h3>
                   <p>In-Charge</p>
                   <div className="d-flex align-items-center">
@@ -58,8 +74,7 @@ export default function Teacher() {
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-twitter"></i></a>
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
                   </div>
-                </div>
-                </a>
+                </div>                
               </div>
             </div>                    
           </div>
