@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # যদি ফাইল বা ফোল্ডার আসলেই থাকে তাহলে serve করো
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # না থাকলে সবসময় index.html serve করো
+  RewriteRule . /index.html [L]
+</IfModule>

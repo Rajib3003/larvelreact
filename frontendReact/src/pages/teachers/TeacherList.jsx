@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // Placeholder images for teachers
 import classesImage1 from '/assets/frontend_assets/img/play-1.png';
@@ -59,7 +59,7 @@ export default function TeacherList() {
                     <p className="d-block text-center">Teacher {post.id}</p>
                     <div className="row g-1">
                       <p>
-                        {post.body.slice(0, 100)}...
+                        {post.body.slice(0, 100)}...</p>
                         <div className="d-flex justify-content-end">
                           <button
                             className="btn btn-primary ms-2"
@@ -68,7 +68,7 @@ export default function TeacherList() {
                             Read More
                           </button>
                         </div>
-                      </p>
+                      {/* </p> */}
                     </div>
                   </div>
                 </div>
