@@ -17,15 +17,23 @@ import TeacherDetails from "./pages/teachers/TeacherDetails";
 import NoticeDetails from "./pages/notice/NoticeDetails";
 import StudentProfile from "./pages/profile/StudentProfile";
 import Login from "./layout/Login";
+import PropTypes from "prop-types";
+
+
 
 const baseURLFrontend = import.meta.env.VITE_FRONTEND_BASE_PATH;
-
 function ProtectedRoute({ isLoggedIn, children }) {
   if (!isLoggedIn) {
     return <Navigate to="/" replace />;
   }
   return children;
 }
+
+ProtectedRoute.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -130,5 +138,11 @@ function ConditionalLayout({ children, isLoggedIn, setIsLoggedIn }) {
     </>
   );
 }
+
+ConditionalLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  setIsLoggedIn: PropTypes.func.isRequired,
+};
 
 export default App;
