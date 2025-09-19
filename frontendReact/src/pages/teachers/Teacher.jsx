@@ -2,18 +2,19 @@ import teamImageOne from "/assets/frontend_assets/img/team-4.jpg";
 import teamImageTwo from "/assets/frontend_assets/img/team-5.jpeg";
 import teamImageThree from "/assets/frontend_assets/img/team-3.jpg";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 export default function Teacher() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
     return (
       <div className="container-xxl py-5">
         <div className="container">
           <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
-            <h1 className="mb-3">Popular Teachers</h1>
+            <h1 className="mb-3">{t('popular-teachers')}</h1>
             <p>
-              Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-              eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
+              {t('teacher-description')}
             </p>
           </div>
           <div className="row g-4">
@@ -25,8 +26,8 @@ export default function Teacher() {
                     className="team-text text-center"
                     onClick={() => navigate('/teacher-profile')}
                   >
-                  <h3>Mithun Mojundar</h3>
-                  <p>Head Teacher</p>
+                  <h3>{t('mitun-mazumder')}</h3>
+                  <p>{t('head-teacher')}</p>
                   <div className="d-flex align-items-center justify-content-center">
                     <a className="btn btn-square btn-primary mx-1" href="#">
                       <i className="fab fa-facebook-f"></i>
@@ -49,8 +50,8 @@ export default function Teacher() {
                     className="team-text text-center"
                     onClick={() => navigate('/teacher-profile')}
                   >
-                  <h3>Jannatul Ferdous</h3>
-                  <p>In-Charge</p>
+                  <h3>{t('jannatul-ferdous')}</h3>
+                  <p>{t('in-charge')}</p> 
                   <div className="d-flex align-items-center">
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-facebook-f"></i></a>
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-twitter"></i></a>
@@ -67,8 +68,8 @@ export default function Teacher() {
                     className="team-text text-center"
                     onClick={() => navigate('/teacher-profile')}
                   >
-                  <h3>Tajbin Bhuiyan</h3>
-                  <p>In-Charge</p>
+                  <h3>{t('tajbin-bhuiyan')}</h3>
+                  <p>{t('in-charge')}</p>
                   <div className="d-flex align-items-center">
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-facebook-f"></i></a>
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-twitter"></i></a>

@@ -1,10 +1,71 @@
 {
-    "language": "বাংলা",
-    "home": "Home",
-    "school-facilities":"School Facilities",    
-    "login":"Login",    
-    "login-to-view-your-account":"Login to view your account",    
-    "our-school-provides-all-modern-facilities-to-ensure-the-overall-development-of-students-and-a-safe-environment":"Our school provides all modern facilities to ensure the overall development of students and a safe environment."    
+  "5-6-years": "5-6 Years",
+  "9-10-am": "9-10 AM",
+  "30-kids": "30 Kids",  
+
+  "age": "Age",
+  "all-teachers-description": "All our teachers are highly qualified and experienced. They are caring towards students and committed to making the learning process enjoyable and effective. Our teachers use modern teaching methods to assist in the mental and intellectual development of students.",
+  "all-teachers-list": "All Teachers List",
+  "alo-rani-saha": "Alo Rani Saha",
+  "assistant-teacher": "Assistant Teacher",
+
+  "capacity": "Capacity",
+  "class": "Class",  
+  "class-playgroup": "Playgroup",
+  "class-nursery": "Nursery",
+  "class-lkg": "LKG",
+  "class-ukg": "UKG",
+  "class-one": "Class One",
+  "class-two": "Class Two",
+  "class-three": "Class Three",
+  "class-four": "Class Four",
+  "class-five": "Class Five",
+  "class-six": "Class Six",
+  "class-seven": "Class Seven",
+  "class-eight": "Class Eight",
+  "class-nine": "Class Nine",
+  "class-ten": "Class Ten",
+  "contact-us": "Contact Us",
+
+  "class-description": "Each of our school classes is designed to support students' mental and intellectual development. Lessons are conducted in a modern and easy-to-understand way, making learning enjoyable and effective. Under proper guidance and the care of dedicated teachers, students grow to be confident and creative.",
+
+  "drawing-teacher": "Drawing Teacher",
+
+  "head-teacher": "Head Teacher",
+  "home": "Home",
+
+  "in-charge": "In-Charge",
+
+  "jannatul-ferdous": "Jannatul Ferdous",
+
+  "kabi-mowshumi-mow": "Kabi Mowshumi Mow",
+  
+  "language": "বাংলা",    
+  "login":"Login",    
+  "login-to-view-your-account":"Login to view your account",  
+
+  "mansura": "Mansura",
+  "mitu-rani-halder": "Mitu Rani Halder",
+  "mitun-mazumder":"Mitun Mazumder",  
+  "music-teacher": "Music Teacher",
+
+  "nasima-khan": "Nasima Khan",
+  "nironjona-ghosh-proma": "Nironjona Ghosh Proma",
+    
+  "our-classes":"Our Classes",
+  "our-school-provides-all-modern-facilities-to-ensure-the-overall-development-of-students-and-a-safe-environment":"Our school provides all modern facilities to ensure the overall development of students and a safe environment.",    
+  
+  "popular-teachers":"Popular Teachers",
+
+  "rabea-alamgir": "Rabea Alamgir",
+  "rita-khatun": "Rita Khatun",
+
+  "school-facilities":"School Facilities",
+  "sinior-assistant-teacher": "Senior Assistant Teacher",
+
+  "tajbin-bhuiyan": "Tajbin Bhuiyan",  
+  "teacher-description": "We are committed to the intellectual, creative, and character development of students through quality education, modern teaching, and caring teachers. Each class is a new opportunity on their path to a bright future. We provide a platform for students where we assist them.",
+  "time": "Time"
   }
   
   
