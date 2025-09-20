@@ -1,7 +1,20 @@
 {
   "5-6-years": "5-6 Years",
   "9-10-am": "9-10 AM",
-  "30-kids": "30 Kids",  
+  "10-kids": "10 Kids",  
+  "30-kids": "30 Kids", 
+  "preplayshift1": "08:00 AM - 09:30 AM", 
+  "preplayshift2": "10:00 AM - 11:30 AM", 
+  "preplayshift3": "12:01 PM - 01:30 PM", 
+  "playshift1": "08:00 AM - 10:00 AM", 
+  "playshift2": "10:20 AM - 12:20 PM", 
+  "playshift3": "12:30 PM - 02:30 PM", 
+  "nursery1": "08:00 AM - 10:00 AM", 
+  "nursery2": "10:20 AM - 12:20 PM", 
+  "nursery3": "12:30 PM - 02:30 PM", 
+  "kg1": "08:00 AM - 10:40 AM", 
+  "kg2": "11:00 AM - 01:40 PM", 
+  
 
   "age": "Age",
   "all-teachers-description": "All our teachers are highly qualified and experienced. They are caring towards students and committed to making the learning process enjoyable and effective. Our teachers use modern teaching methods to assist in the mental and intellectual development of students.",
@@ -11,10 +24,10 @@
 
   "capacity": "Capacity",
   "class": "Class",  
-  "class-playgroup": "Playgroup",
+  "class-pre-play": "Pre-Play",
+  "class-play": "Play",
   "class-nursery": "Nursery",
-  "class-lkg": "LKG",
-  "class-ukg": "UKG",
+  "class-kg": "KG",  
   "class-one": "Class One",
   "class-two": "Class Two",
   "class-three": "Class Three",
@@ -29,6 +42,7 @@
 
   "class-description": "Each of our school classes is designed to support students' mental and intellectual development. Lessons are conducted in a modern and easy-to-understand way, making learning enjoyable and effective. Under proper guidance and the care of dedicated teachers, students grow to be confident and creative.",
 
+  "day":"Day",
   "drawing-teacher": "Drawing Teacher",
 
   "head-teacher": "Head Teacher",
@@ -47,6 +61,8 @@
   "mansura": "Mansura",
   "mitu-rani-halder": "Mitu Rani Halder",
   "mitun-mazumder":"Mitun Mazumder",  
+  "morning-a":"Morning-A",
+  "morning-b":"Morning-B",
   "music-teacher": "Music Teacher",
 
   "nasima-khan": "Nasima Khan",
@@ -61,6 +77,7 @@
   "rita-khatun": "Rita Khatun",
 
   "school-facilities":"School Facilities",
+  "shift": "Shift",
   "sinior-assistant-teacher": "Senior Assistant Teacher",
 
   "tajbin-bhuiyan": "Tajbin Bhuiyan",  
