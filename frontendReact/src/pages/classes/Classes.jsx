@@ -36,7 +36,7 @@ export default function Classes() {
               shift1={t("playshift1")}
               shift2={t("playshift2")}
               shift3={t("playshift3")} 
-              capacity={t("30-kids")} 
+              capacity={t("25-kids")} 
             />         
             <SingleClass 
               image={teamImageOne} 
@@ -44,47 +44,77 @@ export default function Classes() {
               shift1={t("nursery1")}
               shift2={t("nursery2")}
               shift3={t("nursery3")} 
-              capacity={t("30-kids")} 
+              capacity={t("25-kids")} 
             />         
             <SingleClass 
             image={teamImageOne} 
             classTitle={t("class-kg")} 
             shift1={t("kg1")}
             shift2={t("kg2")}            
-            capacity={t("30-kids")} 
+            capacity={t("25-kids")} 
             />                      
             <SingleClass 
             image={teamImageOne} 
             classTitle={t("class-one")} 
-            shift1={t("kg1")}
-            shift2={t("kg2")}  
-            capacity={t("30-kids")} 
+            shift1={t("one1")}
+            shift2={t("one2")}  
+            capacity={t("25-kids")} 
             />         
             <SingleClass 
             image={teamImageOne} 
             classTitle={t("class-two")} 
-            shift1={t("kg1")}
-            shift2={t("kg2")}   
-            capacity={t("30-kids")} 
+            shift1={t("two1")}
+            shift2={t("two2")}   
+            capacity={t("25-kids")} 
             />         
             <SingleClass 
             image={teamImageOne} 
             classTitle={t("class-three")} 
-            shift1={t("kg1")}
-            shift2={t("kg2")}  
-            capacity={t("30-kids")} 
+            shift1={t("three1")}
+            shift2={t("three2")}  
+            capacity={t("25-kids")} 
             />         
             <SingleClass 
             image={teamImageOne} 
             classTitle={t("class-four")} 
-            shift1={t("kg1")}             
-            capacity={t("30-kids")} 
+            shift1={t("four1")}             
+            capacity={t("25-kids")} 
             />         
             <SingleClass 
             image={teamImageOne} 
             classTitle={t("class-five")} 
-            shift1={t("kg1")}            
-            capacity={t("30-kids")} 
+            shift1={t("five1")}            
+            capacity={t("25-kids")} 
+            />         
+            <SingleClass 
+            image={teamImageOne} 
+            classTitle={t("class-six")} 
+            shift2={t("six2")}            
+            capacity={t("25-kids")} 
+            />         
+            <SingleClass 
+            image={teamImageOne} 
+            classTitle={t("class-seven")} 
+            shift2={t("seven2")}            
+            capacity={t("25-kids")} 
+            />         
+            <SingleClass 
+            image={teamImageOne} 
+            classTitle={t("class-eight")} 
+            shift2={t("eight2")}            
+            capacity={t("25-kids")} 
+            />         
+            <SingleClass 
+            image={teamImageOne} 
+            classTitle={t("class-nine")} 
+            shift2={t("nine2")}            
+            capacity={t("25-kids")} 
+            />         
+            <SingleClass 
+            image={teamImageOne} 
+            classTitle={t("class-ten")} 
+            shift1={t("ten1")}            
+            capacity={t("25-kids")} 
             />         
                      
                      
