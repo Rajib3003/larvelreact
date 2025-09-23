@@ -11,4 +11,10 @@ Currently, two official plugins are available:
 
 # work panding 
 - mobile version heade uthe na
+- admission information add korte hobe 
+- event information add korte hobe
+- notice create database a store and forntend a show korte hobe.
+- about us text fixed korte hobe
+- wps.personlbd.com likhle google first a ase na tar jonno kaj korte hobe
+- home work create and data show korte hobe.
 
