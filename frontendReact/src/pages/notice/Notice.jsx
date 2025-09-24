@@ -237,10 +237,16 @@ export default function Notice() {
                 </div>
                 <button
                   className="btn btn-info"
-                  onClick={() => window.open(`${import.meta.env.BASE_URL}/noticedetails/${notice.id}`, '_self')}                  
+                  onClick={() => 
+                    window.open(
+                      `${import.meta.env.VITE_FRONTEND_BASE_PATH}noticedetails/${notice.id}`, 
+                      '_self'
+                    )
+                  }                  
                 >
                   + Read More
-                </button>
+                </button>               
+
               </div>
             ))}
           </div>

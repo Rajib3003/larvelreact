@@ -18,6 +18,7 @@ import NoticeDetails from "./pages/notice/NoticeDetails";
 import StudentProfile from "./pages/profile/StudentProfile";
 import Login from "./layout/Login";
 import PropTypes from "prop-types";
+import AdmissionInformation from "./pages/admission-information/AdmissionInformation";
 
 
 
@@ -111,6 +112,7 @@ function App() {
           <Route path="/noticedetails/:id" element={<NoticeDetails />} />
           <Route path="/teachers" element={<TeacherList />} />
           <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
+          <Route path="/admission-information" element={<AdmissionInformation />} />
           <Route
             path="/student-profile"
             element={
