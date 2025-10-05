@@ -68,31 +68,7 @@ function App() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isLoggedIn]);
-
-  // return (
-  //   <Router basename={baseURLFrontend}>
-  //     <ConditionalLayout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
-  //       <Routes>
-  //         <Route path="/" element={<Home />} />
-  //         <Route path="/aboutus" element={<Aboutus />} />
-  //         <Route path="/classes" element={<Classes />} />
-  //         <Route path="/facilities" element={<Facilities />} />
-  //         <Route path="/team" element={<Teacher />} />
-  //         <Route path="/appointment" element={<Appointment />} />
-  //         <Route path="/testimonial" element={<Testimonial />} />
-  //         <Route path="/homework" element={<Homework />} />
-  //         <Route path="/contact" element={<Contactus />} />
-  //         <Route path="/notice" element={<Notice />} />
-  //         <Route path="/noticedetails/:id" element={<NoticeDetails />} />
-  //         <Route path="/teachers" element={<TeacherList />} />
-  //         <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
-  //         <Route path="/student-profile" element={<StudentProfile />} />
-  //         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-  //       </Routes>
-  //     </ConditionalLayout>
-  //   </Router>
-  // );
+  }, [isLoggedIn]);  
 
   return (
     <Router basename={baseURLFrontend}>
