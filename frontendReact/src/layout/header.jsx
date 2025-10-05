@@ -50,6 +50,9 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
               <NavLink to="/team" className="dropdown-item">
                 Popular Teachers
               </NavLink>
+              <NavLink to="/admission-information" className="dropdown-item">
+                Admission Information
+              </NavLink>
               <NavLink to="/classes" className="dropdown-item">
                 Classes
               </NavLink>
