@@ -7,8 +7,10 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import carosuelImageOne from '/assets/frontend_assets/img/carousel-3.png';
 import carosuelImageTwo from '/assets/frontend_assets/img/carousel-1.png';
+import { useTranslation } from 'react-i18next';
 
 export default function Carousel() {
+    const { t } = useTranslation();
   return (
     <div className="container-fluid p-0 mb-5">
       <Swiper
@@ -42,18 +44,43 @@ export default function Carousel() {
                     <p className="fs-5 fw-medium text-white mb-4 pb-2">
                       Will Power School is dedicated to providing high-quality education...
                     </p>
-                    <a
+                    {/* <a
                       href="#"
                       className="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft"
                     >
                       Learn More
-                    </a>
-                    <a
+                    </a> */}
+                     <span
+    style={{
+      position: "absolute",      
+      background: "red",
+      color: "white",
+      padding: "15px 20px",
+      borderRadius: "20px",
+      fontWeight: "bold",
+      fontSize: "12px",
+      animation: "pulse 1.5s infinite",
+      boxShadow: "0 0 10px rgba(249, 201, 27, 0.7)"
+    }}
+  >
+    {t('freeclass')}
+  </span>
+
+  <style>
+    {`
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.8; }
+      }
+    `}
+  </style>
+                    {/* <a
                       href="#"
                       className="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight"
                     >
                       Our Classes
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
