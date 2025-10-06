@@ -20,6 +20,7 @@ export default function TestimonialCarousel() {
 }
   return (
     <div className="container-fluid py-5">
+      <div className="container">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={30}
@@ -65,21 +66,7 @@ export default function TestimonialCarousel() {
         </SwiperSlide>
 
         {/* Slide 2 */}
-        {/* <SwiperSlide>
-          <div className="testimonial-item bg-light rounded p-5">
-            <p className="fs-5">
-              Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos.
-            </p>
-            <div className="d-flex align-items-center bg-white me-n5" style={{ borderRadius: '50px 0 0 50px' }}>
-              <img className="img-fluid flex-shrink-0 rounded-circle" src={testimonialImageTwo} alt="Client 2" style={{ width: '90px', height: '90px' }} />
-              <div className="ps-3">
-                <h3 className="mb-1">Client Name 2</h3>
-                <span>Profession 2</span>
-              </div>
-             
-            </div>
-          </div>
-        </SwiperSlide> */}
+        
         <SwiperSlide>
           <div
             className="testimonial-item bg-light rounded p-5 d-flex flex-column justify-content-between"
@@ -171,6 +158,7 @@ export default function TestimonialCarousel() {
           </div>
         </SwiperSlide>
       </Swiper>
+      </div>
     </div>
   );
 }

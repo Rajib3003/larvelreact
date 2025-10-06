@@ -29,14 +29,19 @@
   "ten1": "07:30 AM - 11:00 AM",
   
 
+  "about-us": "About Us",
+  "admission-fee": "Admission Fee",
+  "admission-information": "Admission Information",
   "age": "Age",
   "all-teachers-description": "All our teachers are highly qualified and experienced. They are caring towards students and committed to making the learning process enjoyable and effective. Our teachers use modern teaching methods to assist in the mental and intellectual development of students.",
   "all-teachers-list": "All Teachers List",
   "alo-rani-saha": "Alo Rani Saha",
   "assistant-teacher": "Assistant Teacher",
+  "appointment": "Appointment",
 
   "capacity": "Capacity",
   "class": "Class",  
+  "classes": "Classes",
   "class-pre-play": "Pre-Play",
   "class-play": "Play",
   "class-nursery": "Nursery",
@@ -58,8 +63,12 @@
   "day":"Day",
   "drawing-teacher": "Drawing Teacher",
 
+  "error-page": "Error Page",  
+  "faqs": "FAQ",
+
   "head-teacher": "Head Teacher",
   "home": "Home",
+  "homework": "Homework",
 
   "in-charge": "In-Charge",
 
@@ -71,6 +80,7 @@
   "language": "বাংলা",    
   "login":"Login",    
   "login-to-view-your-account":"Login to view your account",  
+  "logout":"Logout",
 
   "mansura": "Mansura",
   "mitu-rani-halder": "Mitu Rani Halder",
@@ -81,12 +91,16 @@
 
   "nasima-khan": "Nasima Khan",
   "nasrin-akter": "Nasrin Akter",
+  "new-student-information": "New Student Information",
   "nironjona-ghosh-proma": "Nironjona Ghosh Proma",
+  "notice": "Notice",
   "number-of-seats": "Number of Seats",
     
+  "old-student-information": "Old Student Information",
   "our-classes":"Our Classes",
   "our-school-provides-all-modern-facilities-to-ensure-the-overall-development-of-students-and-a-safe-environment":"Our school provides all modern facilities to ensure the overall development of students and a safe environment.",    
   
+  "pages":"Pages",
   "popular-teachers":"Popular Teachers",
 
   "rabea-alamgir": "Rabea Alamgir",
@@ -101,8 +115,11 @@
 
   "tajbin-bhuiyan": "Tajbin Bhuiyan",  
   "tamanna-akter": "Tamanna Akter",
+  "teachers": "Teachers",
   "teacher-description": "We are committed to the intellectual, creative, and character development of students through quality education, modern teaching, and caring teachers. Each class is a new opportunity on their path to a bright future. We provide a platform for students where we assist them.",
-  "time": "Time"
+  "testimonials": "Testimonials",
+  "time": "Time",
+  "total-fee": "Total Fee"
   }
   
   

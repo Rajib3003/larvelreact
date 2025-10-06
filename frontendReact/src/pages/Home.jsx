@@ -1,5 +1,6 @@
 // import Aboutus from "./aboutus/Aboutus";
 // import Appointment from "./appointment/Appointment";
+import AdmissionInformation from "./admission-information/AdmissionInformation";
 import Carousel from "./carousel/Carousel";
 import Classes from "./classes/Classes";
 import Facilities from "./facilities/Facilities";
@@ -11,6 +12,7 @@ export default function Home() {
     <div>
       <Carousel />
       <Facilities />
+      <AdmissionInformation />
       {/* <Aboutus /> */}
       <Classes />
       {/* <Appointment /> */}
