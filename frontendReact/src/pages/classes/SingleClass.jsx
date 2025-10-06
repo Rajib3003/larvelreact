@@ -23,7 +23,7 @@ import { useTranslation } from 'react-i18next';
                             <h6 className="text-primary mb-1 d-inline">{t("time")}</h6>                    
                         </div>
                         <div>
-                            <h6 className="text-primary mb-1 d-inline">{t("capacity")}</h6>                    
+                            <h6 className="text-primary mb-1 d-inline">{t("number-of-seats")}</h6>                    
                         </div>
                     </div>
                 </div>

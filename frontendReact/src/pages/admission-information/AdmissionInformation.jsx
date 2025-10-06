@@ -5,8 +5,7 @@ export default function AdmissionInformation() {
     <div className="container-xxl py-5">
       <div className="container">
         <div className="bg-light rounded">
-          <div className="row g-0">
-            {/* Left Side: Class Information Table */}
+          <div className="row g-0">            
             <div className="col-lg-6 p-5 ">
               <h2 className="mb-4">Admission Information</h2>
               <table className="table table-bordered">

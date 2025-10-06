@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 import carosuelImageOne from '/assets/frontend_assets/img/carousel-3.png';
 import carosuelImageTwo from '/assets/frontend_assets/img/carousel-1.png';
@@ -12,12 +12,11 @@ export default function Carousel() {
   return (
     <div className="container-fluid p-0 mb-5">
       <Swiper
-        modules={[Autoplay, Navigation, Pagination]}
+        modules={[Autoplay, Pagination]}
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        autoplay={{ delay: 10000, disableOnInteraction: false }}
-        navigation
+        autoplay={{ delay: 10000, disableOnInteraction: false }}        
         pagination={{ clickable: true }}
         className="header-carousel"
         style={{ height: '100vh' }} // full viewport height
@@ -38,10 +37,10 @@ export default function Carousel() {
                 <div className="row justify-content-start">
                   <div className="col-10 col-lg-8">
                     <h1 className="display-2 text-white animated slideInDown mb-4">
-                      The Best Kindergarten School For Your Child
+                      Welcome to Will Power School
                     </h1>
                     <p className="fs-5 fw-medium text-white mb-4 pb-2">
-                      Vero elitr justo clita lorem...
+                      Will Power School is dedicated to providing high-quality education...
                     </p>
                     <a
                       href="#"

@@ -34,4 +34,13 @@
     <url>
         <loc>https://wps.personalbd.com/teachers</loc>
     </url>
+    <url>
+        <loc>https://wps.personalbd.com/error</loc>
+    </url>
+    <url>
+        <loc>https://wps.personalbd.com/faqs</loc>
+    </url>
+    <url>
+        <loc>https://wps.personalbd.com/admission-information</loc>
+    </url>
 </urlset>

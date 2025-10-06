@@ -19,6 +19,8 @@ import StudentProfile from "./pages/profile/StudentProfile";
 import Login from "./layout/Login";
 import PropTypes from "prop-types";
 import AdmissionInformation from "./pages/admission-information/AdmissionInformation";
+import Error from "./pages/errors/Error";
+import Faqs from "./pages/faqs/Faqs";
 
 
 
@@ -89,6 +91,8 @@ function App() {
           <Route path="/teachers" element={<TeacherList />} />
           <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
           <Route path="/admission-information" element={<AdmissionInformation />} />
+          <Route path="/error" element={<Error />} />
+          <Route path="/faqs" element={<Faqs />} />
           <Route
             path="/student-profile"
             element={
