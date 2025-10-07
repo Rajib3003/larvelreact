@@ -31,6 +31,7 @@
 
   "about-us": "About Us",
   "admission-fee": "Admission Fee",
+  "admission-form": "Admission Form",
   "admission-information": "Admission Information",
   "age": "Age",
   "all-teachers-description": "All our teachers are highly qualified and experienced. They are caring towards students and committed to making the learning process enjoyable and effective. Our teachers use modern teaching methods to assist in the mental and intellectual development of students.",
@@ -63,7 +64,9 @@
   "day":"Day",
   "drawing-teacher": "Drawing Teacher",
 
+  "educational-equipment-prices": "Educational Equipment Prices",
   "error-page": "Error Page",  
+  
   "faqs": "FAQ",
 
   "head-teacher": "Head Teacher",
@@ -107,6 +110,7 @@
   "rita-khatun": "Rita Khatun",
   "rupon-dey": "Rupon Dey",
 
+  "salary": "Salary",
   "school-facilities":"School Facilities",
   "sharmin-akter-jothi": "Sharmin Akter Jothi",
   "sharmin-akter": "Sharmin Akter",
