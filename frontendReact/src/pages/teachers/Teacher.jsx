@@ -1,6 +1,7 @@
-import teamImageOne from "/assets/frontend_assets/img/team-4.jpg";
-import teamImageTwo from "/assets/frontend_assets/img/team-5.jpeg";
-import teamImageThree from "/assets/frontend_assets/img/team-3.jpg";
+
+import teamImageOne from "/assets/frontend_assets/img/teachers/mitun.png";
+import teamImageTwo from "/assets/frontend_assets/img/teachers/jannat.png";
+import teamImageThree from "/assets/frontend_assets/img/class/all.png";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -18,8 +19,8 @@ export default function Teacher() {
             </p>
           </div>
           <div className="row g-4">
-            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="team-item position-relative">
+            <div className="col-lg-4 col-md-6 wow fadeInUp "   data-wow-delay="0.1s">
+              <div className="team-item position-relative" >
                 <img className="img-fluid rounded-circle w-75" src={teamImageOne} alt="Mithun Mojundar" />            
                 <div
                     style={{ cursor: 'pointer' }}
@@ -28,7 +29,7 @@ export default function Teacher() {
                   >
                   <h3>{t('mitun-mazumder')}</h3>
                   <p>{t('head-teacher')}</p>
-                  <div className="d-flex align-items-center justify-content-center">
+                  {/* <div className="d-flex align-items-center justify-content-center">
                     <a className="btn btn-square btn-primary mx-1" href="#">
                       <i className="fab fa-facebook-f"></i>
                     </a>
@@ -38,7 +39,7 @@ export default function Teacher() {
                     <a className="btn btn-square btn-primary mx-1" href="#">
                       <i className="fab fa-instagram"></i>
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -46,17 +47,17 @@ export default function Teacher() {
               <div className="team-item position-relative">
                 <img className="img-fluid rounded-circle w-75" src={teamImageTwo} alt="Jannatul Ferdous" />               
                  <div
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer'}}
                     className="team-text text-center"
                     onClick={() => navigate('/teacher-profile')}
                   >
                   <h3>{t('jannatul-ferdous')}</h3>
                   <p>{t('in-charge')}</p> 
-                  <div className="d-flex align-items-center">
+                  {/* <div className="d-flex align-items-center">
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-facebook-f"></i></a>
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-twitter"></i></a>
                     <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
-                  </div>
+                  </div> */}
                 </div>                
               </div>
             </div>
@@ -64,17 +65,12 @@ export default function Teacher() {
               <div className="team-item position-relative">
                 <img className="img-fluid rounded-circle w-75" src={teamImageThree} alt="Tajbin Bhuiyan" />                
                  <div
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer' ,  }}
                     className="team-text text-center"
                     onClick={() => navigate('/teacher-profile')}
                   >
                   <h3>{t('tajbin-bhuiyan')}</h3>
-                  <p>{t('in-charge')}</p>
-                  <div className="d-flex align-items-center">
-                    <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-facebook-f"></i></a>
-                    <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-twitter"></i></a>
-                    <a className="btn btn-square btn-primary mx-1" href="#"><i className="fab fa-instagram"></i></a>
-                  </div>
+                  <p>{t('in-charge')}</p>             
                 </div>                
               </div>
             </div>                    

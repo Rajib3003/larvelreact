@@ -3,7 +3,15 @@
 import { useTranslation } from "react-i18next";
 import SingleClass from "./SingleClass";
 
-import teamImageOne from "/assets/frontend_assets/img/play-1.png";
+import classPrePlay from "/assets/frontend_assets/img/class/preplay.png";
+import classPlay from "/assets/frontend_assets/img/class/play.png";
+import classNursery from "/assets/frontend_assets/img/class/nursery.png";
+import classKg from "/assets/frontend_assets/img/class/kg.png";
+import classOne from "/assets/frontend_assets/img/class/one.png";
+import classTwo from "/assets/frontend_assets/img/class/two.png";
+import classThree from "/assets/frontend_assets/img/class/three.png";
+import classAll from "/assets/frontend_assets/img/class/all.png";
+
 
 
 export default function Classes() {
@@ -23,7 +31,7 @@ export default function Classes() {
           <div className="row g-4">
             
             <SingleClass 
-              image={teamImageOne} 
+              image={classPrePlay} 
               classTitle={t("class-pre-play")} 
               shift1={t("preplayshift1")}
               shift2={t("preplayshift2")}
@@ -31,7 +39,7 @@ export default function Classes() {
               capacity={t("10-kids")} 
             />         
             <SingleClass 
-              image={teamImageOne} 
+              image={classPlay} 
               classTitle={t("class-play")} 
               shift1={t("playshift1")}
               shift2={t("playshift2")}
@@ -39,7 +47,7 @@ export default function Classes() {
               capacity={t("25-kids")} 
             />         
             <SingleClass 
-              image={teamImageOne} 
+              image={classNursery} 
               classTitle={t("class-nursery")} 
               shift1={t("nursery1")}
               shift2={t("nursery2")}
@@ -47,71 +55,71 @@ export default function Classes() {
               capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classKg} 
             classTitle={t("class-kg")} 
             shift1={t("kg1")}
             shift2={t("kg2")}            
             capacity={t("25-kids")} 
             />                      
             <SingleClass 
-            image={teamImageOne} 
+            image={classOne} 
             classTitle={t("class-one")} 
             shift1={t("one1")}
             shift2={t("one2")}  
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classTwo} 
             classTitle={t("class-two")} 
             shift1={t("two1")}
             shift2={t("two2")}   
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classThree} 
             classTitle={t("class-three")} 
             shift1={t("three1")}
             shift2={t("three2")}  
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classAll} 
             classTitle={t("class-four")} 
             shift1={t("four1")}             
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classAll} 
             classTitle={t("class-five")} 
             shift1={t("five1")}            
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classAll} 
             classTitle={t("class-six")} 
             shift2={t("six2")}            
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classAll} 
             classTitle={t("class-seven")} 
             shift2={t("seven2")}            
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classAll} 
             classTitle={t("class-eight")} 
             shift2={t("eight2")}            
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classAll} 
             classTitle={t("class-nine")} 
             shift2={t("nine2")}            
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classAll} 
             classTitle={t("class-ten")} 
             shift1={t("ten1")}            
             capacity={t("25-kids")} 
