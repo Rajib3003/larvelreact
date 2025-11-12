@@ -3,6 +3,7 @@
     --primary: #FE5D37;
     --light: #FFF5F3;
     --dark: #103741;
+    --customColor: #5ce1e6;
 }
 
 .back-to-top {
@@ -376,7 +377,8 @@ h6,
     justify-content: center;
     flex-direction: column;
     background: #FFFFFF;
-    border: 17px solid var(--light);
+    /* border: 17px solid var(--light); */
+    border: 17px solid var(--customColor);
     border-radius: 250px;
     transition: .5s;
 }

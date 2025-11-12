@@ -1,4 +1,6 @@
-import  { useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
 import aboutusImageOne from "/assets/frontend_assets/img/about-1.jpg";
 
