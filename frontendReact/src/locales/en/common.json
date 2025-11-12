@@ -1,8 +1,10 @@
 {
+  "157-2-distilary-road-gandaria-dhaka-1204": "157/2, Distilary Road, Gandaria, Dhaka-1204",
+  "171-distilary-road-gandaria-dhaka-1204": "171, Distilary Road, Gandaria, Dhaka-1204",
   "5-6-years": "5-6 Years",
   "9-10-am": "9-10 AM",
   "10-kids": "10 Kids",  
-  "30-kids": "30 Kids", 
+  "25-kids": "25 Kids", 
   "preplayshift1": "08:00 AM - 09:30 AM", 
   "preplayshift2": "10:00 AM - 11:30 AM", 
   "preplayshift3": "12:01 PM - 01:30 PM", 
@@ -33,6 +35,7 @@
   "admission-fee": "Admission Fee",
   "admission-form": "Admission Form",
   "admission-information": "Admission Information",
+  "air-conditioner": "Air Conditioner",
   "age": "Age",
   "all-teachers-description": "All our teachers are highly qualified and experienced. They are caring towards students and committed to making the learning process enjoyable and effective. Our teachers use modern teaching methods to assist in the mental and intellectual development of students.",
   "all-teachers-list": "All Teachers List",
@@ -41,6 +44,7 @@
   "appointment": "Appointment",
 
   "capacity": "Capacity",
+  "cctv": "CCTV",
   "class": "Class",  
   "classes": "Classes",
   "class-pre-play": "Pre-Play",
@@ -58,20 +62,30 @@
   "class-nine": "Class Nine",
   "class-ten": "Class Ten",
   "contact-us": "Contact Us",
+  "cookies": "Cookies",
 
   "class-description": "Each of our school classes is designed to support students' mental and intellectual development. Lessons are conducted in a modern and easy-to-understand way, making learning enjoyable and effective. Under proper guidance and the care of dedicated teachers, students grow to be confident and creative.",
+  "comfortable-ac-classrooms-where-learning-is-fun-and-relaxing": "Comfortable Air-Conditioned Classrooms Where Learning Is Fun And Relaxing.",
 
   "day":"Day",
+  "doctor": "Doctor",
   "drawing-teacher": "Drawing Teacher",
 
   "educational-equipment-prices": "Educational Equipment Prices",
   "error-page": "Error Page",  
   
+  "faq": "FAQ",
   "faqs": "FAQ",
+  "finger-attendance": "Finger Attendance",
+  "fingerprint-scanning-records-attendance-safely-and-accurately":"Fingerprint scanning records attendance safely and accurately.",
+
+  "get-in-touch": "Get In Touch",
 
   "head-teacher": "Head Teacher",
+  "help": "Help",
   "home": "Home",
   "homework": "Homework",
+  "house-wife": "House Wife",
 
   "in-charge": "In-Charge",
 
@@ -101,10 +115,13 @@
     
   "old-student-information": "Old Student Information",
   "our-classes":"Our Classes",
+  "our-school-cctv-ensures-continuous-surveillance-for-students-safety":"Our school CCTV ensures continuous surveillance for students' safety.",
+  "our-school-projector-makes-learning-fun-and-effective":"Our school projector makes learning fun and effective.",
   "our-school-provides-all-modern-facilities-to-ensure-the-overall-development-of-students-and-a-safe-environment":"Our school provides all modern facilities to ensure the overall development of students and a safe environment.",    
   
   "pages":"Pages",
   "popular-teachers":"Popular Teachers",
+  "projector":"Projector",
 
   "rabea-alamgir": "Rabea Alamgir",
   "rita-khatun": "Rita Khatun",
@@ -119,11 +136,18 @@
 
   "tajbin-bhuiyan": "Tajbin Bhuiyan",  
   "tamanna-akter": "Tamanna Akter",
+  "teacher": "Teacher",
   "teachers": "Teachers",
   "teacher-description": "We are committed to the intellectual, creative, and character development of students through quality education, modern teaching, and caring teachers. Each class is a new opportunity on their path to a bright future. We provide a platform for students where we assist them.",
+  "testimonial-text-one": "“Will Power School is truly a blessing for our community. The teachers teach with great care, and the children learn joyfully.”",
+  "testimonial-text-two":"“After my child enrolled here, we have seen significant improvement in both studies and behavior. The teachers are very sincere and caring.”",
+  "testimonial-text-three": "“The school's environment is calm and beautiful. It's delightful to see the students disciplined and the teachers sincere.”",
+  "testimonial-text-four": "“Will Power School focuses not only on academics but also on moral education and character building. This makes us all proud.”",
   "testimonials": "Testimonials",
   "time": "Time",
-  "total-fee": "Total Fee"
+  "total-fee": "Total Fee",
+
+  "welcome-to-will-power-school":"Welcome to Will Power School"
   }
   
   

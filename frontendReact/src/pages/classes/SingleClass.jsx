@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
             <div className="bg-light rounded-circle w-75 mx-auto p-3">
                 <img className="img-fluid rounded-circle" src={image} alt="" />
             </div>
-            <div className="bg-light rounded p-4 pt-5 mt-n5">
+            <div className="bg-light rounded p-lg-4 p-0 pt-5 mt-n5">
                 <a className="d-block text-center h3 mt-3 mb-4" href=""> {classTitle}</a>  
                 
                 <div className="mt-4">

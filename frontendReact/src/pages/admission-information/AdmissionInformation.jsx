@@ -8,16 +8,27 @@ export default function AdmissionInformation() {
     <div className="container-xxl py-5">
       <div className="container">
         <div className="bg-light rounded">         
-          <div className="row g-0">
-            <div className="col-lg-12 p-5 d-flex justify-content-center">
-              <h2 className="btn btn-primary rounded-pill py-sm-3 px-sm-5 animated fs-2 fw-bold">
+          {/* <div className="row g-0">
+            <div className="col-lg-12 p-3 d-flex justify-content-center">
+              <h2 className="  py-sm-3 px-sm-5 animated fs-2 fw-bold">
                 {t('admission-information')}
               </h2>
             </div>
-          </div>
+          </div> */}
+
+   <div className="d-flex justify-content-center">
+  <div className="bg-success  d-inline-block px-4 py-3 rounded">
+    <h2 className="fs-2  m-0 fw-bold text-center text-white">
+      {t("admission-information")}
+    </h2>
+  </div>
+</div>
+
+
+
 
           <div className="row g-0">            
-            <div className="col-lg-6 p-5 ">
+            <div className="col-lg-6 p-lg-5 p-0 pt-3">
               <h2 className="mb-4 d-flex justify-content-center">{t('new-student-information')}</h2>
               <table className="table table-bordered table-striped">
                 <thead>
@@ -53,7 +64,7 @@ export default function AdmissionInformation() {
                 </tbody>
               </table>
             </div>
-            <div className="col-lg-6 p-5 ">
+            <div className="col-lg-6 p-lg-5 p-0 pt-3 ">
               <h2 className="mb-4 d-flex justify-content-center">{t('old-student-information')}</h2>
               <table className="table table-bordered table-striped">
                 <thead>
@@ -83,7 +94,7 @@ export default function AdmissionInformation() {
                 </tbody>
               </table>
             </div>
-            <div className="col-lg-12 p-5 table-responsive">
+            <div className="col-lg-12 p-lg-5 p-0 pt-3 table-responsive">
               <h2 className="mb-4 d-flex justify-content-center">{t('educational-equipment-prices')}</h2>             
               <table className="table table-bordered table-striped">
                 <thead>                

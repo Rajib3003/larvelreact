@@ -4,14 +4,16 @@ import { useTranslation } from "react-i18next";
 import SingleClass from "./SingleClass";
 
 import teamImageOne from "/assets/frontend_assets/img/play-1.png";
+import classFour from "/assets/frontend_assets/img/class-four.png";
 
 
 export default function Classes() {
   const { t } = useTranslation();
     return (
-      <div className="container-xxl py-5">
+      <div className="container-xxl py-2 ">
         <div className="container">
           <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
+          {/* <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}> */}
             <h1 className="mb-3">{t("our-classes")}</h1>
             <p>{t("class-description")}</p>
           </div>
@@ -75,7 +77,7 @@ export default function Classes() {
             capacity={t("25-kids")} 
             />         
             <SingleClass 
-            image={teamImageOne} 
+            image={classFour} 
             classTitle={t("class-four")} 
             shift1={t("four1")}             
             capacity={t("25-kids")} 

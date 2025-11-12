@@ -28,20 +28,91 @@ export default function TeacherList() {
           <p>{t('all-teachers-description')}</p>
         </div>
           <div className="row g-4">
-            <SingleTeacher teacherName={t('alo-rani-saha')} teacherDesignation={t('drawing-teacher')} teacherImage={aloRaniSaha} />
-            <SingleTeacher teacherName={t('kabi-mowshumi-mow')} teacherDesignation={t('music-teacher')} teacherImage={kabiMowshumiMow} />
-            <SingleTeacher teacherName={t('mansura')} teacherDesignation={t('assistant-teacher')} teacherImage={Mansura} />
-            <SingleTeacher teacherName={t('mitu-rani-halder')} teacherDesignation={t('sinior-assistant-teacher')} teacherImage={MituRaniHalder} />
-            <SingleTeacher teacherName={t('nironjona-ghosh-proma')} teacherDesignation={t('assistant-teacher')} teacherImage={nironjonaGhoshProma} />
-            <SingleTeacher teacherName={t('nasima-khan')} teacherDesignation={t('assistant-teacher')} teacherImage={nasimaKhan} />
-            <SingleTeacher teacherName={t('rabea-alamgir')} teacherDesignation={t('assistant-teacher')} teacherImage={rabeaAlamgir} />                   
-            <SingleTeacher teacherName={t('rita-khatun')} teacherDesignation={t('assistant-teacher')} teacherImage={ritaKhatun} />                   
-            <SingleTeacher teacherName={t('sharmin-akter-jothi')} teacherDesignation={t('assistant-teacher')} teacherImage={sharminAkterJothi} />                   
-            <SingleTeacher teacherName={t('tamanna-akter')} teacherDesignation={t('assistant-teacher')} teacherImage={tamannaAkter} />                   
-            <SingleTeacher teacherName={t('nasrin-akter')} teacherDesignation={t('assistant-teacher')} teacherImage={nasrinAkter} />                   
-            <SingleTeacher teacherName={t('rupon-dey')} teacherDesignation={t('assistant-teacher')} teacherImage={ruponDey} />                   
-            <SingleTeacher teacherName={t('sharmin-akter')} teacherDesignation={t('assistant-teacher')} teacherImage={sharminAkter} />                   
-            <SingleTeacher teacherName={t('kaniz-fatima-nasrin-akther')} teacherDesignation={t('assistant-teacher')} teacherImage={kanizFatimaNasrinAkther} />                  
+           
+            <SingleTeacher 
+              teacherName={t('alo-rani-saha')} 
+              teacherDesignation={t('drawing-teacher')} 
+              teacherImage={aloRaniSaha} 
+              educationalQualification={t('-')}
+            />
+            <SingleTeacher 
+              teacherName={t('kabi-mowshumi-mow')} 
+              teacherDesignation={t('music-teacher')} 
+              teacherImage={kabiMowshumiMow}  
+              educationalQualification={t('-')}
+            />
+            <SingleTeacher 
+              teacherName={t('mansura')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={Mansura}  
+              educationalQualification={t('-')}
+            />
+            <SingleTeacher 
+              teacherName={t('mitu-rani-halder')} 
+              teacherDesignation={t('sinior-assistant-teacher')} 
+              teacherImage={MituRaniHalder}  
+              educationalQualification={t('-')}
+            />
+            <SingleTeacher 
+              teacherName={t('nironjona-ghosh-proma')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={nironjonaGhoshProma}  
+              educationalQualification={t('-')}
+            />
+            <SingleTeacher 
+              teacherName={t('nasima-khan')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={nasimaKhan}  
+              educationalQualification={t('-')}
+            />
+            <SingleTeacher 
+              teacherName={t('rabea-alamgir')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={rabeaAlamgir}  
+              educationalQualification={t('-')}
+            />                   
+            <SingleTeacher 
+              teacherName={t('rita-khatun')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={ritaKhatun}  
+              educationalQualification={t('-')}
+            />                   
+            <SingleTeacher 
+              teacherName={t('sharmin-akter-jothi')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={sharminAkterJothi}  
+              educationalQualification={t('Degree in BSS ')}
+            />                   
+            <SingleTeacher 
+              teacherName={t('tamanna-akter')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={tamannaAkter}  
+              educationalQualification={t('Honours')}
+            />                   
+            <SingleTeacher 
+              teacherName={t('nasrin-akter')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={nasrinAkter}  
+              educationalQualification={t('Honours BSS')}
+            />                   
+            <SingleTeacher 
+              teacherName={t('rupon-dey')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={ruponDey}  
+              educationalQualification={t('MSC')}
+            />                   
+            <SingleTeacher 
+              teacherName={t('sharmin-akter')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={sharminAkter}  
+              educationalQualification={t('Master’s in Management ')}
+            />                   
+            <SingleTeacher 
+              teacherName={t('kaniz-fatima-nasrin-akther')} 
+              teacherDesignation={t('assistant-teacher')} 
+              teacherImage={kanizFatimaNasrinAkther}  
+              educationalQualification={t('B.A')}
+            />                  
                              
           </div>      
       </div>

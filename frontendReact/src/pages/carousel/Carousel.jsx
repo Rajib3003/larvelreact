@@ -39,7 +39,7 @@ export default function Carousel() {
                 <div className="row justify-content-start">
                   <div className="col-10 col-lg-8">
                     <h1 className="display-2 text-white animated slideInDown mb-4">
-                      Welcome to Will Power School
+                      {t('welcome-to-will-power-school')}
                     </h1>
                     <p className="fs-5 fw-medium text-white mb-4 pb-2">
                       Will Power School is dedicated to providing high-quality education...

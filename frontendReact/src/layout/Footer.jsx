@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import '../i18n';
 
 import Uparrow from "./Uparrow";
-import classesOneImage from "/assets/frontend_assets/img/play-1.png";
-import classesTwoImage from "/assets/frontend_assets/img/one-1.png";
-import classesThreeImage from "/assets/frontend_assets/img/classes-3.jpg";
-import classesFourImage from "/assets/frontend_assets/img/classes-4.jpg";
-import classesFiveImage from "/assets/frontend_assets/img/classes-5.jpg";
-import classesSixImage from "/assets/frontend_assets/img/classes-6.jpg";
+// import classesOneImage from "/assets/frontend_assets/img/play-1.png";
+// import classesTwoImage from "/assets/frontend_assets/img/one-1.png";
+// import classesThreeImage from "/assets/frontend_assets/img/classes-3.jpg";
+// import classesFourImage from "/assets/frontend_assets/img/classes-4.jpg";
+// import classesFiveImage from "/assets/frontend_assets/img/classes-5.jpg";
+// import classesSixImage from "/assets/frontend_assets/img/classes-6.jpg";
 
 export default function Footer() { 
   const { t } = useTranslation(); 
@@ -19,10 +19,11 @@ export default function Footer() {
       <div className="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div className="container py-5">
           <div className="row g-5">
-            <div className="col-lg-3 col-md-6">
-              <h3 className="text-white mb-4">Get In Touch</h3>
-              <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>157/2, Distilary Road, Gandaria</p>
-              <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+88 01625 229266</p>
+            <div className="col-lg-6 col-md-6">
+              <h3 className="text-white mb-4">{t('get-in-touch')}</h3>
+              <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>{t('157-2-distilary-road-gandaria-dhaka-1204')}</p>
+              <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>{t('171-distilary-road-gandaria-dhaka-1204')}</p>
+              <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+88 01625 229266, +88 01757 080516</p>
               <p className="mb-2"><i className="fa fa-envelope me-3"></i>willpowerschool.bd@gmail.com</p>
               <div className="d-flex pt-2">
                 <a className="btn btn-outline-light btn-social" href="#"><i className="fab fa-twitter"></i></a>                
@@ -68,7 +69,7 @@ export default function Footer() {
               </div>
             </div> */}
   
-            <div className="col-lg-3 col-md-6">
+            {/* <div className="col-lg-3 col-md-6">
               <h3 className="text-white mb-4">Photo Gallery</h3>
               <div className="row g-2 pt-2">
                 <div className="col-4">
@@ -90,7 +91,7 @@ export default function Footer() {
                   <img className="img-fluid rounded bg-light p-1" src={classesSixImage} alt="" />
                 </div>
               </div>
-            </div>
+            </div> */}
   
            
           </div>
@@ -106,9 +107,9 @@ export default function Footer() {
               <div className="col-md-6 text-center text-md-end">
                 <div className="footer-menu">
                 <NavLink to="/" activeclassname="active">{t('home')}</NavLink>
-                <NavLink to="/cookies" activeclassname="active">cookies</NavLink>
-                <NavLink to="/help" activeclassname="active">help</NavLink>
-                <NavLink to="/faqs" activeclassname="active">FAQs</NavLink>                  
+                <NavLink to="/cookies" activeclassname="active">{t('cookies')}</NavLink>
+                <NavLink to="/help" activeclassname="active">{t('help')}</NavLink>
+                <NavLink to="/faqs" activeclassname="active">{t('faq')}</NavLink>                  
                 </div>
               </div>
             </div>
