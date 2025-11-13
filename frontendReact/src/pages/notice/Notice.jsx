@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './Notice.module.css';
 
+
+
 export default function Notice() {
   const [notices, setNotices] = useState([]);
   const [filteredNotices, setFilteredNotices] = useState([]);
@@ -28,40 +30,6 @@ export default function Notice() {
     fetchNotices();
   }, []);
 
-  // Handle Search
-  // const handleSearch = () => {
-  //   const filtered = notices.filter((notice) => {
-  //     const noticeDate = new Date(notice.date);
-  //     const startDateNormalized = startDate ? new Date(startDate + 'T00:00:00') : null;
-  //     const endDateNormalized = endDate ? new Date(endDate + 'T23:59:59') : null;
-
-  //     if (searchText && !startDate && !endDate) {
-  //       return notice.title.toLowerCase().includes(searchText.toLowerCase());
-  //     }
-
-  //     if (!searchText && startDate && !endDate) {
-  //       return noticeDate >= startDateNormalized;
-  //     }
-
-  //     if (!searchText && startDate && endDate) {
-  //       return noticeDate >= startDateNormalized && noticeDate <= endDateNormalized;
-  //     }
-
-  //     if (searchText && startDate && endDate) {
-  //       return (
-  //         notice.title.toLowerCase().includes(searchText.toLowerCase()) &&
-  //         noticeDate >= startDateNormalized &&
-  //         noticeDate <= endDateNormalized
-  //       );
-  //     }
-
-  //     return true;
-  //   });
-
-  //   const sortedFiltered = filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-  //   setFilteredNotices(sortedFiltered);
-  //   setCurrentPage(1); 
-  // };
   const handleSearch = (searchValue) => {
     const filtered = notices.filter((notice) => {
       const noticeDate = new Date(notice.date);
@@ -145,37 +113,7 @@ export default function Notice() {
           </p>
         </div>
 
-        {/* <div className={styles.searchContainer}>
-          
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search By Notice Title"
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-              handleSearch(e.target.value);
-            }}
-          />
-          <input
-            type="date"
-            className="form-control"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-          />
-          <input
-            type="date"
-            className="form-control"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-          />
-          <button className="btn btn-primary" onClick={handleSearch}>
-            Search
-          </button>
-          <button className="btn btn-secondary" onClick={handleReset}>
-            Reset
-          </button>
-        </div> */}
+        
 <div className={`${styles.searchContainer} container`}>
   <div className="row g-3 align-items-center">
     {/* Search by Notice Title */}
