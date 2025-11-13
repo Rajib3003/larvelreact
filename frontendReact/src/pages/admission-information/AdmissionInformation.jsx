@@ -102,12 +102,12 @@ export default function AdmissionInformation() {
                     <th className="text-center">{t('class')}</th>
                     <th className="text-center">{t('book')}</th>                    
                     <th className="text-center">{t('ledger')}</th>
-                    <th className="text-center">{t('dairy')}</th>
+                    <th className="text-center">{t('diary')}</th>
                     <th className="text-center">{t('syllabus')}</th>
                     <th className="text-center">{t('tie')}</th>
-                    <th className="text-center">{t('pay-book')}</th>                    
+                    <th className="text-center">{t('payBook')}</th>                    
                     <th className="text-center">{t('bach')}</th>  
-                    <th className="text-center">{t('id-card')}</th>
+                    <th className="text-center">{t('idCard')}</th>
                     <th className="text-center">{t('sports')}</th>
                     <th className="text-center">{t('total-fee')}</th>
                   </tr>
@@ -117,7 +117,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-pre-play")} 
                   book={170} 
                   ledger={160} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -130,7 +130,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-play")} 
                   book={t("pending")} 
                   ledger={560} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -143,7 +143,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-nursery")} 
                   book={t("pending")} 
                   ledger={560} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -156,7 +156,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-kg")} 
                   book={t("pending")} 
                   ledger={600} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -169,7 +169,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-one")} 
                   book={t("pending")} 
                   ledger={680} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -182,7 +182,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-two")} 
                   book={t("pending")} 
                   ledger={720} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -195,7 +195,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-three")} 
                   book={t("pending")} 
                   ledger={840} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -208,7 +208,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-four")} 
                   book={t("pending")} 
                   ledger={840} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -221,7 +221,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-five")} 
                   book={t("pending")} 
                   ledger={540} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -234,7 +234,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-six")} 
                   book={t("pending")} 
                   ledger={900} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -247,7 +247,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-seven")} 
                   book={t("pending")} 
                   ledger={900} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -260,7 +260,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-eight")} 
                   book={t("pending")} 
                   ledger={900} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -273,7 +273,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-nine")} 
                   book={t("pending")} 
                   ledger={900} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}
@@ -286,7 +286,7 @@ export default function AdmissionInformation() {
                   classValue={t("class-ten")} 
                   book={t("pending")} 
                   ledger={900} 
-                  dairy={120} 
+                  diary={120} 
                   syllabus={50}
                   tie={120}
                   payBook={50}

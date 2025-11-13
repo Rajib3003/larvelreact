@@ -43,6 +43,9 @@
   "assistant-teacher": "সহকারী শিক্ষক",
   "appointment": "অ্যাপয়েন্টমেন্ট",
 
+  "book":"বই",
+  "bach":"ব্যাচ",
+
   "capacity": "ধারণক্ষমতা",
   "cctv": "সিসিটিভি",
   "class": "ক্লাস",
@@ -68,7 +71,8 @@
   "comfortable-ac-classrooms-where-learning-is-fun-and-relaxing": "আরামদায়ক এয়ার কন্ডিশনার শ্রেণিকক্ষ যেখানে শেখা হয় মজার ও স্বাচ্ছন্দ্যে।",
 
   "day":"দিবা",
-
+  "develop-your-creativity-and-skills-and-take-a-step-towards-a-bright-future":"আপনার সৃজনশীলতা ও দক্ষতা গড়ে তুলুন এবং এক উজ্জ্বল ভবিষ্যতের দিকে এগিয়ে চলুন।",
+  "diary":"ডায়েরি",
   "dinner": "ডিনার",
   "doctor": "ডাক্তার",
   "drawing-teacher": "অঙ্কন শিক্ষক",
@@ -89,6 +93,7 @@
   "homework": "হোমওয়ার্ক",
   "house-wife": "গৃহিণী",
 
+  "idCard":"আইডি কার্ড",
   "in-charge": "ইন-চার্জ",
 
   "jannatul-ferdous":"জান্নাতুল ফেরদৌস",
@@ -97,6 +102,7 @@
   "kaniz-fatima-nasrin-akther": "কানিজ ফাতিমা নাসরিন আক্তার",
 
   "language": "English", 
+  "ledger":"খাতা",
   "login":"লগইন",
   "login-to-view-your-account":"আপনার অ্যাকাউন্ট দেখতে লগইন করুন",
   "logout":"লগআউট",
@@ -122,10 +128,10 @@
   "our-school-provides-all-modern-facilities-to-ensure-the-overall-development-of-students-and-a-safe-environment":"আমাদের বিদ্যালয়ে শিক্ষার্থীদের সার্বিক উন্নতি এবং নিরাপদ পরিবেশ নিশ্চিত করতে আধুনিক সব সুবিধা প্রদান করা হয়েছে।",
   
   "pages":"পেজসমূহ",
+  "payBook":"বেতন বই",
   "popular-teachers":"জনপ্রিয় শিক্ষকবৃন্দ",
   "projector":"প্রজেক্টর",
   
-
   "rabea-alamgir": "রাবেয়া আলমগীর",
   "rita-khatun": "রিতা খাতুন",
   "rupon-dey": "রুপন দে",
@@ -136,6 +142,8 @@
   "sharmin-akter": "শারমিন আক্তার",
   "shift": "শিফট",
   "sinior-assistant-teacher": "সিনিয়র সহকারী শিক্ষক",
+  "sports":"খেলাধুলা",
+  "syllabus":"সিলেবাস",
 
   "tajbin-bhuiyan": "তাজবিন ভূঁইয়া",  
   "tamanna-akter": "তামান্না আক্তার",
@@ -147,10 +155,13 @@
   "testimonial-text-three": "“স্কুলটির পরিবেশ শান্ত ও সুন্দর। শিক্ষার্থীদের শৃঙ্খলা আর শিক্ষকদের আন্তরিকতা দেখে খুব ভালো লাগে।”",
   "testimonial-text-four": "“উইল পাওয়ার স্কুল শুধু পড়াশোনা নয়, নৈতিক শিক্ষা ও চরিত্র গঠনের ওপরও জোর দেয়। এই কারণে আমরা সবাই গর্বিত।”",
   "testimonials": "প্রশংসাপত্র",
+  "tie":"টাই",
   "time": "সময়",
+  "the-first-step-toward-a-bright-future-will-power-school":"উজ্জ্বল ভবিষ্যতের প্রথম পদক্ষেপ — উইল পাওয়ার স্কুল",
   "total-fee": "মোট ফি",
 
-  "welcome-to-will-power-school":"উইল পাওয়ার স্কুলে আপনাকে স্বাগতম"
+  "welcome-to-will-power-school":"উইল পাওয়ার স্কুলে আপনাকে স্বাগতম",
+  "will-power-school-is-dedicated-to-providing-high-quality-education":"উইল পাওয়ার স্কুল উচ্চমানের শিক্ষা প্রদানের জন্য নিবেদিতপ্রাণ..."
 }
   
   

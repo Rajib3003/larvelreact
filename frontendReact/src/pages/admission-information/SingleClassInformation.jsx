@@ -46,13 +46,13 @@ OldStudentClassInformation.propTypes = {
 };
 
 export function EducationalEquipmentPrices(props) {
-  const {classValue,book,ledger,dairy,syllabus,tie,payBook,bach,idCard,sports,totalFee} = props;
+  const {classValue,book,ledger,diary,syllabus,tie,payBook,bach,idCard,sports,totalFee} = props;
   return (
     <tr>
       <td className="text-center fw-bold">{classValue}</td>
       <td className="text-center">{book}</td>
       <td className="text-center">{ledger}</td>
-      <td className="text-center">{dairy}</td>
+      <td className="text-center">{diary}</td>
       <td className="text-center">{syllabus}</td>
       <td className="text-center">{tie}</td>
       <td className="text-center">{payBook}</td>
@@ -67,7 +67,7 @@ EducationalEquipmentPrices.propTypes = {
   classValue: number,
   book: number,
   ledger: number,
-  dairy: number,
+  diary: number,
   syllabus: number,
   tie: number,
   payBook: number,

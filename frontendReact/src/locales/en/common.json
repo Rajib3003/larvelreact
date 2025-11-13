@@ -43,6 +43,9 @@
   "assistant-teacher": "Assistant Teacher",
   "appointment": "Appointment",
 
+  "book":"Book",
+  "bach":"Bach",
+
   "capacity": "Capacity",
   "cctv": "CCTV",
   "class": "Class",  
@@ -68,6 +71,9 @@
   "comfortable-ac-classrooms-where-learning-is-fun-and-relaxing": "Comfortable Air-Conditioned Classrooms Where Learning Is Fun And Relaxing.",
 
   "day":"Day",
+  "develop-your-creativity-and-skills-and-take-a-step-towards-a-bright-future":"Develop your creativity and skills, and take a step towards a bright future.",
+  "diary":"Diary",
+  "dinner": "Dinner",
   "doctor": "Doctor",
   "drawing-teacher": "Drawing Teacher",
 
@@ -87,6 +93,7 @@
   "homework": "Homework",
   "house-wife": "House Wife",
 
+  "idCard":"ID Card",
   "in-charge": "In-Charge",
 
   "jannatul-ferdous": "Jannatul Ferdous",
@@ -94,7 +101,8 @@
   "kabi-mowshumi-mow": "Kabi Mowshumi Mow",
   "kaniz-fatima-nasrin-akther": "Kaniz Fatima Nasrin Akther",
   
-  "language": "বাংলা",    
+  "language": "বাংলা",   
+  "ledger":"Ledger", 
   "login":"Login",    
   "login-to-view-your-account":"Login to view your account",  
   "logout":"Logout",
@@ -120,6 +128,7 @@
   "our-school-provides-all-modern-facilities-to-ensure-the-overall-development-of-students-and-a-safe-environment":"Our school provides all modern facilities to ensure the overall development of students and a safe environment.",    
   
   "pages":"Pages",
+  "payBook":"Pay Book",
   "popular-teachers":"Popular Teachers",
   "projector":"Projector",
 
@@ -133,6 +142,8 @@
   "sharmin-akter": "Sharmin Akter",
   "shift": "Shift",
   "sinior-assistant-teacher": "Senior Assistant Teacher",
+  "sports":"Sports",
+  "syllabus":"syllabus",
 
   "tajbin-bhuiyan": "Tajbin Bhuiyan",  
   "tamanna-akter": "Tamanna Akter",
@@ -144,10 +155,13 @@
   "testimonial-text-three": "“The school's environment is calm and beautiful. It's delightful to see the students disciplined and the teachers sincere.”",
   "testimonial-text-four": "“Will Power School focuses not only on academics but also on moral education and character building. This makes us all proud.”",
   "testimonials": "Testimonials",
+  "tie":"Tie",
   "time": "Time",
+  "the-first-step-toward-a-bright-future-will-power-school":"The first step toward a bright future — Will Power School",
   "total-fee": "Total Fee",
 
-  "welcome-to-will-power-school":"Welcome to Will Power School"
+  "welcome-to-will-power-school":"Welcome to Will Power School",
+  "will-power-school-is-dedicated-to-providing-high-quality-education":"Will Power School is dedicated to providing high-quality education..."
   }
   
   

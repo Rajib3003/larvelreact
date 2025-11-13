@@ -38,11 +38,11 @@ export default function Carousel() {
               <div className="container">
                 <div className="row justify-content-start">
                   <div className="col-10 col-lg-8">
-                    <h1 className="display-2 text-white animated slideInDown mb-4">
+                    <h1 className="display-2  animated slideInDown mb-4  " style={{ color: '#5ce1e6', paddingTop: '170px' }}>
                       {t('welcome-to-will-power-school')}
                     </h1>
-                    <p className="fs-5 fw-medium text-white mb-4 pb-2">
-                      Will Power School is dedicated to providing high-quality education...
+                    <p className="fs-5 fw-medium text-white mb-4 pb-2" style={{ color: '#5ce1e6' }}>
+                      {t('will-power-school-is-dedicated-to-providing-high-quality-education')}
                     </p>
                     {/* <a
                       href="#"
@@ -50,31 +50,31 @@ export default function Carousel() {
                     >
                       Learn More
                     </a> */}
-                     <span
-    style={{
-      position: "absolute",      
-      background: "red",
-      color: "white",
-      padding: "15px 20px",
-      borderRadius: "20px",
-      fontWeight: "bold",
-      fontSize: "12px",
-      animation: "pulse 1.5s infinite",
-      boxShadow: "0 0 10px rgba(249, 201, 27, 0.7)"
-    }}
-  >
-    {t('freeclass')}
-  </span>
+                     {/* <span
+                        style={{
+                          position: "absolute",      
+                          background: "red",
+                          color: "white",
+                          padding: "15px 20px",
+                          borderRadius: "20px",
+                          fontWeight: "bold",
+                          fontSize: "12px",
+                          animation: "pulse 1.5s infinite",
+                          boxShadow: "0 0 10px rgba(249, 201, 27, 0.7)"
+                        }}
+                      >
+                        {t('freeclass')}
+                      </span> */}
 
-  <style>
-    {`
-      @keyframes pulse {
-        0% { transform: scale(1); opacity: 0.8; }
-        50% { transform: scale(1.2); opacity: 1; }
-        100% { transform: scale(1); opacity: 0.8; }
-      }
-    `}
-  </style>
+                      <style>
+                        {`
+                          @keyframes pulse {
+                            0% { transform: scale(1); opacity: 0.8; }
+                            50% { transform: scale(1.2); opacity: 1; }
+                            100% { transform: scale(1); opacity: 0.8; }
+                          }
+                        `}
+                      </style>
                     {/* <a
                       href="#"
                       className="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight"
@@ -102,14 +102,14 @@ export default function Carousel() {
             >
               <div className="container">
                 <div className="row justify-content-start">
-                  <div className="col-10 col-lg-8">
-                    <h1 className="display-2 text-white animated slideInDown mb-4">
-                      Make A Brighter Future For Your Child
+                  <div className="col-12 col-lg-10">
+                    <h1 className="display-2 animated slideInDown mt-4" style={{ color: '#5ce1e6', paddingTop: '170px' }}>
+                      {t('the-first-step-toward-a-bright-future-will-power-school')}                      
                     </h1>
-                    <p className="fs-5 fw-medium text-white mb-4 pb-2">
-                      Vero elitr justo clita lorem...
+                    <p className="fs-5 fw-medium text-white mb-4 pb-2" style={{ color: '#5ce1e6' }}>
+                      {t('develop-your-creativity-and-skills-and-take-a-step-towards-a-bright-future')}  
                     </p>
-                    <a
+                    {/* <a
                       href="#"
                       className="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft"
                     >
@@ -120,7 +120,7 @@ export default function Carousel() {
                       className="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight"
                     >
                       Our Classes
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
