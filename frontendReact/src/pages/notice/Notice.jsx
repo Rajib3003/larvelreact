@@ -1,96 +1,104 @@
-import { useEffect, useState } from 'react';
-import styles from './Notice.module.css';
-
-
+import { useEffect, useState } from "react";
+import styles from "./Notice.module.css";
 
 export default function Notice() {
   const [notices, setNotices] = useState([]);
   const [filteredNotices, setFilteredNotices] = useState([]);
-  const [searchText, setSearchText] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [searchText, setSearchText] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [noticesPerPage, setNoticesPerPage] = useState(5); // Default 5 items per page
-
+  const [noticesPerPage, setNoticesPerPage] = useState(5);
+  const [loading, setLoading] = useState(false); 
+  const [totalNotices, setTotalNotices] = useState(0);
   // Fetch data from API
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos'); // Replace with your API endpoint
+        setLoading(true); // <-- Start loading
+        const response = await fetch(
+          "https://typescript-express-mongo-db.vercel.app/api/notice"
+        );
         const data = await response.json();
+        
+        const noticesArray = data.data || [];
+        const total = data.total || 0;
 
-        const sortedData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Sort by date descending
+        const sortedData = noticesArray.sort(
+          (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+        );
+
         setNotices(sortedData);
         setFilteredNotices(sortedData);
+        setTotalNotices(total);
       } catch (error) {
-        console.error('Error fetching notices:', error);
+        console.error("Error fetching notices:", error);
+      } finally {
+        setLoading(false); // <-- Stop loading
       }
     };
 
     fetchNotices();
   }, []);
 
+
+  // Search & filter
   const handleSearch = (searchValue) => {
     const filtered = notices.filter((notice) => {
       const noticeDate = new Date(notice.date);
-      const startDateNormalized = startDate ? new Date(startDate + 'T00:00:00') : null;
-      const endDateNormalized = endDate ? new Date(endDate + 'T23:59:59') : null;
-  
-      if (searchValue && !startDate && !endDate) {
+      const start = startDate ? new Date(startDate + "T00:00:00") : null;
+      const end = endDate ? new Date(endDate + "T23:59:59") : null;
+
+      if (searchValue && !start && !end) {
         return notice.title.toLowerCase().includes(searchValue.toLowerCase());
       }
-  
-      if (!searchValue && startDate && !endDate) {
-        return noticeDate >= startDateNormalized;
-      }
-  
-      if (!searchValue && startDate && endDate) {
-        return noticeDate >= startDateNormalized && noticeDate <= endDateNormalized;
-      }
-  
-      if (searchValue && startDate && endDate) {
+
+      if (!searchValue && start && !end) return noticeDate >= start;
+      if (!searchValue && start && end) return noticeDate >= start && noticeDate <= end;
+      if (searchValue && start && end)
         return (
           notice.title.toLowerCase().includes(searchValue.toLowerCase()) &&
-          noticeDate >= startDateNormalized &&
-          noticeDate <= endDateNormalized
+          noticeDate >= start &&
+          noticeDate <= end
         );
-      }
-  
+
       return true;
     });
-  
-    const sortedFiltered = filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-    setFilteredNotices(sortedFiltered);
-    setCurrentPage(1); // Reset to the first page after search
-  };
-  const handleReset = () => {
-    setSearchText('');
-    setStartDate('');
-    setEndDate('');
-    setFilteredNotices(notices);
-    setCurrentPage(1); // Reset to the first page after reset
+
+    setFilteredNotices(
+      filtered.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+    );
+    setCurrentPage(1);
   };
 
-  // Pagination Logic
+  const handleReset = () => {
+    setSearchText("");
+    setStartDate("");
+    setEndDate("");
+    setFilteredNotices(notices);
+    setCurrentPage(1);
+  };
+
+  // Pagination
   const indexOfLastNotice = currentPage * noticesPerPage;
   const indexOfFirstNotice = indexOfLastNotice - noticesPerPage;
   const currentNotices = filteredNotices.slice(indexOfFirstNotice, indexOfLastNotice);
-
   const totalPages = Math.ceil(filteredNotices.length / noticesPerPage);
 
   const paginate = (pageNumber) => {
-    if (pageNumber > 0 && pageNumber <= totalPages) {
-      setCurrentPage(pageNumber);
-    }
+    if (pageNumber > 0 && pageNumber <= totalPages) setCurrentPage(pageNumber);
   };
 
-  // Generate Pagination Buttons
   const paginationButtons = [];
-  for (let i = Math.max(1, currentPage - 1); i <= Math.min(totalPages, currentPage + 1); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     paginationButtons.push(
       <button
         key={i}
-        className={`btn ${currentPage === i ? 'btn-primary' : 'btn-outline-primary'} mx-1`}
+        className={`btn ${
+          currentPage === i ? "btn-primary" : "btn-outline-primary"
+        } mx-1`}
         onClick={() => paginate(i)}
       >
         {i}
@@ -101,193 +109,184 @@ export default function Notice() {
   return (
     <div className="container-xxl py-5">
       <div className="container">
-        <div className="text-center mx-auto mb-5" style={{ maxWidth: '600px' }}>
+        <div className="text-center mx-auto mb-5" style={{ maxWidth: "600px" }}>
           <h1 className="mb-3">Notice Board</h1>
           <p>
             Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
           </p>
         </div>
         <div className={styles.noticeMarquee}>
-          <p>
-            Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
-          </p>
+          {/* <p>
+            {notices.length > 0 ? notices[0].title : "No notices available"}
+          </p> */}
+   {notices.length > 0 && (
+  <div className={styles.marqueeContent}>
+    {(() => {
+      const title = notices[0].title;
+      const length = title.length;
+
+      // Condition: long title -> 2 copies, short title -> 3 copies
+      // const copyCount = length > 40 ? 2 : 3;
+      let copyCount;
+  if (length > 200) copyCount = 1;
+  else if (length > 150) copyCount = 2;
+  else if (length > 100) copyCount = 3;
+  else if (length > 80) copyCount = 4;
+  else if (length > 60) copyCount = 5;
+  else if (length > 50) copyCount = 6;
+  else if (length > 40) copyCount = 7;
+  else copyCount = 8;
+
+      // Create repeated spans
+      const copies = Array(copyCount).fill(title);
+
+      return copies.map((t, i) => <span key={i}>{t}</span>);
+    })()}
+  </div>
+)}
+
         </div>
 
+        {/* Search & Filter */}
+        <div className={`${styles.searchContainer} container mb-4`}>
+          <div className="row g-3 align-items-center">
+            <div className="col-12 col-md-6 col-lg-4">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search By Notice Title"
+                value={searchText}
+                onChange={(e) => {
+                  setSearchText(e.target.value);
+                  handleSearch(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="col-6 col-md-3 col-lg-2">
+              <input
+                type="date"
+                className="form-control"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+
+            <div className="col-6 col-md-3 col-lg-2">
+              <input
+                type="date"
+                className="form-control"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+            <div className="col-6 col-md-3 col-lg-2">
+             <p>total notice <strong>{totalNotices}</strong></p>
+            </div>
+            
+
+            <div className="col-12 col-md-3 col-lg-2 d-flex justify-content-md-end justify-content-center gap-2">
+              <button
+                className="btn btn-primary"
+                onClick={() => handleSearch(searchText)}
+              >
+                Search
+              </button>
+              <button className="btn btn-secondary" onClick={handleReset}>
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
         
-<div className={`${styles.searchContainer} container`}>
-  <div className="row g-3 align-items-center">
-    {/* Search by Notice Title */}
-    <div className="col-12 col-md-6 col-lg-4">
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Search By Notice Title"
-        value={searchText}
-        onChange={(e) => {
-          setSearchText(e.target.value);
-          handleSearch(e.target.value);
-        }}
-      />
-    </div>
 
-    {/* Start Date */}
-    <div className="col-6 col-md-3 col-lg-2">
-      <input
-        type="date"
-        className="form-control"
-        value={startDate}
-        onChange={(e) => setStartDate(e.target.value)}
-      />
-    </div>
-
-    {/* End Date */}
-    <div className="col-6 col-md-3 col-lg-2">
-      <input
-        type="date"
-        className="form-control"
-        value={endDate}
-        onChange={(e) => setEndDate(e.target.value)}
-      />
-    </div>
-
-    {/* Buttons */}
-    <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-md-end justify-content-center gap-2">
-      <button className="btn btn-primary" onClick={handleSearch}>
-        Search
-      </button>
-      <button className="btn btn-secondary" onClick={handleReset}>
-        Reset
-      </button>
-    </div>
-  </div>
-</div>
-
-
+        {/* Notice List */}
+          {loading ? (
+          // Display loading indicator while fetching data
+          <div className="text-center my-5">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <p className="mt-2">Loading notices...</p>
+          </div>
+        ) : (
         
-
         <div className={styles.noticeBoardContainer}>
           <div className={styles.noticeList}>
             {currentNotices.map((notice) => (
-              <div key={notice.id} className={styles.noticeItem}>
+              <div key={notice._id} className={styles.noticeItem}>
                 <div>
                   <h5>{notice.title}</h5>
-                  <p>Published Date: {new Date(notice.date).toLocaleDateString()}</p>
+                  <p>
+                    Published Date: {new Date(notice.date).toLocaleString()}
+                    updatedAt Date: {new Date(notice.updatedAt).toLocaleString()}
+                  </p>
                 </div>
                 <button
                   className="btn btn-info"
-                  onClick={() => 
+                  onClick={() =>
                     window.open(
-                      `${import.meta.env.VITE_FRONTEND_BASE_PATH}noticedetails/${notice.id}`, 
-                      '_self'
+                      `${import.meta.env.VITE_FRONTEND_BASE_PATH}noticedetails/${notice._id}`,
+                      "_self"
                     )
-                  }                  
+                  }
                 >
                   + Read More
-                </button>               
-
+                </button>
               </div>
             ))}
           </div>
         </div>
+        )}
 
-        {/* Pagination */}      
-        {/* <div className="d-flex justify-content-center mt-4">
-        <select
+        {/* Pagination */}
+        <div className="d-flex justify-content-center align-items-center mt-4 gap-2 flex-wrap">
+          <p className="mt-3 pr-3">Total Notice : <strong>{totalNotices}</strong></p>
+          <select
             className="form-select w-auto"
             value={noticesPerPage}
             onChange={(e) => {
               setNoticesPerPage(Number(e.target.value));
-              setCurrentPage(1); // Reset to the first page when changing items per page
+              setCurrentPage(1);
             }}
           >
             <option value={5}>5</option>
             <option value={10}>10</option>
             <option value={20}>20</option>
           </select>
+
           <button
-            className="btn btn-outline-secondary mx-1"
+            className="btn btn-outline-secondary"
             onClick={() => paginate(1)}
             disabled={currentPage === 1}
           >
             First
           </button>
           <button
-            className="btn btn-outline-secondary mx-1"
+            className="btn btn-outline-secondary"
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
           >
             Previous
           </button>
+
           {paginationButtons}
+
           <button
-            className="btn btn-outline-secondary mx-1"
+            className="btn btn-outline-secondary"
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === totalPages}
           >
             Next
           </button>
           <button
-            className="btn btn-outline-secondary mx-1"
+            className="btn btn-outline-secondary"
             onClick={() => paginate(totalPages)}
             disabled={currentPage === totalPages}
           >
             Last
           </button>
-        </div> */}
-
-<div className="container mt-4">
-  <div className="row align-items-center justify-content-center g-2">
-    {/* Items per page selector */}
-    <div className="col-auto">
-      <select
-        className="form-select w-auto"
-        value={noticesPerPage}
-        onChange={(e) => {
-          setNoticesPerPage(Number(e.target.value));
-          setCurrentPage(1); // Reset to the first page when changing items per page
-        }}
-      >
-        <option value={5}>5</option>
-        <option value={10}>10</option>
-        <option value={20}>20</option>
-      </select>
-    </div>
-
-    {/* Pagination buttons */}
-    <div className="col-auto d-flex flex-wrap justify-content-center gap-2">
-      <button
-        className="btn btn-outline-secondary"
-        onClick={() => paginate(1)}
-        disabled={currentPage === 1}
-      >
-        First
-      </button>
-      <button
-        className="btn btn-outline-secondary"
-        onClick={() => paginate(currentPage - 1)}
-        disabled={currentPage === 1}
-      >
-        Previous
-      </button>
-      {paginationButtons}
-      <button
-        className="btn btn-outline-secondary"
-        onClick={() => paginate(currentPage + 1)}
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
-      <button
-        className="btn btn-outline-secondary"
-        onClick={() => paginate(totalPages)}
-        disabled={currentPage === totalPages}
-      >
-        Last
-      </button>
-    </div>
-  </div>
-</div>
-
+        </div>
       </div>
     </div>
   );
