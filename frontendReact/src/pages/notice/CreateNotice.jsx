@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function CreateNotice({ onNoticeCreated }) {
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     title: "",
     date: new Date().toISOString().split("T")[0],
@@ -20,7 +21,7 @@ export default function CreateNotice({ onNoticeCreated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setErrorMessage("");
    try {
     const response = await fetch(
       "https://typescript-express-mongo-db.vercel.app/api/notice",
@@ -31,24 +32,27 @@ export default function CreateNotice({ onNoticeCreated }) {
       }
     );
 
-    // if (!response.ok) throw new Error("Failed to create notice");
+    
 
     const result = await response.json();
 
+    if (!response.ok) {
+      setErrorMessage(result.message || "Failed to create notice");
+      return;
+    }
+
+    
+    onNoticeCreated(result.data); 
+
+    
     
 
-    // Pass only the new notice object to parent
-    onNoticeCreated(result.data); 
-console.log("testing notice",result )
-    // Show success alert
-    alert("Notice created successfully!");
-
-    // Close the modal
+    
     const modalEl = document.getElementById("staticBackdrop");
     const modal = window.bootstrap.Modal.getInstance(modalEl);
     modal.hide();
 
-    // Reset form
+    
     setFormData({
       title: "",
       date: new Date().toISOString().split("T")[0],
@@ -58,12 +62,19 @@ console.log("testing notice",result )
     });
   } catch (error) {
     console.error(error);
-    alert("Failed to create notice ========================"); // Only show this if fetch fails
+    setErrorMessage(error.message || "Failed to create notice"); 
   }
   };
 
   return (
+    <>
+    
     <form onSubmit={handleSubmit}>
+      {errorMessage && (
+        <div className="alert alert-danger" role="alert">
+          {errorMessage}
+        </div>
+      )}
       <div className="mb-3">
         <label className="form-label">Title*</label>
         <input
@@ -124,6 +135,7 @@ console.log("testing notice",result )
         Submit
       </button>
     </form>
+    </>
   );
 }
 
