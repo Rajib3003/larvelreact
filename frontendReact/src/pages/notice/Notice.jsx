@@ -9,23 +9,26 @@ export default function Notice() {
   const [endDate, setEndDate] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [noticesPerPage, setNoticesPerPage] = useState(5);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const [totalNotices, setTotalNotices] = useState(0);
+
   // Fetch data from API
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        setLoading(true); // <-- Start loading
+        setLoading(true);
+        // const response = await fetch(
+        //   "https://typescript-express-mongo-db.vercel.app/api/notice"
+        // );
+        // new api with login
         const response = await fetch(
-          "https://typescript-express-mongo-db.vercel.app/api/notice"
+          "https://ph-tour-managment-system.vercel.app/api/v1/notice/"
         );
         const data = await response.json();
-        
         const noticesArray = data.data || [];
         const total = data.total || 0;
 
-
-        // Sort by date descending
+        // Sort by updatedAt descending
         const sortedData = noticesArray.sort(
           (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
         );
@@ -36,15 +39,14 @@ export default function Notice() {
       } catch (error) {
         console.error("Error fetching notices:", error);
       } finally {
-        setLoading(false); // <-- Stop loading
+        setLoading(false);
       }
     };
 
     fetchNotices();
   }, []);
 
-
-  // Search & filter
+  // Search & Filter
   const handleSearch = (searchValue) => {
     const filtered = notices.filter((notice) => {
       const noticeDate = new Date(notice.date);
@@ -54,7 +56,6 @@ export default function Notice() {
       if (searchValue && !start && !end) {
         return notice.title.toLowerCase().includes(searchValue.toLowerCase());
       }
-
       if (!searchValue && start && !end) return noticeDate >= start;
       if (!searchValue && start && end) return noticeDate >= start && noticeDate <= end;
       if (searchValue && start && end)
@@ -81,24 +82,37 @@ export default function Notice() {
     setCurrentPage(1);
   };
 
-  // Pagination
-  const indexOfLastNotice = currentPage * noticesPerPage;
-  const indexOfFirstNotice = indexOfLastNotice - noticesPerPage;
-  const currentNotices = filteredNotices.slice(indexOfFirstNotice, indexOfLastNotice);
+  // Pagination logic
   const totalPages = Math.ceil(filteredNotices.length / noticesPerPage);
+  const pageWindow = 5;
+
+  let startPage = currentPage - Math.floor(pageWindow / 2);
+  let endPage = currentPage + Math.floor(pageWindow / 2);
+
+  if (startPage < 1) {
+    startPage = 1;
+    endPage = Math.min(pageWindow, totalPages);
+  }
+  if (endPage > totalPages) {
+    endPage = totalPages;
+    startPage = Math.max(1, totalPages - pageWindow + 1);
+  }
 
   const paginate = (pageNumber) => {
     if (pageNumber > 0 && pageNumber <= totalPages) setCurrentPage(pageNumber);
   };
 
+  // Current notices for current page
+  const indexOfLastNotice = currentPage * noticesPerPage;
+  const indexOfFirstNotice = indexOfLastNotice - noticesPerPage;
+  const currentNotices = filteredNotices.slice(indexOfFirstNotice, indexOfLastNotice);
+
   const paginationButtons = [];
-  for (let i = 1; i <= totalPages; i++) {
+  for (let i = startPage; i <= endPage; i++) {
     paginationButtons.push(
       <button
         key={i}
-        className={`btn ${
-          currentPage === i ? "btn-primary" : "btn-outline-primary"
-        } mx-1`}
+        className={`btn ${currentPage === i ? "btn-primary" : "btn-outline-primary"} mx-1`}
         onClick={() => paginate(i)}
       >
         {i}
@@ -109,43 +123,39 @@ export default function Notice() {
   return (
     <div className="container-xxl py-5">
       <div className="container">
+        {/* Header */}
         <div className="text-center mx-auto mb-5" style={{ maxWidth: "600px" }}>
           <h1 className="mb-3">Notice Board</h1>
           <p>
-            Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
+            Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero
+            ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
           </p>
         </div>
+
         <div className={styles.noticeMarquee}>
-          {/* <p>
-            {notices.length > 0 ? notices[0].title : "No notices available"}
-          </p> */}
-   {notices.length > 0 && (
-  <div className={styles.marqueeContent}>
-    {(() => {
-      const title = notices[0].title;
-      const length = title.length;
+  {notices.length > 0 && (
+    <div className={styles.marqueeContent}>
+      {(() => {
+        const title = notices[0].title;
+        const length = title.length;
 
-      // Condition: long title -> 2 copies, short title -> 3 copies
-      // const copyCount = length > 40 ? 2 : 3;
-      let copyCount;
-  if (length > 200) copyCount = 1;
-  else if (length > 150) copyCount = 2;
-  else if (length > 100) copyCount = 3;
-  else if (length > 80) copyCount = 4;
-  else if (length > 60) copyCount = 5;
-  else if (length > 50) copyCount = 6;
-  else if (length > 40) copyCount = 7;
-  else copyCount = 8;
+        let copyCount;
+        if (length > 200) copyCount = 1;
+        else if (length > 150) copyCount = 2;
+        else if (length > 100) copyCount = 3;
+        else if (length > 80) copyCount = 4;
+        else if (length > 60) copyCount = 5;
+        else if (length > 50) copyCount = 6;
+        else if (length > 40) copyCount = 7;
+        else copyCount = 8;
 
-      // Create repeated spans
-      const copies = Array(copyCount).fill(title);
+        const copies = Array(copyCount).fill(title);
+        return copies.map((t, i) => <span key={i}>{t}</span>);
+      })()}
+    </div>
+  )}
+</div>
 
-      return copies.map((t, i) => <span key={i}>{t}</span>);
-    })()}
-  </div>
-)}
-
-        </div>
 
         {/* Search & Filter */}
         <div className={`${styles.searchContainer} container mb-4`}>
@@ -162,7 +172,6 @@ export default function Notice() {
                 }}
               />
             </div>
-
             <div className="col-6 col-md-3 col-lg-2">
               <input
                 type="date"
@@ -171,7 +180,6 @@ export default function Notice() {
                 onChange={(e) => setStartDate(e.target.value)}
               />
             </div>
-
             <div className="col-6 col-md-3 col-lg-2">
               <input
                 type="date"
@@ -181,15 +189,12 @@ export default function Notice() {
               />
             </div>
             <div className="col-6 col-md-3 col-lg-2">
-             <p>total notice <strong>{totalNotices}</strong></p>
+              <p>
+                Total Notice : <strong>{totalNotices}</strong>
+              </p>
             </div>
-            
-
             <div className="col-12 col-md-3 col-lg-2 d-flex justify-content-md-end justify-content-center gap-2">
-              <button
-                className="btn btn-primary"
-                onClick={() => handleSearch(searchText)}
-              >
+              <button className="btn btn-primary" onClick={() => handleSearch(searchText)}>
                 Search
               </button>
               <button className="btn btn-secondary" onClick={handleReset}>
@@ -198,11 +203,9 @@ export default function Notice() {
             </div>
           </div>
         </div>
-        
 
         {/* Notice List */}
-          {loading ? (
-          // Display loading indicator while fetching data
+        {loading ? (
           <div className="text-center my-5">
             <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Loading...</span>
@@ -210,38 +213,61 @@ export default function Notice() {
             <p className="mt-2">Loading notices...</p>
           </div>
         ) : (
-        
-        <div className={styles.noticeBoardContainer}>
-          <div className={styles.noticeList}>
-            {currentNotices.map((notice) => (
-              <div key={notice._id} className={styles.noticeItem}>
-                <div>
-                  <h5>{notice.title}</h5>
-                  <p>
-                    Published Date: {new Date(notice.date).toLocaleString()}
-                    updatedAt Date: {new Date(notice.updatedAt).toLocaleString()}
-                  </p>
+          <div className={styles.noticeBoardContainer}>
+            <div className={styles.noticeList}>
+              {currentNotices.map((notice) => (
+                <div key={notice._id} className={styles.noticeItem}>
+                  <div>
+                    <h5>{notice.title}</h5>
+                    <p>
+                      Published: {new Date(notice.date).toLocaleString()} | Updated:{" "}
+                      {new Date(notice.updatedAt).toLocaleString()}
+                    </p>
+                     {/* {notice.images && notice.images.length > 0 && (
+                        <img 
+                          src={notice.images[0]} 
+                          alt={notice.title} 
+                          style={{ width: "200px", height: "auto", borderRadius: "8px" }}
+                        />
+                      )} */}
+
+                      {notice.images && notice.images.length > 0 && (
+    <div style={{ display: "flex", gap: "10px", margin: "10px 0" }}>
+      {notice.images.map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={notice.title}
+          style={{
+            width: "200px",
+            height: "auto",
+            borderRadius: "8px",
+            objectFit: "cover"
+          }}
+        />
+      ))}
+    </div>
+  )}
+                  </div>
+                  <button
+                    className="btn btn-info"
+                    onClick={() =>
+                      window.open(
+                        `${import.meta.env.VITE_FRONTEND_BASE_PATH}noticedetails/${notice._id}`,
+                        "_self"
+                      )
+                    }
+                  >
+                    + Read More
+                  </button>
                 </div>
-                <button
-                  className="btn btn-info"
-                  onClick={() =>
-                    window.open(
-                      `${import.meta.env.VITE_FRONTEND_BASE_PATH}noticedetails/${notice._id}`,
-                      "_self"
-                    )
-                  }
-                >
-                  + Read More
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         )}
 
         {/* Pagination */}
         <div className="d-flex justify-content-center align-items-center mt-4 gap-2 flex-wrap">
-          <p className="mt-3 pr-3">Total Notice : <strong>{totalNotices}</strong></p>
           <select
             className="form-select w-auto"
             value={noticesPerPage}
@@ -286,6 +312,9 @@ export default function Notice() {
           >
             Last
           </button>
+          <span className="ms-3">
+            Page <strong>{currentPage}</strong> of <strong>{totalPages}</strong>
+          </span>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import CreateNotice from "../notice/CreateNotice";
 import Notice from "../notice/Notice";
 
 const StudentProfile = () => {
-  const [isOpen, setIsOpen] = useState([false, false, false]); // Toggle state for sections
+  const [isOpen, setIsOpen] = useState([false, false, false]); 
   const [notices, setNotices] = useState([]);
   const [filteredNotices, setFilteredNotices] = useState([]);
 
