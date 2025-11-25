@@ -1,80 +1,88 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 
 export default function CreateNotice({ onNoticeCreated }) {
-  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     title: "",
     date: new Date().toISOString().split("T")[0],
-    description: "",
-    link: "",
-    photo: "",
+    noticeType: "",
+    images: [],
   });
+
+  const [noticeTypes, setNoticeTypes] = useState([]);
+  const [previewImages, setPreviewImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch notice types
+  useEffect(() => {
+    fetch("https://ph-tour-managment-system.vercel.app/api/v1/notice/notice-types")
+      .then((res) => res.json())
+      .then((data) => {
+        setNoticeTypes(data?.data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch notice types:", err);
+        setLoading(false);
+      });
+  }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    setFormData((prev) => ({ ...prev, images: files }));
+
+    // Preview
+    const urls = files.map((file) => URL.createObjectURL(file));
+    setPreviewImages(urls);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage("");
-   try {
-    const response = await fetch(
-      "https://typescript-express-mongo-db.vercel.app/api/notice",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      }
-    );
 
-    
+    const data = new FormData();
+    data.append("title", formData.title);
+    data.append("date", formData.date);
+    data.append("noticeType", formData.noticeType);
+    formData.images.forEach((file) => data.append("images", file));
 
-    const result = await response.json();
+    try {
+      const response = await fetch(
+        "https://ph-tour-managment-system.vercel.app/api/v1/notice/create",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
 
-    if (!response.ok) {
-      setErrorMessage(result.message || "Failed to create notice");
-      return;
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || "Failed to create notice");
+
+      onNoticeCreated(result.data);
+
+      // Reset
+      setFormData({
+        title: "",
+        date: new Date().toISOString().split("T")[0],
+        noticeType: "",
+        images: [],
+      });
+      setPreviewImages([]);
+    } catch (err) {
+      console.error(err);
     }
-
-    
-    onNoticeCreated(result.data); 
-
-    
-    
-
-    
-    const modalEl = document.getElementById("staticBackdrop");
-    const modal = window.bootstrap.Modal.getInstance(modalEl);
-    modal.hide();
-
-    
-    setFormData({
-      title: "",
-      date: new Date().toISOString().split("T")[0],
-      description: "",
-      link: "",
-      photo: "",
-    });
-  } catch (error) {
-    console.error(error);
-    setErrorMessage(error.message || "Failed to create notice"); 
-  }
   };
 
+  if (loading) return <p>Loading notice types...</p>;
+
   return (
-    <>
-    
     <form onSubmit={handleSubmit}>
-      {errorMessage && (
-        <div className="alert alert-danger" role="alert">
-          {errorMessage}
-        </div>
-      )}
+      {/* Title */}
       <div className="mb-3">
         <label className="form-label">Title*</label>
         <input
@@ -87,6 +95,7 @@ export default function CreateNotice({ onNoticeCreated }) {
         />
       </div>
 
+      {/* Date */}
       <div className="mb-3">
         <label className="form-label">Date*</label>
         <input
@@ -99,47 +108,57 @@ export default function CreateNotice({ onNoticeCreated }) {
         />
       </div>
 
+      {/* Notice Type */}
       <div className="mb-3">
-        <label className="form-label">Description</label>
-        <textarea
-          name="description"
-          value={formData.description}
+        <label className="form-label">Notice Type*</label>
+        <select
+          name="noticeType"
+          value={formData.noticeType}
           onChange={handleChange}
+          className="form-control"
+          required
+        >
+          <option value="">-- Select Notice Type --</option>
+          {noticeTypes.map((type) => (
+            <option key={type._id} value={type.id}>
+              {type.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Multi Image */}
+      <div className="mb-3">
+        <label className="form-label">Images</label>
+        <input
+          type="file"
+          multiple
+          onChange={handleFileChange}
           className="form-control"
         />
       </div>
 
-      <div className="mb-3">
-        <label className="form-label">Link</label>
-        <input
-          type="url"
-          name="link"
-          value={formData.link}
-          onChange={handleChange}
-          className="form-control"
-        />
-      </div>
-
-      <div className="mb-3">
-        <label className="form-label">Photo URL</label>
-        <input
-          type="text"
-          name="photo"
-          value={formData.photo}
-          onChange={handleChange}
-          className="form-control"
-        />
-      </div>
+      {/* Preview */}
+      {previewImages.length > 0 && (
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "15px" }}>
+          {previewImages.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`preview-${i}`}
+              style={{ width: "100px", height: "100px", objectFit: "cover", borderRadius: "5px" }}
+            />
+          ))}
+        </div>
+      )}
 
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
     </form>
-    </>
   );
 }
 
 CreateNotice.propTypes = {
   onNoticeCreated: PropTypes.func.isRequired,
 };
-

@@ -267,11 +267,11 @@ export default function Notice() {
                     + Read More
                   </button> */}
                   <button
-  className="btn btn-info"
-  onClick={() => navigate(`/noticedetails/${notice.slug}`)}
->
-  + Read More
-</button>
+                    className="btn btn-info"
+                    onClick={() => navigate(`/noticedetails/${notice.slug}`)}
+                  >
+                    + Read More
+                  </button>
                 </div>
               ))}
             </div>

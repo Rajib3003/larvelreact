@@ -6,6 +6,8 @@ export default function NoticeDetails() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
+   const [selectedImg, setSelectedImg] = useState(null);
+
 
   const postData = post?.data
   
@@ -58,6 +60,7 @@ export default function NoticeDetails() {
                           borderRadius: "8px",
                           objectFit: "cover"
                         }}
+                        onClick={() => setSelectedImg(img)}
                       />
                     ))}
                   </div>
@@ -77,6 +80,52 @@ export default function NoticeDetails() {
           </div>
         </div>
       </div>
+      {selectedImg && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.8)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+          }}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setSelectedImg(null)}
+            style={{
+              position: "absolute",
+              top: "20px",
+              right: "20px",
+              background: "transparent",
+              border: "none",
+              fontSize: "30px",
+              color: "#fff",
+              cursor: "pointer",
+            }}
+          >
+            &times;
+          </button>
+
+          {/* Image */}
+          <img
+            src={selectedImg}
+            alt={postData.title}
+            style={{
+              maxWidth: "90%",
+              maxHeight: "90%",
+              borderRadius: "8px",
+              boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+            }}
+          />
+        </div>
+      )}
     </div>
+    
   );
 }
