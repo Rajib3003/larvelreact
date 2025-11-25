@@ -42,6 +42,11 @@ export default function CreateNotice({ onNoticeCreated }) {
     setPreviewImages(urls);
   };
 
+const token = document.cookie
+  .split("; ")
+  .find(row => row.startsWith("accesstoken="))
+  ?.split("=")[1]; // token value
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -53,14 +58,24 @@ export default function CreateNotice({ onNoticeCreated }) {
 
     try {
       const response = await fetch(
-        "https://ph-tour-managment-system.vercel.app/api/v1/notice/create",
+        // "https://ph-tour-managment-system.vercel.app/api/v1/notice/create",
+        "http://localhost:5000/api/v1/notice/create",
         {
           method: "POST",
-          body: data,
+          body: data,          // FormData
+          credentials: "include", // ✅ must for cookies
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
         }
       );
+      console.log("response",response)
+     
 
       const result = await response.json();
+
+      
+      
       if (!response.ok) throw new Error(result.message || "Failed to create notice");
 
       onNoticeCreated(result.data);
