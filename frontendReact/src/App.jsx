@@ -87,12 +87,13 @@ function App() {
           <Route path="/homework" element={<Homework />} />
           <Route path="/contact" element={<Contactus />} />
           <Route path="/notice" element={<Notice />} />
-          <Route path="/noticedetails/:id" element={<NoticeDetails />} />
+          <Route path="/noticedetails/:slug" element={<NoticeDetails />} />
           <Route path="/teachers" element={<TeacherList />} />
           <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
           <Route path="/admission-information" element={<AdmissionInformation />} />
           <Route path="/error" element={<Error />} />
           <Route path="/faqs" element={<Faqs />} />
+          
           <Route
             path="/student-profile"
             element={

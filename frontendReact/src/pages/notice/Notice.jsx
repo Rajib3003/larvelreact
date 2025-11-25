@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Notice.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Notice() {
   const [notices, setNotices] = useState([]);
@@ -11,6 +12,8 @@ export default function Notice() {
   const [noticesPerPage, setNoticesPerPage] = useState(5);
   const [loading, setLoading] = useState(false);
   const [totalNotices, setTotalNotices] = useState(0);
+
+  const navigate = useNavigate();
 
   // Fetch data from API
   useEffect(() => {
@@ -24,9 +27,11 @@ export default function Notice() {
         const response = await fetch(
           "https://ph-tour-managment-system.vercel.app/api/v1/notice/"
         );
-        const data = await response.json();
+        const data= await response.json();
+        // const meta = await response.json();
         const noticesArray = data.data || [];
-        const total = data.total || 0;
+        const total = data.meta.total || 0;
+       
 
         // Sort by updatedAt descending
         const sortedData = noticesArray.sort(
@@ -133,28 +138,28 @@ export default function Notice() {
         </div>
 
         <div className={styles.noticeMarquee}>
-  {notices.length > 0 && (
-    <div className={styles.marqueeContent}>
-      {(() => {
-        const title = notices[0].title;
-        const length = title.length;
+          {notices.length > 0 && (
+            <div className={styles.marqueeContent}>
+              {(() => {
+                const title = notices[0].title;
+                const length = title.length;
 
-        let copyCount;
-        if (length > 200) copyCount = 1;
-        else if (length > 150) copyCount = 2;
-        else if (length > 100) copyCount = 3;
-        else if (length > 80) copyCount = 4;
-        else if (length > 60) copyCount = 5;
-        else if (length > 50) copyCount = 6;
-        else if (length > 40) copyCount = 7;
-        else copyCount = 8;
+                let copyCount;
+                if (length > 200) copyCount = 1;
+                else if (length > 150) copyCount = 2;
+                else if (length > 100) copyCount = 3;
+                else if (length > 80) copyCount = 4;
+                else if (length > 60) copyCount = 5;
+                else if (length > 50) copyCount = 6;
+                else if (length > 40) copyCount = 7;
+                else copyCount = 8;
 
-        const copies = Array(copyCount).fill(title);
-        return copies.map((t, i) => <span key={i}>{t}</span>);
-      })()}
-    </div>
-  )}
-</div>
+                const copies = Array(copyCount).fill(title);
+                return copies.map((t, i) => <span key={i}>{t}</span>);
+              })()}
+            </div>
+          )}
+        </div>
 
 
         {/* Search & Filter */}
@@ -188,7 +193,7 @@ export default function Notice() {
                 onChange={(e) => setEndDate(e.target.value)}
               />
             </div>
-            <div className="col-6 col-md-3 col-lg-2">
+            <div className="col-6 col-md-3 col-lg-2 text-center pt-3">
               <p>
                 Total Notice : <strong>{totalNotices}</strong>
               </p>
@@ -220,8 +225,9 @@ export default function Notice() {
                   <div>
                     <h5>{notice.title}</h5>
                     <p>
-                      Published: {new Date(notice.date).toLocaleString()} | Updated:{" "}
-                      {new Date(notice.updatedAt).toLocaleString()}
+                      Published Date and Time: {new Date(notice.createdAt).toLocaleString()} | 
+                      Notice Date: {new Date(notice.date).toLocaleDateString()} 
+                      
                     </p>
                      {/* {notice.images && notice.images.length > 0 && (
                         <img 
@@ -232,34 +238,40 @@ export default function Notice() {
                       )} */}
 
                       {notice.images && notice.images.length > 0 && (
-    <div style={{ display: "flex", gap: "10px", margin: "10px 0" }}>
-      {notice.images.map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt={notice.title}
-          style={{
-            width: "200px",
-            height: "auto",
-            borderRadius: "8px",
-            objectFit: "cover"
-          }}
-        />
-      ))}
-    </div>
-  )}
+                        <div style={{ display: "flex", gap: "10px", margin: "10px 0" }}>
+                          {notice.images.map((img, index) => (
+                            <img
+                              key={index}
+                              src={img}
+                              alt={notice.title}
+                              style={{
+                                width: "200px",
+                                height: "auto",
+                                borderRadius: "8px",
+                                objectFit: "cover"
+                              }}
+                            />
+                          ))}
+                        </div>
+                      )}
                   </div>
-                  <button
+                  {/* <button
                     className="btn btn-info"
                     onClick={() =>
                       window.open(
-                        `${import.meta.env.VITE_FRONTEND_BASE_PATH}noticedetails/${notice._id}`,
+                        `${import.meta.env.VITE_FRONTEND_BASE_PATH}noticedetails/${notice.slug}`,
                         "_self"
                       )
                     }
                   >
                     + Read More
-                  </button>
+                  </button> */}
+                  <button
+  className="btn btn-info"
+  onClick={() => navigate(`/noticedetails/${notice.slug}`)}
+>
+  + Read More
+</button>
                 </div>
               ))}
             </div>
