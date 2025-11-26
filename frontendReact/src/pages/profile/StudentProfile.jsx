@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useContext } from "react";
 import aboutusImageOne from "/assets/frontend_assets/img/about-1.jpg";
 import CreateNotice from "../notice/CreateNotice";
@@ -6,13 +7,13 @@ import { AuthContext } from "../../AuthContext";
 
 
 const StudentProfile = () => {
-  const { user } = useContext(AuthContext); // 👈 get logged-in user
-  const [ setNotices] = useState([]);
-  const [ setFilteredNotices] = useState([]);
+  const { user } = useContext(AuthContext);
+  const [notices, setNotices] = useState([]);
   const [isOpenNoticeRouting, setOpenNoticeRouting] = useState(false);
-  // const [isOpenClassRouting, setOpenClassRouting] = useState(false);
-  // const [isOpenHomeWork, setOpenHomeWork] = useState(false);
-  // const [isOpenAccounting, setOpenAccounting] = useState(false);
+
+  const handleNoticeCreated = (newNotice) => {
+        setNotices(prev => [newNotice, ...prev]);
+    }
 
   return (
     <div className="container-xxl py-5">
@@ -68,12 +69,16 @@ const StudentProfile = () => {
                     ></button>
                   </div>
                   <div className="modal-body">
-                    <CreateNotice
+                    {/* <CreateNotice
                       onNoticeCreated={(newNotice) => {
                         setNotices((prev) => [newNotice, ...prev]);
                         setFilteredNotices((prev) => [newNotice, ...prev]);
                       }}
-                    />
+                    /> */}
+                    <CreateNotice onNoticeCreated={handleNoticeCreated} />
+                    {/* {notices.map((n, i) => (
+                        <div key={i}>{n.title}</div>
+                    ))} */}
                   </div>
                 </div>
               </div>
@@ -97,7 +102,7 @@ const StudentProfile = () => {
                   <strong className="text-primary">Email:</strong> {user?.accessToken || "N/A"}
                 </div>
               </div>
-              {console.log(user)}
+              
 
               
 

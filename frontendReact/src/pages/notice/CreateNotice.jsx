@@ -6,7 +6,7 @@ export default function CreateNotice({ onNoticeCreated }) {
     title: "",
     date: new Date().toISOString().split("T")[0],
     noticeType: "",
-    images: [],
+    files: [],
   });
 
   const [noticeTypes, setNoticeTypes] = useState([]);
@@ -15,7 +15,8 @@ export default function CreateNotice({ onNoticeCreated }) {
 
   // Fetch notice types
   useEffect(() => {
-    fetch("https://ph-tour-managment-system.vercel.app/api/v1/notice/notice-types")
+    // fetch("https://ph-tour-managment-system.vercel.app/api/v1/notice/notice-types")
+    fetch("http://localhost:5000/api/v1/notice/notice-types")
       .then((res) => res.json())
       .then((data) => {
         setNoticeTypes(data?.data || []);
@@ -35,17 +36,14 @@ export default function CreateNotice({ onNoticeCreated }) {
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
-    setFormData((prev) => ({ ...prev, images: files }));
+    setFormData((prev) => ({ ...prev, files: files }));
 
     // Preview
     const urls = files.map((file) => URL.createObjectURL(file));
     setPreviewImages(urls);
   };
 
-const token = document.cookie
-  .split("; ")
-  .find(row => row.startsWith("accesstoken="))
-  ?.split("=")[1]; // token value
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,7 +52,7 @@ const token = document.cookie
     data.append("title", formData.title);
     data.append("date", formData.date);
     data.append("noticeType", formData.noticeType);
-    formData.images.forEach((file) => data.append("images", file));
+    formData.files.forEach((file) => data.append("files", file));
 
     try {
       const response = await fetch(
@@ -62,11 +60,9 @@ const token = document.cookie
         "http://localhost:5000/api/v1/notice/create",
         {
           method: "POST",
-          body: data,          // FormData
-          credentials: "include", // ✅ must for cookies
-          headers: {
-            "Authorization": `Bearer ${token}`
-          }
+          body: data,          
+          credentials: "include", 
+         
         }
       );
       console.log("response",response)
@@ -85,7 +81,7 @@ const token = document.cookie
         title: "",
         date: new Date().toISOString().split("T")[0],
         noticeType: "",
-        images: [],
+        files: [],
       });
       setPreviewImages([]);
     } catch (err) {
@@ -135,7 +131,7 @@ const token = document.cookie
         >
           <option value="">-- Select Notice Type --</option>
           {noticeTypes.map((type) => (
-            <option key={type._id} value={type.id}>
+            <option key={type._id} value={type._id}>
               {type.name}
             </option>
           ))}
