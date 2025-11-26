@@ -30,7 +30,7 @@ export default function NoticeDetails() {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, [slug]);
+  }, [baseApiUrl,slug]);
 
   if (loading) {
     return <p>Loading...</p>;

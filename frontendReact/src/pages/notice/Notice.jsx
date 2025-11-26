@@ -54,7 +54,7 @@ export default function Notice() {
     };
 
     fetchNotices();
-  }, []);
+  }, [baseApiUrl]);
 
   // Search & Filter
   const handleSearch = (searchValue) => {

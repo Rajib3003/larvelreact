@@ -2,8 +2,9 @@
 import { useState, useContext } from "react";
 import aboutusImageOne from "/assets/frontend_assets/img/about-1.jpg";
 import CreateNotice from "../notice/CreateNotice";
-import Notice from "../notice/Notice";
+// import Notice from "../notice/Notice";
 import { AuthContext } from "../../AuthContext";
+import NoticeAdminPanel from "../notice/NoticeAdminPanel";
 
 
 const StudentProfile = () => {
@@ -37,41 +38,9 @@ const StudentProfile = () => {
             <h1 className="mb-4 text-center">Will Power School</h1>
 
             {/* Create Notice Button */}
-            <button
-              type="button"
-              className="btn btn-primary mb-3"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-            >
-              Create Notice
-            </button>
+           
 
-            {/* Create Notice Modal */}
-            <div
-  className="modal fade"
-  id="staticBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  aria-labelledby="staticBackdropLabel"
->
-
-              <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="staticBackdropLabel">Create Notice</h5>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body">
-                    <CreateNotice onNoticeCreated={handleNoticeCreated} />
-                  </div>
-                </div>
-              </div>
-            </div>
+            
 
 
             {/* Basic Info */}
@@ -106,20 +75,56 @@ const StudentProfile = () => {
           <div className="col-lg-12">
             <div
               className="info-box bg-light p-4 shadow rounded"
-              onClick={() => setOpenNoticeRouting(!isOpenNoticeRouting)}
-            >
+              onClick={() => setOpenNoticeRouting(!isOpenNoticeRouting)}>
               <div className="d-flex justify-content-between align-items-center header">
-                <h5 className="mb-0">Notice</h5>
-                <span className={`arrow ${isOpenNoticeRouting ? "rotate" : ""}`}>&#x25B6;</span>
+                <h5 className="mb-0">Notice</h5> 
+                <button
+                  type="button"
+                  className="btn btn-primary mb-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onClick={(e) => e.stopPropagation()} 
+                >
+                  Create Notice
+                </button>
+                  <span className={`arrow ${isOpenNoticeRouting ? "rotate" : ""}`}>&#x25B6;</span>
               </div>
-              <div className={`collapse ${isOpenNoticeRouting ? "show" : ""}`}>
-                <div className="card-body">
-                  <Notice />
+            </div>
+            <div className={`collapse ${isOpenNoticeRouting ? "show" : ""}`}>
+              <div className="card-body">                  
+                <NoticeAdminPanel notices={notices} setNotices={setNotices} />
+              </div>
+            </div>            
+          </div>
+        </div>
+
+
+        {/* Create Notice Modal */}
+            <div
+                className="modal fade"
+                id="staticBackdrop"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                aria-labelledby="staticBackdropLabel"
+              >
+
+              <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="staticBackdropLabel">Create Notice</h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <CreateNotice onNoticeCreated={(newNotice) => setNotices(prev => [newNotice, ...prev])}  />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
         {/* Class Routing, Home Work, Accounting (same as before) */}
         {/* ... keep your existing collapsible sections code ... */}
