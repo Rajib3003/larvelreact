@@ -5,6 +5,8 @@ import { AuthContext } from "../AuthContext";
 
 
 export default function Login({ setIsLoggedIn }) {
+  const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,7 +19,7 @@ export default function Login({ setIsLoggedIn }) {
     try {
       const response = await fetch(
         // "https://ph-tour-managment-system.vercel.app/api/v1/auth/login",
-        "http://localhost:5000/api/v1/auth/login",
+        `${baseApiUrl}/auth/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

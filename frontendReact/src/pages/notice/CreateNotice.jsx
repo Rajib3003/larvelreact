@@ -46,48 +46,58 @@ export default function CreateNotice({ onNoticeCreated }) {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const data = new FormData();
-    data.append("title", formData.title);
-    data.append("date", formData.date);
-    data.append("noticeType", formData.noticeType);
-    formData.files.forEach((file) => data.append("files", file));
+  const data = new FormData();
+  data.append("title", formData.title);
+  data.append("date", formData.date);
+  data.append("noticeType", formData.noticeType);
+  formData.files.forEach((file) => data.append("files", file));
 
-    try {
-      const response = await fetch(
-        // "https://ph-tour-managment-system.vercel.app/api/v1/notice/create",
-        "http://localhost:5000/api/v1/notice/create",
-        {
-          method: "POST",
-          body: data,          
-          credentials: "include", 
-         
-        }
-      );
-      console.log("response",response)
-     
+  try {
+    const response = await fetch("http://localhost:5000/api/v1/notice/create", {
+    // const response = await fetch("https://ph-tour-managment-system.vercel.app/api/v1/notice/create", {
+      method: "POST",
+      body: data,
+      credentials: "include",
+    });
 
-      const result = await response.json();
+    const result = await response.json();
 
-      
-      
-      if (!response.ok) throw new Error(result.message || "Failed to create notice");
+    if (!response.ok) throw new Error(result.message || "Failed to create notice");
 
-      onNoticeCreated(result.data);
+    onNoticeCreated(result.data);
 
-      // Reset
-      setFormData({
-        title: "",
-        date: new Date().toISOString().split("T")[0],
-        noticeType: "",
-        files: [],
-      });
-      setPreviewImages([]);
-    } catch (err) {
-      console.error(err);
+    // Reset form
+    setFormData({
+      title: "",
+      date: new Date().toISOString().split("T")[0],
+      noticeType: "",
+      files: [],
+    });
+    setPreviewImages([]);
+
+    // Close the modal
+    // const modalEl = document.getElementById("staticBackdrop");
+    // const modalInstance = window.bootstrap.Modal.getInstance(modalEl);
+    // if (modalInstance) {
+    //   modalInstance.hide();
+    // }
+
+    // ✅ Close modal safely here
+    const modalEl = document.getElementById("staticBackdrop");
+    const modalInstance = window.bootstrap.Modal.getInstance(modalEl);
+
+    if (modalInstance) {
+      if (document.activeElement) document.activeElement.blur(); // remove focus
+      modalInstance.hide(); // hide modal
     }
-  };
+
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
   if (loading) return <p>Loading notice types...</p>;
 

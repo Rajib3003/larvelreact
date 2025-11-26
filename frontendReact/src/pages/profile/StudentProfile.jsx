@@ -48,19 +48,17 @@ const StudentProfile = () => {
 
             {/* Create Notice Modal */}
             <div
-              className="modal fade"
-              id="staticBackdrop"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-              aria-labelledby="staticBackdropLabel"
-              aria-hidden="true"
-            >
+  className="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  aria-labelledby="staticBackdropLabel"
+>
+
               <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <h5 className="modal-title" id="staticBackdropLabel">
-                      Create Notice
-                    </h5>
+                    <h5 className="modal-title" id="staticBackdropLabel">Create Notice</h5>
                     <button
                       type="button"
                       className="btn-close"
@@ -69,20 +67,12 @@ const StudentProfile = () => {
                     ></button>
                   </div>
                   <div className="modal-body">
-                    {/* <CreateNotice
-                      onNoticeCreated={(newNotice) => {
-                        setNotices((prev) => [newNotice, ...prev]);
-                        setFilteredNotices((prev) => [newNotice, ...prev]);
-                      }}
-                    /> */}
                     <CreateNotice onNoticeCreated={handleNoticeCreated} />
-                    {/* {notices.map((n, i) => (
-                        <div key={i}>{n.title}</div>
-                    ))} */}
                   </div>
                 </div>
               </div>
             </div>
+
 
             {/* Basic Info */}
             <div className="row w-100">

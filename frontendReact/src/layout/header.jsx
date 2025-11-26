@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useEffect } from 'react';
 import '../i18n';
 import { useTranslation } from 'react-i18next';
@@ -17,8 +18,33 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
+  // const handleLogout = () => {
+  //   setIsLoggedIn(false);
+  // };
+
+  const handleLogout = async () => {
+    try {
+      const baseApiUrl = import.meta.env.VITE_BASE_API_URL; // .env এ define করা URL
+      const response = await fetch(`${baseApiUrl}/auth/logout`, {
+        method: "POST",         // অনেক API logout POST ব্যবহার করে
+        credentials: "include", // cookie/authorization handle করতে
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.message || "Logout failed");
+      }
+
+      // Success: Logged out
+      setIsLoggedIn(false);
+
+      // Optional: Redirect to login or home page
+      navigate("/");
+
+    } catch (error) {
+      console.error("Logout error:", error);
+      alert("Logout failed, please try again!");
+    }
   };
 
   useEffect(() => {
@@ -70,6 +96,8 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
 
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav mx-auto">
+          {!isLoggedIn && (
+            <>
           <NavLink to="/" className="nav-item nav-link">
             {t('home')}
           </NavLink>
@@ -121,6 +149,8 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
           <NavLink to="/contact" className="nav-item nav-link">
            {t('contact-us')}
           </NavLink>
+          </>
+          )}
         </div>
 
 

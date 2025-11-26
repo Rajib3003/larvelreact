@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function NoticeDetails() {
+  const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+
   const { slug } = useParams(); // Get the ID from the URL
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,7 +19,8 @@ export default function NoticeDetails() {
 
   useEffect(() => {
     // Fetch data for the specific ID
-    fetch(`https://ph-tour-managment-system.vercel.app/api/v1/notice/${slug}`)
+    // fetch(`https://ph-tour-managment-system.vercel.app/api/v1/notice/${slug}`)
+    fetch(`${baseApiUrl}/notice/${slug}`)
       .then((response) => response.json())      
       .then(data => {       
         setPost(data); // adjust if needed

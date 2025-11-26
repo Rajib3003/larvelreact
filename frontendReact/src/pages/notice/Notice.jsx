@@ -3,6 +3,8 @@ import styles from "./Notice.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Notice() {
+  const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+  
   const [notices, setNotices] = useState([]);
   const [filteredNotices, setFilteredNotices] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -12,6 +14,8 @@ export default function Notice() {
   const [noticesPerPage, setNoticesPerPage] = useState(5);
   const [loading, setLoading] = useState(false);
   const [totalNotices, setTotalNotices] = useState(0);
+
+  
 
   const navigate = useNavigate();
 
@@ -25,7 +29,8 @@ export default function Notice() {
         // );
         // new api with login
         const response = await fetch(
-          "https://ph-tour-managment-system.vercel.app/api/v1/notice/"
+          `${baseApiUrl}/notice/`
+          // "https://ph-tour-managment-system.vercel.app/api/v1/notice/"
         );
         const data= await response.json();
         // const meta = await response.json();
