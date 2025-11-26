@@ -8,7 +8,9 @@ import NoticeAdminPanel from "../notice/NoticeAdminPanel";
 
 
 const StudentProfile = () => {
+  // const { user } = useContext(AuthContext);
   const { user } = useContext(AuthContext);
+ 
   const [notices, setNotices] = useState([]);
   const [isOpenNoticeRouting, setOpenNoticeRouting] = useState(false);
 
@@ -117,7 +119,8 @@ const StudentProfile = () => {
                       className="btn-close"
                       data-bs-dismiss="modal"
                       aria-label="Close"
-                    ></button>
+                    >                      
+                    </button>
                   </div>
                   <div className="modal-body">
                     <CreateNotice onNoticeCreated={(newNotice) => setNotices(prev => [newNotice, ...prev])}  />
@@ -126,8 +129,8 @@ const StudentProfile = () => {
               </div>
             </div>
 
-        {/* Class Routing, Home Work, Accounting (same as before) */}
-        {/* ... keep your existing collapsible sections code ... */}
+
+   
 
       </div>
 

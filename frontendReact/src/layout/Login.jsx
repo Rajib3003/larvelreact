@@ -40,13 +40,21 @@ export default function Login({ setIsLoggedIn }) {
 
       // Save user data in context
       if (result.data?.user) {
-        setUser(result.data.user); // 👈 Save logged-in user info
-      }
+    setUser(result.data.user); 
+    setIsLoggedIn(true);
+
+    localStorage.setItem("user", JSON.stringify(result.data.user));
+  }
 
       // Optionally save token
       if (result.data?.token) {
         localStorage.setItem("token", result.data.token);
       }
+
+     
+
+      
+      
 
       navigate("/student-profile");
     } catch (err) {
