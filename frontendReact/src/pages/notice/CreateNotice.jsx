@@ -2,6 +2,9 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 
 export default function CreateNotice({ onNoticeCreated }) {
+
+  const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+
   const [formData, setFormData] = useState({
     title: "",
     date: new Date().toISOString().split("T")[0],
@@ -16,7 +19,7 @@ export default function CreateNotice({ onNoticeCreated }) {
   // Fetch notice types
   useEffect(() => {
     // fetch("https://ph-tour-managment-system.vercel.app/api/v1/notice/notice-types")
-    fetch("http://localhost:5000/api/v1/notice/notice-types")
+    fetch(`${baseApiUrl}/notice/notice-types`)
       .then((res) => res.json())
       .then((data) => {
         setNoticeTypes(data?.data || []);
@@ -26,7 +29,7 @@ export default function CreateNotice({ onNoticeCreated }) {
         console.error("Failed to fetch notice types:", err);
         setLoading(false);
       });
-  }, []);
+  }, [baseApiUrl]);
   
 
   const handleChange = (e) => {
@@ -55,7 +58,7 @@ export default function CreateNotice({ onNoticeCreated }) {
   formData.files.forEach((file) => data.append("files", file));
 
   try {
-    const response = await fetch("http://localhost:5000/api/v1/notice/create", {
+    const response = await fetch(`${baseApiUrl}/notice/create`, {
     // const response = await fetch("https://ph-tour-managment-system.vercel.app/api/v1/notice/create", {
       method: "POST",
       body: data,

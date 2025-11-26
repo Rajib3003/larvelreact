@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import styles from "./Notice.module.css";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Notice() {
+  const { t } = useTranslation();
   const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
   
   const [notices, setNotices] = useState([]);
@@ -137,8 +139,7 @@ export default function Notice() {
         <div className="text-center mx-auto mb-5" style={{ maxWidth: "600px" }}>
           <h1 className="mb-3">Notice Board</h1>
           <p>
-            Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero
-            ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.
+            {t("notice-board-text")}
           </p>
         </div>
 
