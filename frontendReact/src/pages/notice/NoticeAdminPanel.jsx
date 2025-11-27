@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import Pagination from "../../utils/Pagination";
 import DeleteConfirm from "../../utils/DeleteConfirm";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthContext";
 
 export default function NoticeAdminPanel({ notices = [], setNotices }) {
   const [loading, setLoading] = useState(true);
@@ -13,6 +14,10 @@ export default function NoticeAdminPanel({ notices = [], setNotices }) {
 
   const navigate = useNavigate();
   const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+
+  const { user } = useContext(AuthContext);
+
+  console.log("notices",notices)
 
   // Fetch notices
   const fetchNotices = async (pageNum) => {
@@ -36,29 +41,7 @@ export default function NoticeAdminPanel({ notices = [], setNotices }) {
     fetchNotices(page);
   }, [page, noticesPerPage]);
 
-  // Delete notice
-  // const handleDelete = async (id) => {
-    
-  //   if (!window.confirm("Are you sure you want to delete this notice?")) return;
-
-  //   try {
-  //     const response = await fetch(`${baseApiUrl}/notice/${id}`, {
-  //       method: "DELETE",
-  //       headers: { "Content-Type": "application/json" },
-  //       credentials: "include",
-  //     });
-      
-
-  //     if (!response.ok) throw new Error("Failed to delete the notice");
-
-  //     alert("Notice deleted successfully!");
-    
-  //     setNotices((prev) => prev.filter((notice) => notice._id !== id));
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert("Error deleting notice");
-  //   }
-  // };
+  
 
   const handleDelete = async (id) => {
   const confirmed = await DeleteConfirm({
@@ -111,7 +94,7 @@ export default function NoticeAdminPanel({ notices = [], setNotices }) {
               <tr key={notice._id}>
                 <td>{index + 1}</td>
                 <td>{notice.title}</td>
-                <td>{notice.noticeType?.name || "-"}</td>
+                <td>{notice.noticeType || "-"}</td>
                 <td>{new Date(notice.date).toLocaleDateString()}</td>
                 <td>{new Date(notice.createdAt).toLocaleString()}</td>
                 <td>{new Date(notice.updatedAt).toLocaleString()}</td>
@@ -138,13 +121,24 @@ export default function NoticeAdminPanel({ notices = [], setNotices }) {
                   >
                     View
                   </button>
-                  <button className="btn btn-sm btn-warning me-1">Edit</button>
+                   {(user.role === "SUPER_ADMIN" || user.role === "ADMIN" )&& (
+                  <button
+  className="btn btn-sm btn-warning me-1"
+  onClick={() => navigate(`/notice/edit/${notice.slug}`)}
+>
+  Edit
+</button>
+
+                   )}
+                    {(user.role === "SUPER_ADMIN" || user.role === "ADMIN" )&& (
                   <button
                     className="btn btn-sm btn-danger"
                     onClick={() => handleDelete(notice._id)}
                   >
                     Delete
                   </button>
+                   )}
+                  
                 </td>
               </tr>
             ))}

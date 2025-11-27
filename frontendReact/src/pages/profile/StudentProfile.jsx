@@ -79,7 +79,7 @@ const StudentProfile = () => {
 
              
      
-                {user.role === "SUPER_ADMIN" && (
+                {(user.role === "SUPER_ADMIN" || user.role === "ADMIN") && (
                 
                 <button
                   type="button"

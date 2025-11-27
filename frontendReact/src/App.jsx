@@ -21,6 +21,7 @@ import PropTypes from "prop-types";
 import AdmissionInformation from "./pages/admission-information/AdmissionInformation";
 import Error from "./pages/errors/Error";
 import Faqs from "./pages/faqs/Faqs";
+import NoticeEdit from "./pages/notice/NoticeEdit";
 
 
 
@@ -88,6 +89,7 @@ function App() {
           <Route path="/contact" element={<Contactus />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/noticedetails/:slug" element={<NoticeDetails />} />
+          <Route path="/notice/edit/:slug" element={<NoticeEdit />} />
           <Route path="/teachers" element={<TeacherList />} />
           <Route path="/teacherdetails/:id" element={<TeacherDetails />} />
           <Route path="/admission-information" element={<AdmissionInformation />} />
