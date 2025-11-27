@@ -18,3 +18,18 @@ Currently, two official plugins are available:
 - wps.personlbd.com likhle google first a ase na tar jonno kaj korte hobe
 - home work create and data show korte hobe.
 
+
+
+# localhost and hosting kicho code change
+
+- frontend a .env file api url change
+- backend a app.ts 
+const allowedOrigins = [
+    envVars.FRONTEND_URL,    
+    envVars.BACKEND_URL,
+    // envVars.FRONTEND_URL_WEBSIDE,
+    // envVars.BACKEND_URL_VERCEL
+];
+ei code ta change korte hobe local hole local are jodi hosting a hoy ta hole hosting. 
+
+

@@ -58,11 +58,7 @@ const StudentProfile = () => {
                   <strong className="text-primary">Email:</strong> {user?.email || "N/A"}
                 </div>
               </div>
-              <div className="col-md-6 mt-2">
-                <div className="info-box bg-light p-4 rounded shadow-sm">
-                  <strong className="text-primary">Email:</strong> {user?.accessToken || "N/A"}
-                </div>
-              </div>
+           
               
 
               
@@ -80,6 +76,11 @@ const StudentProfile = () => {
               onClick={() => setOpenNoticeRouting(!isOpenNoticeRouting)}>
               <div className="d-flex justify-content-between align-items-center header">
                 <h5 className="mb-0">Notice</h5> 
+
+             
+     
+                {user.role === "SUPER_ADMIN" && (
+                
                 <button
                   type="button"
                   className="btn btn-primary mb-3"
@@ -89,6 +90,7 @@ const StudentProfile = () => {
                 >
                   Create Notice
                 </button>
+                )}
                   <span className={`arrow ${isOpenNoticeRouting ? "rotate" : ""}`}>&#x25B6;</span>
               </div>
             </div>
