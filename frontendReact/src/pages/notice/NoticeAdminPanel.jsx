@@ -17,7 +17,7 @@ export default function NoticeAdminPanel({ notices = [], setNotices }) {
 
   const { user } = useContext(AuthContext);
 
-  console.log("notices",notices)
+  
 
   // Fetch notices
   const fetchNotices = async (pageNum) => {

@@ -104,7 +104,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
           <NavLink to="/notice" className="nav-item nav-link">
            {t('notice')}
           </NavLink>
-          <NavLink to="/homework" className="nav-item nav-link">
+          {/* <NavLink to="/homework" className="nav-item nav-link">
             {t('homework')}
           </NavLink>
 
@@ -144,7 +144,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
                 {t('faqs')}
               </NavLink>
             </div>
-          </div>
+          </div> */}
 
           <NavLink to="/contact" className="nav-item nav-link">
            {t('contact-us')}

@@ -75,7 +75,7 @@ const handleSearch = ({ searchText, startDate, endDate }) => {
         {/* Header */}
         <div className="row">
           <div className="text-center mx-auto col-7" >
-                <h1 className="mb-3">Notice Board</h1>
+                <h1 className="mb-3">{t('notice-board')}</h1>
                 <p>{t("notice-board-text")}</p>
                 <Search 
                 onSearch={handleSearch}                 

@@ -36,20 +36,20 @@ export default function Footer() {
             </div>
   
             <div className="col-lg-3 col-md-6">
-              <h3 className="text-white mb-4">Quick Links</h3>
-              <NavLink to="/aboutus" className="btn btn-link text-white-50" activeclassname="active">About Us</NavLink>
-              <NavLink to="/contact" className="btn btn-link text-white-50" activeclassname="active">Contact Us</NavLink>
-              <NavLink to="/services" className="btn btn-link text-white-50" activeclassname="active">Our Services</NavLink>
-              <NavLink to="/privacy-policy" className="btn btn-link text-white-50" activeclassname="active">Privacy Policy</NavLink>
-              <NavLink to="/team" className="btn btn-link text-white-50" activeclassname="active">Terms & Condition</NavLink>             
+              <h3 className="text-white mb-4">{t('useful-links')}</h3>
+              <NavLink to="/aboutus" className="btn btn-link text-white-50" activeclassname="active">{t('about-us')}</NavLink>
+              <NavLink to="/contact" className="btn btn-link text-white-50" activeclassname="active">{t('contact-us')}</NavLink>
+              <NavLink to="/teachers" className="btn btn-link text-white-50" activeclassname="active">{t('teachers')}</NavLink>
+              <NavLink to="/testimonial" className="btn btn-link text-white-50" activeclassname="active">{t('testimonials')}</NavLink>
+              <NavLink to="/faqs" className="btn btn-link text-white-50" activeclassname="active">{t('faqs')}</NavLink>             
             </div>
             <div className="col-lg-3 col-md-6">
-              <h3 className="text-white mb-4">Quick Links</h3>
-              <NavLink to="/aboutus" className="btn btn-link text-white-50" activeclassname="active">About Us</NavLink>
-              <NavLink to="/contact" className="btn btn-link text-white-50" activeclassname="active">Contact Us</NavLink>
-              <NavLink to="/services" className="btn btn-link text-white-50" activeclassname="active">Our Services</NavLink>
-              <NavLink to="/privacy-policy" className="btn btn-link text-white-50" activeclassname="active">Privacy Policy</NavLink>
-              <NavLink to="/team" className="btn btn-link text-white-50" activeclassname="active">Terms & Condition</NavLink>             
+              <h3 className="text-white mb-4">{t('useful-links')}</h3>
+              <NavLink to="/facilities" className="btn btn-link text-white-50" activeclassname="active">{t('school-facilities')}</NavLink>
+              <NavLink to="/team" className="btn btn-link text-white-50" activeclassname="active">{t('popular-teachers')}</NavLink>
+              <NavLink to="/admission-information" className="btn btn-link text-white-50" activeclassname="active">{t('admission-information')}</NavLink>
+              <NavLink to="/classes" className="btn btn-link text-white-50" activeclassname="active">{t('classes')}</NavLink>
+              <NavLink to="/appointment" className="btn btn-link text-white-50" activeclassname="active">{t('appointment')}</NavLink>             
             </div>
 
             {/* <div className="col-lg-3 col-md-6">
