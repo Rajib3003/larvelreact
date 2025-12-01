@@ -76,53 +76,56 @@ export default function NoticeEdit() {
 const handleFileChange = (e) => {
   const files = Array.from(e.target.files);
 
-  if (files.length > 0) {
-    setNewImages(files);
-    setPreviewImages(files.map((f) => URL.createObjectURL(f)));
-    console.log("ifpreviewImages====",previewImages)
-  } else {
-    fileInputRef.current.value = ""; 
-    setNewImages([]);
-    setPreviewImages(oldImages);
-    console.log("else===previewImages====",previewImages)
-  }
+  setNewImages(files);
+
+  const previews = files.map((f) => URL.createObjectURL(f));
+  setPreviewImages(previews);
+
 };
+
 // --------------------------
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const updateData = new FormData();
+  const updateData = new FormData();
 
-    updateData.append("title", formData.title);
-    updateData.append("date", formData.date);
+  updateData.append("title", formData.title);
+  updateData.append("date", formData.date);
 
-    if (formData.noticeType !== initialNoticeTypeId) {
-      updateData.append("noticeType", formData.noticeType);
-    }
+  if (formData.noticeType !== initialNoticeTypeId) {
+    updateData.append("noticeType", formData.noticeType);
+  }
 
-    // Image logic
-    if (newImages.length > 0) {
-      newImages.forEach((file) => updateData.append("files", file));
-      updateData.append("deleteImages", JSON.stringify(oldImages));
-    }
+  // ---------- IMAGE LOGIC ----------
+  if (newImages.length > 0) {
+    // New file added → send new files
+    newImages.forEach((file) => updateData.append("files", file));
 
-    try {
-      const res = await fetch(`${baseApiUrl}/notice/${noticeId}`, {
-        method: "PATCH",
-        body: updateData,
-        credentials: "include",
-      });
+    // Delete all old images
+    updateData.append("deleteImages", JSON.stringify(oldImages));
+  } 
+  // ❗ IMPORTANT: DO NOT SEND deleteImages if user selects nothing
+  // This keeps old images unchanged
+  // ----------------------------------
 
-      if (!res.ok) throw new Error("Failed");
+  try {
+    const res = await fetch(`${baseApiUrl}/notice/${noticeId}`, {
+      method: "PATCH",
+      body: updateData,
+      credentials: "include",
+    });
 
-      Swal.fire("Success", "Notice updated successfully!", "success");
-      navigate("/student-profile");
-    } catch (err) {
-      Swal.fire("Error", "Failed to update notice.", "error");
-      console.error(err);
-    }
-  };
+    if (!res.ok) throw new Error("Failed");
+
+    Swal.fire("Success", "Notice updated successfully!", "success");
+    navigate("/student-profile");
+  } catch (err) {
+    Swal.fire("Error", "Failed to update notice.", "error");
+    console.error(err);
+  }
+};
+
 
   const displayedNoticeTypes = () => {
     const list = noticeTypes.map((t) => ({
@@ -194,11 +197,13 @@ const handleFileChange = (e) => {
           <input
             type="file"
             multiple
+            
             ref={fileInputRef} // ★ required
             onChange={handleFileChange}
             className="form-control"
           />
         </div>
+        {console.log(previewImages)}
 
         {/* Preview */}
         {previewImages.length > 0 && (

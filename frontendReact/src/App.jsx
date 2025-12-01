@@ -22,6 +22,9 @@ import AdmissionInformation from "./pages/admission-information/AdmissionInforma
 import Error from "./pages/errors/Error";
 import Faqs from "./pages/faqs/Faqs";
 import NoticeEdit from "./pages/notice/NoticeEdit";
+import SignInPage from "./pages/profile/SingInPage";
+import ForgetPassword from "./pages/profile/ForgetPassword";
+import ResetPassword from "./pages/profile/ResetPassword";
 
 
 
@@ -95,6 +98,9 @@ function App() {
           <Route path="/admission-information" element={<AdmissionInformation />} />
           <Route path="/error" element={<Error />} />
           <Route path="/faqs" element={<Faqs />} />
+          <Route path="/singIn" element={<SignInPage />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           
           <Route
             path="/student-profile"

@@ -170,12 +170,20 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
               {t('logout')}
             </button>
           ) : (
+            <>
             <button
               className="btn btn-success mt-2 mt-md-0 ms-0 ms-md-2"
               onClick={() => navigate('/login')}
             >
               {t('login')}
             </button>
+            <button
+              className="btn btn-success mt-2 mt-md-0 ms-0 ms-md-2"
+              onClick={() => navigate('/singIn')}
+            >
+              {t('sign-in')}
+            </button>
+            </>
           )}
         </div>
       </div>
