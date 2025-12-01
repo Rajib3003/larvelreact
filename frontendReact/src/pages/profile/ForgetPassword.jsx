@@ -29,6 +29,12 @@ export default function ForgetPassword() {
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <h2 className="mb-4 text-center">Forget Password</h2>
 
+       {message && (
+        <div className="alert alert-info mt-3" role="alert">
+          {message}
+        </div>
+      )}
+
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -40,21 +46,17 @@ export default function ForgetPassword() {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
+            className="form-control bg-transparent py-3 ps-4"
             required
           />
         </div>
 
-        <button type="submit" className="btn btn-primary w-100">
+        <button type="submit" className="btn btn-primary w-100 p-3">
           Send Reset Link
         </button>
       </form>
 
-      {message && (
-        <div className="alert alert-info mt-3" role="alert">
-          {message}
-        </div>
-      )}
+     
     </div>
   );
 }

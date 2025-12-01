@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import googleLogo from "/assets/frontend_assets/img/google-logo.png";
+
 export default function SignInPage() {
 const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
   const [formData, setFormData] = useState({
@@ -41,14 +43,38 @@ const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <h2 className="mb-4 text-center">Sign Up</h2>
 
+       {message && (
+        <div className="alert alert-info mt-3" role="alert">
+          {message}
+        </div>
+      )}
+
       {/* Google Registration */}
       <div className="mb-3">
-        <a
+        {/* <a
           href={`${baseApiUrl}/auth/google`}
           className="btn btn-danger w-100"
         >
           Sign Up with Google
-        </a>
+        </a> */}
+        <a
+  href={`${baseApiUrl}/auth/google`}
+  className="btn w-100 d-flex align-items-center justify-content-center p-3"
+  style={{
+    backgroundColor: "#4285F4", // Google blue
+    color: "white",
+    fontWeight: "500",
+    gap: "8px",
+  }}
+>
+  <img
+    src={googleLogo}
+    alt="Google"
+    style={{ width: "20px", height: "20px" }}
+  />
+  Sign in with Google
+</a>
+
       </div>
 
       <hr />
@@ -65,7 +91,7 @@ const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="form-control"
+            className="form-control bg-transparent py-3 ps-4"
             required
           />
         </div>
@@ -80,7 +106,7 @@ const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="form-control"
+            className="form-control bg-transparent py-3 ps-4"
             required
           />
         </div>
@@ -95,21 +121,17 @@ const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="form-control"
+            className="form-control bg-transparent py-3 ps-4"
             required
           />
         </div>
 
-        <button type="submit" className="btn btn-primary w-100">
+        <button type="submit" className="btn btn-primary w-100 p-3">
           Register
         </button>
       </form>
 
-      {message && (
-        <div className="alert alert-info mt-3" role="alert">
-          {message}
-        </div>
-      )}
+     
     </div>
   );
 }
