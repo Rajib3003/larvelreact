@@ -25,6 +25,7 @@ import NoticeEdit from "./pages/notice/NoticeEdit";
 import SignInPage from "./pages/profile/SingInPage";
 import ForgetPassword from "./pages/profile/ForgetPassword";
 import ResetPassword from "./pages/profile/ResetPassword";
+import Analytics from "./layout/Analytics";
 
 
 
@@ -123,6 +124,7 @@ function ConditionalLayout({ children, isLoggedIn, setIsLoggedIn }) {
 
   return (
     <>
+      <Analytics />
       {!noHeaderFooter && <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
       <main>{children}</main>
       {!noHeaderFooter && <Footer />}
