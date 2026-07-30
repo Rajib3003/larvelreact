@@ -104,18 +104,39 @@ export default function Login({ setIsLoggedIn }) {
               </button>
             </div>
           </form>
-          <div className="text-end mt-2">
+          {/* <div className="text-end mt-2">
   <button
     className="btn btn-link"
     onClick={() => {
-      // Navigate to Forget Password page
-      // If you are using React Router:
+     
+      window.location.href = "/forget-password";
+    }}
+  >
+    Forget Password?
+  </button>
+</div> */}
+<div className="d-flex justify-content-between align-items-center">
+  {/* Left: Set Password */}
+  <button
+    className="btn btn-link"
+    onClick={() => {
+      window.location.href = "/set-password";
+    }}
+  >
+    Set Password
+  </button>
+
+  {/* Right: Forget Password */}
+  <button
+    className="btn btn-link"
+    onClick={() => {
       window.location.href = "/forget-password";
     }}
   >
     Forget Password?
   </button>
 </div>
+
         </div>
       </div>
     </div>

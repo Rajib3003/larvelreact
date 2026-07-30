@@ -182,7 +182,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
               onClick={() => navigate('/singIn')}
             >
               {t('sign-in')}
-            </button>
+            </button>           
             </>
           )}
         </div>

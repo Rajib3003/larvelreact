@@ -25,6 +25,7 @@ import NoticeEdit from "./pages/notice/NoticeEdit";
 import SignInPage from "./pages/profile/SingInPage";
 import ForgetPassword from "./pages/profile/ForgetPassword";
 import ResetPassword from "./pages/profile/ResetPassword";
+import SetPassword from "./pages/profile/SetPassword";
 
 
 
@@ -101,6 +102,7 @@ function App() {
           <Route path="/singIn" element={<SignInPage />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/set-password" element={<SetPassword />} />
           
           <Route
             path="/student-profile"
