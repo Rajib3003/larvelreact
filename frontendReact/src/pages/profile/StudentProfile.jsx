@@ -5,6 +5,7 @@ import CreateNotice from "../notice/CreateNotice";
 // import Notice from "../notice/Notice";
 import { AuthContext } from "../../AuthContext";
 import NoticeAdminPanel from "../notice/NoticeAdminPanel";
+import AllUsersList from "./AllUsersList";
 
 
 const StudentProfile = () => {
@@ -13,6 +14,8 @@ const StudentProfile = () => {
  
   const [notices, setNotices] = useState([]);
   const [isOpenNoticeRouting, setOpenNoticeRouting] = useState(false);
+  const [isOpenAllUsersRouting, setOpenAllUsersRouting] = useState(false);
+  const [allUsers, setAllUsers] = useState([]);
 
   const handleNoticeCreated = (newNotice) => {
         setNotices(prev => [newNotice, ...prev]);
@@ -101,6 +104,40 @@ const StudentProfile = () => {
             </div>            
           </div>
         </div>
+        {(user.role === "SUPER_ADMIN" || user.role === "ADMIN") && (
+        <div className="row align-items-center mt-4">
+          <div className="col-lg-12">
+            <div
+              className="info-box bg-light p-4 shadow rounded"
+              onClick={() => setOpenAllUsersRouting(!isOpenAllUsersRouting)}>
+              <div className="d-flex justify-content-between align-items-center header">
+                <h5 className="mb-0">All Users</h5> 
+
+             
+     
+                
+                
+                {/* <button
+                  type="button"
+                  className="btn btn-primary mb-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onClick={(e) => e.stopPropagation()} 
+                >
+                  Create User
+                </button> */}
+                
+                  <span className={`arrow ${isOpenAllUsersRouting ? "rotate" : ""}`}>&#x25B6;</span>
+              </div>
+            </div>
+            <div className={`collapse ${isOpenAllUsersRouting ? "show" : ""}`}>
+              <div className="card-body">                  
+                <AllUsersList allUsers={allUsers} setAllUsers={setAllUsers} />
+              </div>
+            </div>            
+          </div>
+        </div>
+        )}
 
 
         {/* Create Notice Modal */}
