@@ -102,7 +102,7 @@ export default function Footer() {
             <div className="row">
               <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
                 &copy;  All Right Reserved.
-                Designed By <a className="border-bottom" href="http://rajib.intels.co/">MRB</a>                
+                Designed By <a className="border-bottom" href="https://personalbd.com/">MRB</a>                
               </div>
               <div className="col-md-6 text-center text-md-end">
                 <div className="footer-menu">
