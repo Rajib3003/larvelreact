@@ -47,7 +47,7 @@ export default function NoticeDetails() {
           {/* Images */}
 
 
-          <div className="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
+          <div className="col-lg-6 about-img wow fadeInUp d-flex justify-content-center" data-wow-delay="0.5s ">
             <div className="row">
               <div className="col-12 text-center">
                 {postData.images && postData.images.length > 0 && (
@@ -73,7 +73,7 @@ export default function NoticeDetails() {
           </div>
 
           {/* Text */}
-          <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+          <div className="col-lg-6 wow fadeInUp row text-center" data-wow-delay="0.1s">
             <h1 className="mb-4">{postData.title}</h1>
             <p>{postData.description}</p> {/* assuming your API returns description */}
             <p>

@@ -74,7 +74,7 @@ const handleSearch = ({ searchText, startDate, endDate }) => {
       <div className="container">
         {/* Header */}
         <div className="row">
-          <div className="text-center mx-auto col-7" >
+          <div className="text-center mx-auto col-12 col-md-7" >
                 <h1 className="mb-3">{t('notice-board')}</h1>
                 <p>{t("notice-board-text")}</p>
                 <Search 
@@ -104,9 +104,9 @@ const handleSearch = ({ searchText, startDate, endDate }) => {
                 <p className="text-center">No notices found.</p>
               ) : (
                 filteredNotices.map((notice) => (
-                  <div key={notice._id} className={`${styles.noticeItem} d-flex justify-content-center mb-3`}>
+                  <div key={notice._id} className={`${styles.noticeItem} row align-items-center justify-content-center mb-4`}>
                     {/* <div className="row ">                     */}
-                      <div className="col-3">
+                      <div className="col-12 col-md-4 col-lg-3 d-flex justify-content-center mb-3 mb-md-3 mb-lg-0">
                         {notice.images?.length > 0 && (
                           <div style={{ display: "flex", gap: "10px", margin: "10px 0" }}>
                             {/* {notice.images.map((img, index) => ( */}
@@ -125,16 +125,16 @@ const handleSearch = ({ searchText, startDate, endDate }) => {
                           </div>
                         )}
                       </div>
-                      <div className="col-3">
+                      <div className="col-12 col-md-8 col-lg-3 text-center text-lg-start mb-3 mb-lg-0">
                         <h5>{notice.title}</h5>
                       </div>
-                      <div className="col-2">
+                      <div className="col-6 col-md-6 col-lg-2 text-center mb-3 mb-lg-0">
                           Published: {new Date(notice.createdAt).toLocaleString()}                         
                       </div>
-                      <div className="col-2">  
+                      <div className="col-6 col-md-6 col-lg-2 text-center mb-3 mb-lg-0">  
                           Notice Date: {new Date(notice.date).toLocaleDateString()}
                       </div>
-                      <div className="col-2 text-end">
+                      <div className="col-12 col-lg-2 text-center text-lg-end mb-3 mb-lg-0">
                           <button
                           className="btn btn-info"
                           onClick={() => navigate(`/noticedetails/${notice.slug}`)}
